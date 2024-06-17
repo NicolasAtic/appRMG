@@ -8,9 +8,6 @@ document.getElementById('fileInput2').addEventListener('change', function() {
     document.getElementById('fileName2').textContent = 'Selected file: ' + fileName;
 });
 
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); 
-});
 document.getElementById('fileInput3').addEventListener('change', function() {
     var fileName = this.files[0].name;
     document.getElementById('fileName3').textContent = 'Selected file: ' + fileName;

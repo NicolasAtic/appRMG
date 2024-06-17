@@ -21,7 +21,7 @@ body {
 }
 .center {
     margin-bottom: 20px;
-    background-color: #f3f4f5;
+    background-color: #cfe2f5;
     padding: 10px;
     font-size: 30px;
     text-align: center;
@@ -80,22 +80,22 @@ a {
     margin-top: 20px;
 }
 
-.openhtml1 {
+.register {
     text-align: center;
     margin-top: 20px;
 }
 
-.openhtml1 button {
+.register button {
     padding: 10px 20px;
     border: none;
     background-color: #5143f0;
-    color: white;
+    color: rgb(227, 229, 240);
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
 }
 
-.openhtml1 button:hover {
+.register button:hover {
     background-color: #fc8f47;
 }
 
@@ -115,7 +115,7 @@ a {
     .card {
         padding: 15px;
     }
-    .openhtml1 button {
+    .register button {
         width: 100%;
         padding: 15px;
     }
