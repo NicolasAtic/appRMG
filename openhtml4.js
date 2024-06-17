@@ -1,12 +1,3 @@
-function openhtml1() {
-    window.location.href = "index1.html";
-}
-function openhtml1(inputId, displayId) {
-    const input = document.getElementById(inputId);
-    const display = document.getElementById(displayId);
-    display.textContent = input.files.length > 0 ? input.files[0].name : '';
-}
-
 document.getElementById('fileInput1').addEventListener('change', function() {
     var fileName = this.files[0].name;
     document.getElementById('fileName1').textContent = 'Selected file: ' + fileName;
@@ -17,6 +8,9 @@ document.getElementById('fileInput2').addEventListener('change', function() {
     document.getElementById('fileName2').textContent = 'Selected file: ' + fileName;
 });
 
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+});
 document.getElementById('fileInput3').addEventListener('change', function() {
     var fileName = this.files[0].name;
     document.getElementById('fileName3').textContent = 'Selected file: ' + fileName;

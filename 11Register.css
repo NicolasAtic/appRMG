@@ -9,14 +9,19 @@ body {
     margin: 10px auto;
     border: 1px solid #031032;
     max-width: 600px;
-    background-color: #cde8f4;
+    background-color: #ffffff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 20px;
 }
-
+.card:hover {
+    background-color: #faf0ea;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    cursor: pointer;
+}
 .center {
     margin-bottom: 20px;
-    background-color: #b6b3b3;
+    background-color: #f3f4f5;
     padding: 10px;
     font-size: 30px;
     text-align: center;
@@ -35,13 +40,14 @@ body {
 }
 
 .center button:hover {
-    background-color: #fc8f47;
+    background-color: #f5d6c0;
 }
 
 .center1 {
     margin: 10px 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border: 1px solid #ccc;
     border-radius: 30px;
     padding: 10px;
@@ -51,13 +57,14 @@ body {
 .center1 i {
     font-size: 20px;
     margin-right: 10px;
+    align-items: left;
 }
-
 .center1 input {
     width: 100%;
     border: none;
     outline: none;
     font-size: 16px;
+    float: left;
 }
 
 form {
