@@ -1,64 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    margin: 10px auto;
+    border: 1px solid #031032;
+    max-width: 600px;
+    background-color: #cde8f4;
+    padding: 20px;
+    border-radius: 8px;
+}
+
 .center {
-    margin: 10px;
-    width: 100%;        
+    margin-bottom: 20px;
     background-color: #b6b3b3;
     padding: 10px;
     font-size: 30px;
     text-align: center;
-    border:1px solid #b6b3b3}
+    border-radius: 8px;
+    position: relative;
+}
+
+.center button {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.center button:hover {
+    background-color: #fc8f47;
+}
 
 .center1 {
-    margin: auto;
-    margin-bottom: 10px;
-    width: 50%;        
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
     border: 1px solid #ccc;
     border-radius: 30px;
     padding: 10px;
-    font-size: 30px;
-    text-align: center;}
+    background-color: #fff;
+}
 
 .center1 i {
-    width: 30px;
-    height: 30px;
     font-size: 20px;
-    float: left;
-    }
-i{
-    margin-top:-25px;
+    margin-right: 10px;
 }
-    
 
 .center1 input {
     width: 100%;
-    background: transparent;
     border: none;
     outline: none;
     font-size: 16px;
+}
+
+form {
+    margin-top: 20px;
+    text-align: left;
+}
+
+a {
+    display: block;
+    text-align: right;
+    color: black;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.openhtml1 {
     text-align: center;
-    
-} 
-div {
-    text-align: center;}
+    margin-top: 20px;
+}
 
-p{
-    text-align: center;}
+.openhtml1 button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5143f0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
-.center i {
-    width: 10px;
-    height: 20px;
-    float: left;}
+.openhtml1 button:hover {
+    background-color: #fc8f47;
+}
 
-a{
-    float:right;
-    color:black;
-    size: 10%; }
-
-.center button{
-    float:left;
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+    .center1 {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-.openhtml1{
-    margin:50px;}
+    .center1 i {
+        margin-bottom: 10px;
+    }
+    .center1 input {
+        text-align: left;
+    }
+    .card {
+        padding: 15px;
+    }
+    .openhtml1 button {
+        width: 100%;
+        padding: 15px;
+    }
+    
+}
 
 
 
