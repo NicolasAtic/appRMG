@@ -1,0 +1,52 @@
+.center {
+    margin: 10px;
+    width: 100%;        
+    background-color: #b6b3b3;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    border:1px solid #b6b3b3}
+
+div {
+    text-align: center;}
+
+p{
+    text-align: center;}
+
+.center img {
+    width: 20px;
+    height: 20px;
+    float: left;}
+
+a{
+    float:right;
+    color:black;
+    size: 10%; }
+
+.center button{
+    float:left;}
+
+.openhtml1{
+    margin:50px;}
+
+.image3{
+    margin:100px;
+    height: 140px;}
+
+.center2{
+    margin:auto;
+    padding:20px;    
+    border: 2px solid #ccc;
+    border-radius:30px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid #000;
+    width: 50%;
+    margin-bottom: 30px;
+    width: 50%;}
+
+p{
+    color:#b6b3b3
+    text-align:center;}
+
