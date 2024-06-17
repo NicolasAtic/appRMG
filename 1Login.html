@@ -2,24 +2,36 @@
 <html>
 <head>
     <link rel="stylesheet" href="10Login.css">
+    <script src="20Login.js"></script>
 </head>
 <body>
-    <div class="enter1">
-        <h4>Welcome to </h4>
+    <div class="card">
+        <div class="enter1">
+        <h4>Welcome to MyCityHome</h4>
     <div class="image3">
-        <img src="https://www.tucasa.com/logos/logo2810864.gif" alt="image" width="320" height="200"/> </div>   
-        <h2>Login</h2>
-        <h4>Ingrese su informacion</h4>   
-        
-        <dt><label for="uname"><b>Correo electrónico</b></label></dt>
-        <input type="text" placeholder="Ingrese correo electrónico" name="uname" required>
+        <img src="https://www.tucasa.com/logos/logo2810864.gif" alt="image" width="320" height="200"/>   
 
-        <dt><label for="psw"><b>Contraseña</b></label></dt>
-        <dt><input type="password" placeholder="Introducir la contraseña" name="psw" required></dt>
+<div class="login-container">
+    <h2>Login</h2>
+    <h4>Ingrese su informacion</h4>
+    <form id="loginForm">
+    <dt><label for="login"><b>Correo electrónico</b></label></dt>
+    <input type="text" id="login" name="login" placeholder="Usuario" name="uname" required>
+
+        <dt><label for="password"><b>Contraseña</b></label></dt>
+        <dt><input type="password" id="password" name="password" placeholder="Contraseña" name="password" required></dt>
         
         <div class="openhtml1">
-            <button onclick="document.location='2Register.html' ">Acceso</button>
+
+            <button type="button" onclick="validateLogin()">Acceso</button>    
+        </form>
+<div class="login-container">
+<p id="errorMessage">
+    </div> </div> 
+        
         </div>    
         <script src="openhtml1.js"></script>
-</body>
+
+    </div>
+    </body>
 </html>
