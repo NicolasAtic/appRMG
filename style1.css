@@ -1,0 +1,65 @@
+.center {
+    margin: 10px;
+    width: 100%;        
+    background-color: #b6b3b3;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    border:1px solid #b6b3b3}
+
+.center1 {
+    margin: auto;
+    margin-bottom: 10px;
+    width: 50%;        
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;}
+
+.center1 i {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    float: left;
+    }
+i{
+    margin-top:-25px;
+}
+    
+
+.center1 input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    text-align: center;
+    
+} 
+div {
+    text-align: center;}
+
+p{
+    text-align: center;}
+
+.center i {
+    width: 10px;
+    height: 20px;
+    float: left;}
+
+a{
+    float:right;
+    color:black;
+    size: 10%; }
+
+.center button{
+    float:left;
+    }
+
+.openhtml1{
+    margin:50px;}
+
+
+
+

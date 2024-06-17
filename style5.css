@@ -1,0 +1,41 @@
+.enter1 {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(1, 1, 1, 1);
+    padding: 10px 20px;
+    width: 100%;
+    margin: 0 auto; 
+    border: 1px solid #0099ff; 
+    
+}
+    
+body{
+    text-align: center;
+}
+input[type=text], input[type=password] {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+button {
+    background-color: #0099ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    border-radius: 30px;
+}
+
+h2{
+    color:#000000
+}
+h4{
+    color:#ccc;
+}
