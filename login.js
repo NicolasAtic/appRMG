@@ -17,12 +17,16 @@ function validateLogin() {
     errorMessage.textContent = "";
 
     if (!login) {
-        errorMessage.textContent = "Didara";
+        errorMessage.textContent = "Por favor escriba su nombre de usuario.";
         errorMessage.style.color = "red";
-    } else if (password !== "D1234") { // Replace "your_password_here" with the actual password you want to use
-        errorMessage.textContent = "Error: Incorrect password.";
+    } else if (login !== "Mycityhome") { // Replace "your_login_here" with the actual login name
+        errorMessage.textContent = "Error: inicio de sesión incorrecto.";
+        errorMessage.style.color = "red";
+    } else if (password !== "welcome12") { // Replace "your_password_here" with the actual password
+        errorMessage.textContent = "Error: Contraseña incorrecta.";
         errorMessage.style.color = "red";
     } else {
         window.location.href = "2Register.html"; // Redirect to success page
     }
 }
+

@@ -1,3 +1,4 @@
+//Register
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
 
@@ -40,3 +41,4 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     // Redirect to the next page
     window.location.href = '3RAval.html';
 });
+
