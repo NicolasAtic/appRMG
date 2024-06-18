@@ -4,7 +4,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .card {
     margin: 10px auto;
     border: 1px solid #031032;
@@ -28,7 +27,6 @@ body {
     border-radius: 8px;
     position: relative;
 }
-
 .center button {
     position: absolute;
     left: 10px;
@@ -38,11 +36,9 @@ body {
     cursor: pointer;
     font-size: 20px;
 }
-
 .center button:hover {
     background-color: #f5d6c0;
 }
-
 .center1 {
     margin: 10px 0;
     display: flex;
@@ -53,7 +49,6 @@ body {
     padding: 10px;
     background-color: #fff;
 }
-
 .center1 i {
     font-size: 20px;
     margin-right: 10px;
@@ -66,12 +61,10 @@ body {
     font-size: 16px;
     float: left;
 }
-
 form {
     margin-top: 20px;
     text-align: left;
 }
-
 a {
     display: block;
     text-align: right;
@@ -79,12 +72,10 @@ a {
     text-decoration: none;
     margin-top: 20px;
 }
-
 .register {
     text-align: center;
     margin-top: 20px;
 }
-
 .register button {
     padding: 10px 20px;
     border: none;
@@ -94,7 +85,6 @@ a {
     cursor: pointer;
     border-radius: 5px;
 }
-
 .register button:hover {
     background-color: #fc8f47;
 }
@@ -105,7 +95,6 @@ a {
         flex-direction: column;
         align-items: flex-start;
     }
-
     .center1 i {
         margin-bottom: 10px;
     }
@@ -118,10 +107,4 @@ a {
     .register button {
         width: 100%;
         padding: 15px;
-    }
-    
-}
-
-
-
-
+    }}

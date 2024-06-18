@@ -14,20 +14,21 @@
 <div class="login-container">
     <h2>Login</h2>
     <h4>Ingrese su informacion</h4>
+    
     <form id="loginForm">
     <dt><label for="login"><b>Correo electrónico</b></label></dt>
     <input type="text" id="login" name="login" placeholder="Usuario" name="uname" required>
 
-        <dt><label for="password"><b>Contraseña</b></label></dt>
-        <dt><input type="password" id="password" name="password" placeholder="Contraseña" name="password" required></dt>
+        <dt><label for="password"><b>Contraseña (8 caracteres como mínimo)</b></label></dt>
+        <dt><input type="password" id="password" name="password" placeholder="Contraseña" name="password" minlength="8" required></dt>
         
         <div class="openhtml1">
-
             <button type="button" onclick="validateLogin()">Acceso</button>    
         </form>
+
 <div class="login-container">
-<p id="errorMessage">
-    </div> </div> </div>    
+<p id="errorMessage"></div> 
+</div> </div>    
     </div>
     </body>
 </html>

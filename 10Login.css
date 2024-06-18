@@ -27,10 +27,7 @@ input[type=text], input[type=password] {
     display: inline-block;
     border-radius: 30px;
     text-align: center; 
-
 }
-
-
 button {
     background-color: #0099ff;
     color: rgb(255, 170, 0);
@@ -43,7 +40,6 @@ button {
     text-align: center;
     cursor: pointer;
 }
-
 h2{
     color:#000000
 }
@@ -56,7 +52,6 @@ h4{
         flex-direction: column;
         align-items: flex-start;
     }
-
     .center1 i {
         margin-bottom: 10px;
     }
@@ -69,6 +64,5 @@ h4{
     .openhtml1 button {
         width: 100%;
         padding: 15px;
-    }
-    
+    }  
 }

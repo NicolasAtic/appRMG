@@ -25,7 +25,6 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 
     // Here you would typically send the XML data to a server for storage
     // For this example, we just log it to the console
-
     // Function to convert JSON to XML
     function jsonToXml(json) {
         let xml = '<root>';
@@ -37,8 +36,6 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         xml += '</root>';
         return xml;
     }
-
     // Redirect to the next page
     window.location.href = '3RAval.html';
 });
-
