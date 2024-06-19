@@ -1,4 +1,4 @@
-function validateRegister() {    
+/*function validateRegister() {    
         const fullName = document.getElementById('fullName').value;
         const documentType = document.getElementById('documentType').value;
         const nationality = document.getElementById('nationality').value;
@@ -18,5 +18,19 @@ else {
     window.location.href = "3RAval.html"; 
 }
 }
+document.getElementById('registrationForm').submit();
 validateRegister
 };
+
+
+
+// Convertir datos a XML
+        //let xmlData = '<registration>';
+       // for (const key in formData) {
+       //     xmlData += `<${key}>${formData[key]}</${key}>`;
+       // }
+       // xmlData += '</registration>';
+        //console.log('Datos en formato XML:');
+//        console.log(xmlData);
+
+        // Enviar el formulario (descomenta esta línea si deseas enviarlo realmente)
