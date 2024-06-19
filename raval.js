@@ -14,7 +14,6 @@ function validateRegister() {
         accountNumber: document.getElementById('accountNumber').value,
         terms: document.getElementById('terms').checked
     };
-
     for (const key in formData) {
         if (formData.hasOwnProperty(key) && formData[key] === "") {
             alert(`Por favor, completa el campo: ${key}`);
