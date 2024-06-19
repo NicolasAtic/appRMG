@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <link rel="stylesheet" href="13Documents.css" > 
-    <script src="Documents.js"></script>
+    <link rel="stylesheet" href="13Documents.css"> 
+    <script src="Documents.js" defer></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<div>
+<body>
     <div class="card">
         <div class="center">
             <button onclick="document.location='3RAval.html'">
@@ -19,30 +18,34 @@
             <div class="center1">
                 <label for="fileInput1" class="custom-file-upload">Adjuntar DNI Inquilino</label>
                 <input type="file" id="fileInput1" style="display: none;">
-                <p id="fileName1"></p></div>
-            
+                <p id="fileName1"></p>
+            </div>
 
             <div class="center1">
-                <label for="fileInput2" class="custom-file-upload">Adjur DNI Aval</label>
+                <label for="fileInput2" class="custom-file-upload">Adjuntar DNI Aval</label>
                 <input type="file" id="fileInput2" style="display: none;">
-                <p id="fileName2"></p></div>
-        
+                <p id="fileName2"></p>
+            </div>
+
             <div class="center1">
                 <label for="fileInput3" class="custom-file-upload">Adjuntar Nóminas</label>
                 <input type="file" id="fileInput3" style="display: none;">
-                <p id="fileName3"></p></div>
-            
+                <p id="fileName3"></p>
+            </div>
+
             <div class="center1">
                 <label for="fileInput4" class="custom-file-upload">Adjuntar Carta Universidad</label>
                 <input type="file" id="fileInput4" style="display: none;">
-                <p id="fileName4"></p></div>
-            
-<a href="1Login.html" target="_blank">Hacerlo más tarde</a>
+                <p id="fileName4"></p>
+            </div>
 
-<div class="register">
-    <button onclick="document.location='5Final.html'">Siguiente</button>
-</div></div>
-</form>
+            <a href="1Login.html" target="_blank">Hacerlo más tarde</a>
+
+            <div class="register">
+                <button type="button" onclick="validateForm()">Siguiente</button>
+            </div>
+            <p id="message"></p>
+        </div>
+    </div>
 </body>
 </html>
-
