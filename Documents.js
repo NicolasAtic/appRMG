@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
 function validateForm() {
     const fileInputs = [
         document.getElementById('fileInput1'),
@@ -49,4 +50,3 @@ function validateForm() {
         message.style.color = 'red';
     }
 }
-
