@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="11Register.css"> 
+    <link rel="stylesheet" href="12RAval.css"> 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
 </head>
 <body>
     <div class="card">
         <div class="center">
-            <button onclick="document.location='1Login.html'">
+            <button onclick="document.location='3RAval.html'">
                 <i class='bx bx-chevron-left'></i>
             </button>
-            <h>Registro</h>
+            <h>Registro </h>
         </div>
 
         <form action="" id="registrationForm">
@@ -22,14 +22,14 @@
 
             <div class="center1" id="documentType">
                 <label for="document">Tipo</label>
-                <select name="docType">
+                <select name="Doc">
                     <option value="Dni">DNI</option>
                     <option value="Pss">Pasaporte</option>
                     <option value="Nie">NIE</option>
                     <option value="Nif">NIF</option>
                     <option value="otros">otros</option>
                 </select>
-                <input type="text" class="form-control" id="docNumber" name ="doc" placeholder="número de documento">
+                <input type="text" class="form-control" id="doc" name ="doc" placeholder="número de documento">
                 <i class='bx bxs-user'></i>
             </div>
 
@@ -281,12 +281,13 @@
             </div>
 
             <div class="center1">
-                <input type="text" class="form-control" id="phone" name ="phone" placeholder="Teléfono">
+                <input type="number" class="form-control" id="phone" name ="phone" placeholder="Teléfono">
+                
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="center1">
-                <input type="text"class="form-control" id="email" name="email" placeholder="Email">
+                <input type="email"class="form-control" id="email" name="email" placeholder="Email">
                 <i class='bx bxs-user'></i>
             </div>
 
