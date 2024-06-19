@@ -66,5 +66,4 @@ function processall(event) {
 
     // Redirige al usuario a la siguiente página
     window.location.href = '3RAval.html';
-}
-
+}*/

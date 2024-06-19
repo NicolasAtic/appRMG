@@ -1,36 +1,25 @@
-//document.getElementById('registrationForm').addEventListener('submit', function(event) {
- //   event.preventDefault();
-//});
+// Escucha el evento de envío del formulario
+const form = document.querySelector('#registrationForm');
+form.addEventListener('submit', processall);
 
-function validateRegister() {
-    const formData = {
-        fullName: document.getElementById('fullName').value,
-        documentType: document.querySelector('#documentType input').value,
-        documentNumber: document.getElementById('doc').value,
-        nationality: document.querySelector('#nationality select').value,
-        address: document.getElementById('address').value,
-        phone: document.getElementById('phones').value,
-        email: document.getElementById('email').value,
-        accountNumber: document.getElementById('accountNumber').value,
-        terms: document.getElementById('terms').checked
-    };
-    for (const key in formData) {
-        if (formData.hasOwnProperty(key) && formData[key] === "") {
-            alert(`Por favor, completa el campo: ${key}`);
-            return false;
-        }
-    }
-    if (!formData.terms) {
-        alert('Debes aceptar los términos y condiciones.');
-        return false;
-    }
+function processall(event) {
+    event.preventDefault();
 
-    // Convertir datos a JSON
-    const jsonData = JSON.stringify(formData);
-    console.log('Datos en formato JSON:');
-    console.log(jsonData);
+    // Obtén los datos del formulario
+    const datos = new FormData(event.target);
+    const datosCompletos = Object.fromEntries(datos.entries());
 
-    // Redirect to the next page
-    window.location.href = '4Documents.html';
+    // Convierte los datos a formato JSON
+    const json_data = JSON.stringify(datosCompletos);
+
+    // Almacena los datos en el almacenamiento local
+    localStorage.setItem('form_data', json_data);
+
+    // Muestra los datos en la consola
+    console.log('Datos guardados en formato JSON:');
+    console.log(json_data);
+
+    // Redirige al usuario a la siguiente página
+   
+    window.location.href = '3RAval.html';
 }
-
