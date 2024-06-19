@@ -6,7 +6,6 @@ const userInfo = {
 
 // Log JSON data to console
 console.log("User Information:", userInfo);
-he
 // Wait for the DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     // Toggle password visibility script
