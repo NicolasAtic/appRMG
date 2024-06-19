@@ -1,6 +1,7 @@
- /*document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-});*/
+document.addEventListener('DOMContentLoaded',
+//document.getElementById('registrationForm').addEventListener('submit', function(event) {
+ //   event.preventDefault();
+//});
 
 function validateRegister() {
     const formData = {
@@ -25,6 +26,7 @@ function validateRegister() {
         alert('Debes aceptar los términos y condiciones.');
         return false;
     }
+// json try 1
 
     // Convertir datos a JSON
     const jsonData = JSON.stringify(formData);
@@ -33,5 +35,5 @@ function validateRegister() {
 
     // Redirect to the next page
     window.location.href = '3RAval.html';
-}
+});
 
