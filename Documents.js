@@ -1,53 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let savedFiles = JSON.parse(localStorage.getItem('formData')) || {
-        documents: [
-            { label: "Adjuntar DNI Inquilino", id: "fileInput1", fileName: "" },
-            { label: "Adjuntar DNI Aval", id: "fileInput2", fileName: "" },
-            { label: "Adjuntar Nóminas", id: "fileInput3", fileName: "" },
-            { label: "Adjuntar Carta Universidad", id: "fileInput4", fileName: "" }
-        ]
-    };
-
-    // Function to update file input display based on saved data
-    function updateFileInputs() {
-        savedFiles.documents.forEach(doc => {
-            const input = document.getElementById(doc.id);
-            const fileNameDisplay = input.nextElementSibling;
-            if (doc.fileName) {
-                fileNameDisplay.textContent = 'Selected file: ' + doc.fileName;
-            } else {
-                fileNameDisplay.textContent = ''; // Clear display if no file selected
-            }
-        });
-    }
-
-    // Update file input display on initial load
-    updateFileInputs();
-
-    // Add change event listeners to file inputs
-    document.querySelectorAll('input[type="file"]').forEach(input => {
-        input.addEventListener('change', function() {
-            const fileName = this.files[0]?.name || '';
-            const fileId = this.id;
-
-            // Update saved files data
-            savedFiles.documents.forEach(doc => {
-                if (doc.id === fileId) {
-                    doc.fileName = fileName;
-                }
-            });
-
-            // Save updated files data to local storage
-            localStorage.setItem('formData', JSON.stringify(savedFiles));
-
-            // Update file input display
-            updateFileInputs();
-        });
+    document.getElementById('fileInput1').addEventListener('change', function() {
+        var fileName = this.files[0]?.name || '';
+        document.getElementById('fileName1').textContent = fileName ? 'Archivo seleccionado: ' + fileName : '';
     });
 
-    // Clear local storage when leaving the page to reset the form state
-    window.addEventListener('beforeunload', function() {
-        localStorage.removeItem('formData');
+    document.getElementById('fileInput2').addEventListener('change', function() {
+        var fileName = this.files[0]?.name || '';
+        document.getElementById('fileName2').textContent = fileName ? 'Archivo seleccionado: ' + fileName : '';
+    });
+
+    document.getElementById('fileInput3').addEventListener('change', function() {
+        var fileName = this.files[0]?.name || '';
+        document.getElementById('fileName3').textContent = fileName ? 'Archivo seleccionado: ' + fileName : '';
+    });
+
+    document.getElementById('fileInput4').addEventListener('change', function() {
+        var fileName = this.files[0]?.name || '';
+        document.getElementById('fileName4').textContent = fileName ? 'Archivo seleccionado: ' + fileName : '';
     });
 });
 
@@ -58,7 +27,7 @@ function validateForm() {
         document.getElementById('fileInput3'),
         document.getElementById('fileInput4')
     ];
-
+    
     let allFilled = true;
 
     fileInputs.forEach(fileInput => {
@@ -69,14 +38,15 @@ function validateForm() {
 
     const message = document.getElementById('message');
     if (allFilled) {
-        message.textContent = 'All files are selected.';
+        message.textContent = 'Todos los archivos están seleccionados.';
         message.style.color = 'green';
         // Redirect to the next page
         setTimeout(() => {
             document.location.href = '5Final.html';
         }, 1000);
     } else {
-        message.textContent = 'Please fill all file inputs.';
+        message.textContent = 'Complete todas las entradas del archivo.';
         message.style.color = 'red';
     }
 }
+
