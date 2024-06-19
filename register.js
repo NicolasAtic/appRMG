@@ -34,3 +34,37 @@ validateRegister
 // console.log(xmlData);
 
        // Enviar el formulario (descomenta esta línea si deseas enviarlo realmente);
+
+
+       const processall = (event) => {
+    event.preventDefault();
+    const datos = new FormData(event.target);
+    const datosCompletos = Object.fromEntries(datos.entries());
+    console.log(JSON.stringify(datosCompletos));
+
+    // Redirige al usuario a la siguiente página
+    window.location.href = '3RAval.html';
+}
+form.addEventListener('submit', processall);
+
+// Escucha el evento de envío del formulario
+const form = document.querySelector('#registrationForm');
+form.addEventListener('submit', processall);
+
+function processall(event) {
+    event.preventDefault();
+
+    // Obtén los datos del formulario
+    const datos = new FormData(event.target);
+    const datosCompletos = Object.fromEntries(datos.entries());
+
+    // Convierte los datos a formato JSON
+    const json_data = JSON.stringify(datosCompletos);
+
+    // Almacena los datos en el almacenamiento local
+    localStorage.setItem('form_data', json_data);
+
+    // Redirige al usuario a la siguiente página
+    window.location.href = '3RAval.html';
+}
+

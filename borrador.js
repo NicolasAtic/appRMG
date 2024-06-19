@@ -1,7 +1,7 @@
+/*document.addEventListener('DOMContentLoaded',
 //document.getElementById('registrationForm').addEventListener('submit', function(event) {
  //   event.preventDefault();
 //});
-
 function validateRegister() {
     const formData = {
         fullName: document.getElementById('fullName').value,
@@ -14,6 +14,7 @@ function validateRegister() {
         accountNumber: document.getElementById('accountNumber').value,
         terms: document.getElementById('terms').checked
     };
+
     for (const key in formData) {
         if (formData.hasOwnProperty(key) && formData[key] === "") {
             alert(`Por favor, completa el campo: ${key}`);
@@ -23,14 +24,5 @@ function validateRegister() {
     if (!formData.terms) {
         alert('Debes aceptar los términos y condiciones.');
         return false;
-    }
-
-    // Convertir datos a JSON
-    const jsonData = JSON.stringify(formData);
-    console.log('Datos en formato JSON:');
-    console.log(jsonData);
-
-    // Redirect to the next page
-    window.location.href = '4Documents.html';
-}
-
+    }//
+// json try 1*/
