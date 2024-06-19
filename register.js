@@ -33,4 +33,4 @@ validateRegister
         //console.log('Datos en formato XML:');
 //        console.log(xmlData);
 
-        // Enviar el formulario (descomenta esta línea si deseas enviarlo realmente)
+        /*Enviar el formulario (descomenta esta línea si deseas enviarlo realmente)
