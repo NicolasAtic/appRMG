@@ -1,41 +1,22 @@
-//Register
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
+function validateRegister() {    
+        const fullName = document.getElementById('fullName').value;
+        const documentType = document.getElementById('documentType').value;
+        const nationality = document.getElementById('nationality').value;
+        const address = document.getElementById('address').value;
+        const phone = document.getElementById('phones').value;
+        const email = document.getElementById('email').value;
+        const accountNumber = document.getElementById('accountNumber').value;
+        const terms = document.getElementById('terms').checked;
 
-    // Capture form data
-    let formData = {
-        fullName: document.getElementById('fullName').value,
-        documentType: document.getElementById('documentType').value,
-        documentNumber: document.getElementById('documentNumber').value,
-        nationality: document.getElementById('nationality').value,
-        address: document.getElementById('address').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        accountNumber: document.getElementById('accountNumber').value,
-        terms: document.getElementById('terms').checked
-    };
-
-    // Convert to JSON
-    let jsonData = JSON.stringify(formData);
-    console.log("Form Data as JSON:", jsonData);
-
-    // Convert JSON to XML
-    let xmlData = jsonToXml(formData);
-    console.log("Form Data as XML:", xmlData);
-
-    // Here you would typically send the XML data to a server for storage
-    // For this example, we just log it to the console
-    // Function to convert JSON to XML
-    function jsonToXml(json) {
-        let xml = '<root>';
-        for (let key in json) {
-            if (json.hasOwnProperty(key)) {
-                xml += `<${key}>${json[key]}</${key}>`;
-            }
-        }
-        xml += '</root>';
-        return xml;
+for (const key in !fullName  || !documentType || !nationality  || !address || !phone || !email || !accountNumber || !terms) {
+    if (!fullName || !documentType || !nationality || !address || !phone || !email || !accountNumber || !terms.hasOwnProperty(key) 
+        && !fullName || !documentType || !nationality || !address || !phone || !email || !accountNumber || !terms[key] === "") {
+        alert(`Por favor, completa el campo: ${key}`);
+        return false;
     }
-    // Redirect to the next page
-    window.location.href = '3RAval.html';
-});
+else {
+    window.location.href = "3RAval.html"; 
+}
+}
+validateRegister
+};

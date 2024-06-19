@@ -3,7 +3,7 @@
 <head>
     
     <link rel="stylesheet" href="12RAval.css" > 
-    <script src="register.js"></script>
+    <script src="raval.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -34,8 +34,8 @@
                 <i class='bx bxs-user'></i>
             </div>
 
-            <div class="center1">
-                <label for="nationality">Nacionalidad:</label>
+            <div class="center1"  id="nationality">
+                <label for="nationality">Nacionalidad</label>
                 <select name="pais">
                     <option value="AF">Afganistán</option>
                     <option value="AL">Albania</option>
@@ -298,7 +298,7 @@
             <a href="1Login.html" target="_blank">Hacerlo más tarde</a>
 
             <div class="register">
-                <button onclick="document.location='4Documents.html'">Siguiente</button>
+                <button onclick="validateRegister()">Siguiente</button>
             </div> 
         </form>
     </div>

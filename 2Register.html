@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
     <link rel="stylesheet" href="11Register.css" > 
-    <script src="register.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="register.js"></script>
 </head>
 <body>
     <div class="card">
@@ -17,25 +16,25 @@
 
         <form id="registrationForm">
             <div class="center1">
-                <input type="text" id="fullName" placeholder="Nombre completo" required>
+                <input type="text" id="fullName" placeholder="Nombre completo">
                 <i class='bx bxs-user'></i>
             </div>
 
-            <div class="center1">
-                <label for="document">Tipo</label>
-                <select name="Tipo">
+            <div class="center1" id="documentType">
+                <label for="document" >Tipo</label>
+                <select name="Doc"> 
                     <option value="Dni">DNI</option>
                     <option value="Pss">Papaporte</option>
                     <option value="Nie">NIE</option>
                     <option value="Nif">NIF</option>
                     <option value="otros">otros</option>
                 </select>
-                <input type="text" id="documentType" placeholder="número de documento" required>
+                <input type="text" id="documentType" placeholder="número de documento">
                 <i class='bx bxs-user'></i>
             </div>
 
-            <div class="center1">
-                <label for="nationality">Nacionalidad:</label>
+            <div class="center1" id="nationality">
+                <label for="nationality">Nacionalidad</label>
                 <select name="pais">
                     <option value="AF">Afganistán</option>
                     <option value="AL">Albania</option>
@@ -282,7 +281,7 @@
             </div>
 
             <div class="center1">
-                <input type="text" id="phone" placeholder="Teléfono" required>
+                <input type="text" id="phones" placeholder="Teléfono" required>
                 <i class='bx bxs-user'></i>
             </div>
 
@@ -303,8 +302,9 @@
             <a href="1Login.html" target="_blank">Hacerlo más tarde</a>
 
             <div class="register">
-                <button onclick="document.location='3RAval.html'">Siguiente</button>
+                <button onclick="validateRegister()">Siguiente</button>
             </div> 
+            
         </form>
     </div>
 </body>
