@@ -1,22 +1,53 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('fileInput1').addEventListener('change', function() {
-        var fileName = this.files[0]?.name || '';
-        document.getElementById('fileName1').textContent = fileName ? 'Selected file: ' + fileName : '';
+    let savedFiles = JSON.parse(localStorage.getItem('formData')) || {
+        documents: [
+            { label: "Adjuntar DNI Inquilino", id: "fileInput1", fileName: "" },
+            { label: "Adjuntar DNI Aval", id: "fileInput2", fileName: "" },
+            { label: "Adjuntar Nóminas", id: "fileInput3", fileName: "" },
+            { label: "Adjuntar Carta Universidad", id: "fileInput4", fileName: "" }
+        ]
+    };
+
+    // Function to update file input display based on saved data
+    function updateFileInputs() {
+        savedFiles.documents.forEach(doc => {
+            const input = document.getElementById(doc.id);
+            const fileNameDisplay = input.nextElementSibling;
+            if (doc.fileName) {
+                fileNameDisplay.textContent = 'Selected file: ' + doc.fileName;
+            } else {
+                fileNameDisplay.textContent = ''; // Clear display if no file selected
+            }
+        });
+    }
+
+    // Update file input display on initial load
+    updateFileInputs();
+
+    // Add change event listeners to file inputs
+    document.querySelectorAll('input[type="file"]').forEach(input => {
+        input.addEventListener('change', function() {
+            const fileName = this.files[0]?.name || '';
+            const fileId = this.id;
+
+            // Update saved files data
+            savedFiles.documents.forEach(doc => {
+                if (doc.id === fileId) {
+                    doc.fileName = fileName;
+                }
+            });
+
+            // Save updated files data to local storage
+            localStorage.setItem('formData', JSON.stringify(savedFiles));
+
+            // Update file input display
+            updateFileInputs();
+        });
     });
 
-    document.getElementById('fileInput2').addEventListener('change', function() {
-        var fileName = this.files[0]?.name || '';
-        document.getElementById('fileName2').textContent = fileName ? 'Selected file: ' + fileName : '';
-    });
-
-    document.getElementById('fileInput3').addEventListener('change', function() {
-        var fileName = this.files[0]?.name || '';
-        document.getElementById('fileName3').textContent = fileName ? 'Selected file: ' + fileName : '';
-    });
-
-    document.getElementById('fileInput4').addEventListener('change', function() {
-        var fileName = this.files[0]?.name || '';
-        document.getElementById('fileName4').textContent = fileName ? 'Selected file: ' + fileName : '';
+    // Clear local storage when leaving the page to reset the form state
+    window.addEventListener('beforeunload', function() {
+        localStorage.removeItem('formData');
     });
 });
 
@@ -27,7 +58,7 @@ function validateForm() {
         document.getElementById('fileInput3'),
         document.getElementById('fileInput4')
     ];
-    
+
     let allFilled = true;
 
     fileInputs.forEach(fileInput => {
@@ -49,65 +80,3 @@ function validateForm() {
         message.style.color = 'red';
     }
 }
-
-
-// JSON representation
-let formData = {
-    documents: [
-        { label: "Adjuntar DNI Inquilino", id: "fileInput1", fileName: "" },
-        { label: "Adjuntar DNI Aval", id: "fileInput2", fileName: "" },
-        { label: "Adjuntar Nóminas", id: "fileInput3", fileName: "" },
-        { label: "Adjuntar Carta Universidad", id: "fileInput4", fileName: "" }
-    ]
-};
-
-document.addEventListener('change', function(event) {
-    formData.documents.forEach(doc => {
-        if (event.target.id === doc.id) {
-            doc.fileName = event.target.files[0]?.name || "";
-        }
-    });
-
-    console.log(JSON.stringify(formData, null, 2));
-});
-
-
-// XML representation
-document.addEventListener('change', function(event) {
-    const parser = new DOMParser();
-    const xmlString = `
-        <documents>
-            <document>
-                <label>Adjuntar DNI Inquilino</label>
-                <id>fileInput1</id>
-                <fileName></fileName>
-            </document>
-            <document>
-                <label>Adjuntar DNI Aval</label>
-                <id>fileInput2</id>
-                <fileName></fileName>
-            </document>
-            <document>
-                <label>Adjuntar Nóminas</label>
-                <id>fileInput3</id>
-                <fileName></fileName>
-            </document>
-            <document>
-                <label>Adjuntar Carta Universidad</label>
-                <id>fileInput4</id>
-                <fileName></fileName>
-            </document>
-        </documents>`;
-    const xmlDoc = parser.parseFromString(xmlString, "application/xml");
-
-    const documents = xmlDoc.getElementsByTagName('document');
-    for (let doc of documents) {
-        if (doc.getElementsByTagName('id')[0].textContent === event.target.id) {
-            doc.getElementsByTagName('fileName')[0].textContent = event.target.files[0]?.name || "";
-        }
-    }
-
-    const serializer = new XMLSerializer();
-    const updatedXMLString = serializer.serializeToString(xmlDoc);
-    console.log(updatedXMLString);
-});
