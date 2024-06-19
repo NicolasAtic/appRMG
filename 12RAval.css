@@ -52,7 +52,6 @@ body {
 .center1 i {
     font-size: 20px;
     margin-right: 10px;
-    align-items: left;
 }
 .center1 input {
     width: 100%;
@@ -68,7 +67,7 @@ form {
 a {
     display: block;
     text-align: right;
-    color: black;
+    color: rgb(114, 14, 14);
     text-decoration: none;
     margin-top: 20px;
 }
