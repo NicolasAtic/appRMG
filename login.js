@@ -31,3 +31,4 @@ function validateLogin() {
         window.location.href = "2Register.html"; // Redirect to success page
     }
 }
+
