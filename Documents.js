@@ -96,5 +96,3 @@ document.addEventListener('change', function(event) {
         filesChanged = 0;
     }
 });
-
-
