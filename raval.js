@@ -1,11 +1,11 @@
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-});
+//document.getElementById('registrationForm').addEventListener('submit', function(event) {
+ //   event.preventDefault();
+//});
 
 function validateRegister() {
     const formData = {
         fullName: document.getElementById('fullName').value,
-        documentType: document.querySelector('#documentType select').value,
+        documentType: document.querySelector('#documentType input').value,
         documentNumber: document.getElementById('doc').value,
         nationality: document.querySelector('#nationality select').value,
         address: document.getElementById('address').value,
@@ -21,7 +21,6 @@ function validateRegister() {
             return false;
         }
     }
-
     if (!formData.terms) {
         alert('Debes aceptar los términos y condiciones.');
         return false;
@@ -35,3 +34,4 @@ function validateRegister() {
     // Redirect to the next page
     window.location.href = '4Documents.html';
 }
+

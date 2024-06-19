@@ -1,6 +1,6 @@
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
+ /*document.getElementById('registrationForm').addEventListener('submit', function(event) {
     event.preventDefault();
-});
+});*/
 
 function validateRegister() {
     const formData = {
@@ -21,7 +21,6 @@ function validateRegister() {
             return false;
         }
     }
-
     if (!formData.terms) {
         alert('Debes aceptar los términos y condiciones.');
         return false;
