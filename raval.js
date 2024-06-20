@@ -20,6 +20,6 @@ function processall(event) {
     console.log(json_data);
 
     // Redirige al usuario a la siguiente página
-   
+
     window.location.href = '4documents.html';
 }
