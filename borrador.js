@@ -32,12 +32,16 @@ function validateRegister() {
 
 
 /*links 
-
+https://docs.google.com/spreadsheets/d/12rTT3O1Y44jpBDJ3Tw0k8Shsm6XH5v1y__Hr5syk42Y/edit?usp=sharing
 app sheet
-https://script.google.com/macros/s/AKfycbwTWi7w6C2oDOu0QSVjU1jjszZp6YC_sFJj95IvO_iTPwnK_8jRbk7nufiFeQhKn2Iy/exec
-
-
+https://script.google.com/macros/s/AKfycbxEIisNzYedz6z9WUyvimxre-XnalPva1yQeWtW7m34wE3vcmJtRRJo1okW1AVJ9_8X/exec
 id de implementacion 
-AKfycbwTWi7w6C2oDOu0QSVjU1jjszZp6YC_sFJj95IvO_iTPwnK_8jRbk7nufiFeQhKn2Iy
+
+AKfycbxEIisNzYedz6z9WUyvimxre-XnalPva1yQeWtW7m34wE3vcmJtRRJo1okW1AVJ9_8X
+
+
+biblioteca
+https://script.google.com/macros/library/d/1YKhxV_8OA5JGU9zbCXqw0dhO_Ar8Sw-rmvWeBv3HyekXbu1VNX5iDu2d/3
+
 
 */ 
