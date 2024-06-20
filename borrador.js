@@ -43,5 +43,32 @@ AKfycbxEIisNzYedz6z9WUyvimxre-XnalPva1yQeWtW7m34wE3vcmJtRRJo1okW1AVJ9_8X
 biblioteca
 https://script.google.com/macros/library/d/1YKhxV_8OA5JGU9zbCXqw0dhO_Ar8Sw-rmvWeBv3HyekXbu1VNX5iDu2d/3
 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <!-- Configura las cabeceras CORS -->
+    <script>
+        // Configura las cabeceras CORS en la respuesta
+        function setCorsHeaders(response) {
+            response.headers.set('Access-Control-Allow-Origin', '*'); // Permite solicitudes desde cualquier origen (para fines de demostración)
+            response.headers.set('Access-Control-Allow-Methods', 'GET'); // Permite solo solicitudes GET
+            response.headers.set('Access-Control-Allow-Headers', 'Content-Type'); // Permite encabezados específicos
+        }
 
+        // Ejemplo de uso en una solicitud fetch
+        fetch('https://api.example.com/data')
+            .then(response => {
+                setCorsHeaders(response); // Configura las cabeceras CORS
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error al obtener los datos:', error);
+            });
+    </script>
+</head>
 */ 
