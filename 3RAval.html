@@ -2,7 +2,6 @@
 <html>
 <head>
     <link rel="stylesheet" href="12RAval.css"> 
-    <script src="raval.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -508,7 +507,7 @@
 <option data-countryCode="ZM" value="260">Zambia (+260)</option>
 <option data-countryCode="ZW" value="263">Zimbabue (+263)</option>
                 </select>
-                <input type="number" class="form-control" id="phone" name="phone" placeholder="Teléfono">
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono" pattern="[0-9]+" title="Please enter only digits">
                 <i class='bx bxs-user'></i>
             </div>
 
@@ -526,7 +525,7 @@
             <div class="register">
                 <button type="submit">Siguiente</button>
             </div> 
-            
+        <script src="raval.js"></script> 
         </form>
     </div>
 </body>
