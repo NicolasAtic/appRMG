@@ -14,7 +14,7 @@
                 console.log(JSON.stringify(datosCompletos));
 
                 // Enviar datos a Google Apps Script
-                fetch('https://script.google.com/macros/s/AKfycbxEIisNzYedz6z9WUyvimxre-XnalPva1yQeWtW7m34wE3vcmJtRRJo1okW1AVJ9_8X/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbyuXAiqXfFccOSzNC55pzsB0JTLOpuDtW25stV-2K2H0NPnKt1lGKPdI0HSjZxdA-U/exec', {
                     method: 'POST',
                     mode: 'cors',
                     headers: {
@@ -50,27 +50,27 @@
 
         <form action="" id="registrationForm">
             <div class="center1">
-                <input type="text" class="form-control" id="fullName" name="nombre" placeholder="Nombre completo">
+                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Nombre completo">
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="center1" id="documentType">
                 <label for="document">Tipo</label>
-                <select name="Doc">
+                <select name="DocType">
                     <option value="Dni">DNI</option>
                     <option value="Pss">Pasaporte</option>
                     <option value="Nie">NIE</option>
                     <option value="Nif">NIF</option>
                     <option value="otros">otros</option>
                 </select>
-                <input type="text" class="form-control" id="doc" name="doc" placeholder="número de documento">
+                <input type="text" class="form-control" id="docNumber" name="docNumber" placeholder="número de documento">
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="center1" id="nationality">
                 <label for="nationality">Nacionalidad</label>
-                <select name="pais">
-                    <option slected value="">País</option>
+                <select name="nationality">
+                    <option selected value="pais">País</option>
                     <option value="AF">Afganistán</option>
                     <option value="AL">Albania</option>
                     <option value="DE">Alemania</option>
@@ -311,7 +311,7 @@
             </div>
 
             <div class="center1"> 
-                <input type="text" placeholder="Direccion" id="fname">
+                <input type="text" class="form-control" id="address" name="address" placeholder="Direccion">
                 <i class='bx bxs-user'></i></div>
 
             <div class="center1">
@@ -567,7 +567,7 @@
             
         </form>
     </div>
-    <script src="registertest.js"></script> 
+    
 
 </body>
 </html>
