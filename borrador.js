@@ -26,3 +26,18 @@ function validateRegister() {
         return false;
     }//
 // json try 1*/
+
+
+
+
+
+/*links 
+
+app sheet
+https://script.google.com/macros/s/AKfycbwTWi7w6C2oDOu0QSVjU1jjszZp6YC_sFJj95IvO_iTPwnK_8jRbk7nufiFeQhKn2Iy/exec
+
+
+id de implementacion 
+AKfycbwTWi7w6C2oDOu0QSVjU1jjszZp6YC_sFJj95IvO_iTPwnK_8jRbk7nufiFeQhKn2Iy
+
+*/ 

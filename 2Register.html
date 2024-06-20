@@ -3,7 +3,42 @@
 <head>
     <link rel="stylesheet" href="11Register.css"> 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
+   
+   <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const form = document.getElementById('registrationForm');
+
+            const processAll = async (event) => {
+                event.preventDefault();
+                const datos = new FormData(event.target);
+                const datosCompletos = Object.fromEntries(datos.entries());
+                console.log(JSON.stringify(datosCompletos));
+
+                // Enviar datos al webhook de Google Sheets
+                const webhookUrl = 'YOUR_WEBHOOK_URL';  // Reemplaza con tu URL del webhook
+                try {
+                    const response = await fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(datosCompletos),
+                    });
+                    const result = await response.json();
+                    console.log(result);
+                    
+                    // Redirige al usuario a la siguiente página
+                    setTimeout(() => {
+                        window.location.href = 'siguiente_pagina.html';
+                    }, 1000); // Retrasa la redirección para asegurarse de que el JSON se muestra en la consola
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            };
+
+            form.addEventListener('submit', processAll);
+        });
+    </script> 
 </head>
 <body>
     <div class="card">
