@@ -20,5 +20,6 @@ function processall(event) {
     console.log(json_data);
 
     // brings the other page
-   window.location.href = '3RAval.html';
+    window.location.href = '3RAval.html';
 }
+
