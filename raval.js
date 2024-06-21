@@ -1,25 +1,32 @@
-// Escucha el evento de envío del formulario
-const form = document.querySelector('#registrationForm');
-form.addEventListener('submit', processall);
+document.addEventListener('DOMContentLoaded', (event) => {
+    const form = document.getElementById('registrationForm');
+        
+        const processAll = (event) => {
+        event.preventDefault();
+        const datos = new FormData(event.target);
+        const datosCompletos = Object.fromEntries(datos.entries());
+        console.log(JSON.stringify(datosCompletos));
 
-function processall(event) {
-    event.preventDefault();
+ // Enviar datos a Google Apps Script
+    fetch('https://script.google.com/macros/s/AKfycbxLgNyA7BQGCguNejclwB38oBnfLnpQKFAlQKqjAAZURR-fjCOks42FahoPW2nvEd4L/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json'
+            },
+        body: JSON.stringify(datosCompletos)
+    })
+        .then(data => {
+        console.log('Success:',data); // esta funcion no esta bien debo revisar sgit
+                    // Redirige al usuario a la siguiente página
+            setTimeout(() => {
+             window.location.href = '4Documents.html';
+            }, 1000); // Retrasa la redirección para asegurarse de que el JSON se muestra en la consola
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    };
 
-    // Obtén los datos del formulario
-    const datos = new FormData(event.target);
-    const datosCompletos = Object.fromEntries(datos.entries());
-
-    // Convierte los datos a formato JSON
-    const json_data = JSON.stringify(datosCompletos);
-
-    // Almacena los datos en el almacenamiento local
-    localStorage.setItem('form_data', json_data);
-
-    // Muestra los datos en la consola
-    console.log('Datos guardados en formato JSON:');
-    console.log(json_data);
-
-    // Redirige al usuario a la siguiente página
-
-    window.location.href = '4documents.html';
-}
+form.addEventListener('submit', processAll);
+});
