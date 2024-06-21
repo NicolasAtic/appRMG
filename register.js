@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log(JSON.stringify(datosCompletos));
 
  // Enviar datos a Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbxLgNyA7BQGCguNejclwB38oBnfLnpQKFAlQKqjAAZURR-fjCOks42FahoPW2nvEd4L/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbwP-6poxMjly5h11PijkiIvfPxtgS_mWwLw_x0yYu03_6EqJlDmnPAqlO-x7O8tYBg/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     // Redirige al usuario a la siguiente página
             setTimeout(() => {
              window.location.href = '3RAval.html';
-            }, 1000); // Retrasa la redirección para asegurarse de que el JSON se muestra en la consola
+            }, 100); // Retrasa la redirección para asegurarse de que el JSON se muestra en la consola
         })
         .catch((error) => {
             console.error('Error:', error);

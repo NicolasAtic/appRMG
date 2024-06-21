@@ -712,7 +712,3 @@ function processall(event) {
     window.location.href = '3RAval.html';
 }*/
 
-
-
-
-*/ 
