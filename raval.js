@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     // Redirige al usuario a la siguiente página
             setTimeout(() => {
              window.location.href = '4Documents.html';
-            }, 1000); // Retrasa la redirección para asegurarse de que el JSON se muestra en la consola
+            }, 10); // Retrasa la redirección para asegurarse de que el JSON se muestra en la consola
         })
         .catch((error) => {
             console.error('Error:', error);
