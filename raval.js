@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log('Success:',data); // esta funcion no esta bien debo revisar sgit
                     // Redirige al usuario a la siguiente página
             setTimeout(() => {
-             window.location.href = '4Documents.html';
+            window.location.href = '4Documents.html';
             }, 10); // Retrasa la redirección para asegurarse de que el JSON se muestra en la consola
         })
         .catch((error) => {
