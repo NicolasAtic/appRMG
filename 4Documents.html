@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="13Documents.css"> 
     <script src="Documents.js" defer></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
 </head>
 <body>
     <div class="card">
@@ -15,68 +14,73 @@
             <h>Documentos</h>
         </div>
         
-  
-        <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbzDhZMRmULw2-wV8HNcqcXo_JS6taz_nCIZMTPCPTk0f8sVn1aoj556Xq6CIE_pS8A_Fg/exec" method="POST" enctype="multipart/form-data">
-          <!-- Hidden fields for file upload via Google Apps Script -->
-          <input type="hidden" value="" name="fileContent" id="fileContent">
-          <input type="hidden" value="" name="filename" id="filename">
-          
-          <div class="center1">
-            <label for="fileInput1" class="custom-file-upload">Adjuntar DNI Inquilino</label>
-            <input type="file" name="fileInput1" id="fileInput1"  required>
-            <p id="fileName1"></p>
-          </div>
-    
+        <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbxKVh6LMGtUP9MG2a1fRZGLJO1G6IfX6LHZzVOAkuWlnq3Vzt5fmZzo8pjTHQokrVdP/exec" method="POST" enctype="multipart/form-data">
+            <!-- Hidden fields for file upload via Google Apps Script -->
+            <input type="hidden" value="" name="fileContent1" id="fileContent1">
+            <input type="hidden" value="" name="filename1" id="filename1">
+            <input type="hidden" value="" name="fileContent2" id="fileContent2">
+            <input type="hidden" value="" name="filename2" id="filename2">
+            <input type="hidden" value="" name="fileContent3" id="fileContent3">
+            <input type="hidden" value="" name="filename3" id="filename3">
+            <input type="hidden" value="" name="fileContent4" id="fileContent4">
+            <input type="hidden" value="" name="filename4" id="filename4">
         
-
-          <div class="center1">
-            <label for="fileInput2" class="custom-file-upload">Adjuntar DNI Aval</label>
-            <input type="file" name="fileInput2" id="fileInput2" required>
-            <p id="fileName2"></p>
-          </div>
+            <div class="center1">
+                <label for="fileInput1" class="custom-file-upload">Adjuntar DNI Inquilino</label>
+                <input type="file" name="fileInput1" id="fileInput1" required>
+                <p id="fileName1"></p>
+            </div>
     
-          <div class="center1">
-            <label for="fileInput3" class="custom-file-upload">Adjuntar Nóminas</label>
-            <input type="file" name="fileInput3" id="fileInput3" required>
-            <p id="fileName3"></p>
-          </div>
+            <div class="center1">
+                <label for="fileInput2" class="custom-file-upload">Adjuntar DNI Aval</label>
+                <input type="file" name="fileInput2" id="fileInput2" required>
+                <p id="fileName2"></p>
+            </div>
     
-          <div class="center1">
-            <label for="fileInput4" class="custom-file-upload">Adjuntar Carta Universidad</label>
-            <input type="file" name="fileInput4" id="fileInput4" required>
-            <p id="fileName4"></p>
-          </div>
+            <div class="center1">
+                <label for="fileInput3" class="custom-file-upload">Adjuntar Nóminas</label>
+                <input type="file" name="fileInput3" id="fileInput3" required>
+                <p id="fileName3"></p>
+            </div>
     
-          <a href="1Login.html" target="_blank">Hacerlo más tarde</a>
+            <div class="center1">
+                <label for="fileInput4" class="custom-file-upload">Adjuntar Carta Universidad</label>
+                <input type="file" name="fileInput4" id="fileInput4" required>
+                <p id="fileName4"></p>
+            </div>
     
-          <div class="register">
-            <button type="submit" onclick="UploadFile();">Siguiente</button> 
-          </div>
-          <p id="message"></p>
+            <a href="1Login.html" target="_blank">Hacerlo más tarde</a>
+    
+            <div class="register">
+                <button type="submit" onclick="UploadFile();">Siguiente</button> 
+            </div>
+            <p id="message"></p>
         </form>
-      </div>
+    </div>
     
-
-
     <script>
-      function UploadFile() {
-        var reader = new FileReader();
-        var file = document.getElementById('fileInput1').files[0]; // Example with fileInput1, adjust for other inputs
-        var file = document.getElementById('fileInput2').files[0];
-        var file = document.getElementById('fileInput3').files[0];
-        var file = document.getElementById('fileInput4').files[0];
-  
-        reader.onload = function() {
-          document.getElementById('fileContent').value = reader.result;
-          document.getElementById('filename').value = file.name;
-          document.getElementById('registrationForm').submit();
-        }
-  
-        if (file) {
-          reader.readAsDataURL(file);
-        }
-      }
+    function UploadFile() {
+        const files = ['fileInput1', 'fileInput2', 'fileInput3', 'fileInput4'];
+        
+        files.forEach((fileInputId, index) => {
+            const fileInput = document.getElementById(fileInputId);
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function() {
+                document.getElementById(`fileContent${index + 1}`).value = reader.result;
+                document.getElementById(`filename${index + 1}`).value = file.name;
+                
+                if (index === files.length - 1) {
+                    document.getElementById('registrationForm').submit();
+                }
+            };
+            
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+    }
     </script>
-  
 </body>
 </html>
