@@ -1,30 +1,51 @@
-section {
-    height: 100vh;
-    background-color: #ececec;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .signup-form {
-    min-width: 400px;
+/* 10Login.css */
+
+/* Styling for .image3 */
+.image3 {
+    margin-bottom: 20px;
+    border-radius: 30px;
+    text-align: center; /* Center the image horizontally */
+}
+
+/* Styling for body */
+body {
+    text-align: center; /* Center align content */
+    background-color: #f0f0f0; /* Set background color */
+    font-family: Arial, sans-serif; /* Set default font family */
+}
+
+/* Styling for input fields */
+input[type="email"], input[type="password"] {
+    width: 50%;
+    padding: 14px;
+    margin: 8px;
+    display: inline-block;
+    border-radius: 30px;
     text-align: center;
-    display: none;
-    
-  }
+    border: 1px solid #ccc; /* Add border */
+}
 
-
-  #login-form {
-    min-width: 400px;
+/* Styling for button */
+button {
+    background-color: #0099ff;
+    color: #ffa500; /* Change text color */
+    padding: 14px;
+    margin: 8px;
+    border: 1px solid transparent; /* Add border */
+    cursor: pointer;
+    width: 50%;
+    border-radius: 30px;
     text-align: center;
-  }
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add transition effects */
+}
 
-  #user-profile {
-    display:none;
-    min-width:400px;
-  }
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    color: #ffffff; /* Change text color on hover */
+}
 
-.card {
+/* Styling for .ui segment grey */
+.ui.segment.grey {
     margin: 10px auto;
     border: 1px solid #031032;
     max-width: 600px;
@@ -32,66 +53,34 @@ section {
     padding: 20px;
     border-radius: 20px;
 }
-.card:hover {
-    background-color: #faf0ea;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 0 10px rgb(0, 0, 0);
-    cursor: pointer;
+
+/* Styling for .ui error message big */
+.ui.error.message.big {
+    color: red; /* Change error message color */
 }
 
-.image3{
-    margin-bottom: 20px;
-    border-radius: 30px;
-}
-body{
-    text-align: center;
-    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fes%2Fmy-city-home-wonderful-and-spacious-apartment-near-the-beach.es.html&psig=AOvVaw0nHZ2ailcIbCUu1bZSQNDL&ust=1719560941162000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjQve2l-4YDFQAAAAAdAAAAABAE'); /* Initial background image */
-    background-size: cover;
-    background-position: center;
-}
-input[type=text],input[type=email], input[type=password] {
-    width: 50%;
-    padding: 14px;
-    margin: 8px;
-    display: inline-block;
-    border-radius: 30px;
-    text-align: center; 
-}
-button {
-    background-color: #0099ff;
-    color: rgb(255, 170, 0);
-    padding: 14px;
-    margin: 8px;
-    border: none;
-    cursor: pointer;
-    width: 50%;
-    border-radius: 30px;
-    text-align: center;
-    cursor: pointer;
-}
-h2{
-    color:#000000
-}
-h4{
-    color:#ccc;
+/* Styling for .ui stacked segment */
+.ui.stacked.segment {
+    padding: 20px;
 }
 
+/* Styling for .ui left icon input big */
+.ui.left.icon.input.big {
+    position: relative; /* Ensure icon is positioned correctly */
+}
+
+/* Additional styles for links inside messages */
+.ui.message.small.big a {
+    color: #0099ff; /* Link color */
+}
+
+/* Media query for smaller screens */
 @media (max-width: 600px) {
-    .center1 {
-        flex-direction: column;
-        align-items: flex-start;
+    input[type="email"], input[type="password"], button {
+        width: 100%; /* Make input fields and button full-width */
     }
-    .center1 i {
-        margin-bottom: 10px;
+    
+    .ui.segment.grey {
+        max-width: 100%; /* Adjust max-width for smaller screens */
     }
-    .center1 input {
-        text-align: left;
-    }
-    .card {
-        padding: 15px;
-    }
-    .openhtml1 button {
-        width: 100%;
-        padding: 15px;
-    }  
 }
