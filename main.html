@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="11Register.css"> 
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <div class="step-row">
-      
+    <title>Registro Inquilino</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="image3">
+        <img src="https://www.tucasa.com/logos/logo2810864.gif" alt="image" width="320" height="200"/>   
+    </div>
+
+    <div class="ui segment big" id="user-profile">
+
+        <div class="ui card">
+            <div class="content">
+                <div class="header">Perfil de Usuario</div>
+                <div class="meta" id="user-email">
+                    someemail@gmail.com
+                </div>
+
+            </div>
+            <div class="extra content">
+                <button class="ui button red tiny" id="logout-btn">Log out</button>
+            </div>
+        </div>
+    </div>
+
+
     <div class="card">
         <div class="center">
             <button onclick="document.location='1Login.html'">
                 <i class='bx bx-chevron-left'></i>
             </button>
-            
             <h>Registro </h>
         </div>
 
@@ -496,7 +515,8 @@
             
         </form>
     </div>
-    <script src="register.js"></script>
-
+   
+    <script src="firebase.js" type="module"></script>
+    <script src="main.js" type="module"></script>
 </body>
 </html>

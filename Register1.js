@@ -1,25 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const registerForm = document.getElementById("registerForm");
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-    registerForm.addEventListener("submit", (event) => {
-        event.preventDefault();
+const auth = getAuth();
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const signUpBtn = document.getElementById("signup-btn");
+const UIErrorMessage = document.getElementById("error-message");
 
-        const email = document.getElementById("email").value;
-        const dni = document.getElementById("dni").value;
-        const registerMessage = document.getElementById("registerMessage");
+const signUpButtonPressed = async (e) => {
+    e.preventDefault();
 
-        const userInfo = {
-            email: email,
-            dni: btoa(dni) // Encrypt the DNI using Base64 encoding
-        };
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
+        console.log(userCredential);
+        window.location.href = '1Login.html'; // Redirige al login después del registro
+    } catch (error) {
+        console.log(error.code);
+        UIErrorMessage.innerHTML = formatErrorMessage(error.code, "signup");
+        UIErrorMessage.classList.add("visible");
+    }
+};
 
-        localStorage.setItem('userInfo', JSON.stringify(userInfo));
+signUpBtn.addEventListener("click", signUpButtonPressed);
 
-        registerMessage.textContent = "Registro exitoso. Redirigiendo a la página de inicio de sesión...";
-        registerMessage.style.color = "green";
-
-        setTimeout(() => {
-            window.location.href = "1Login.html"; // Redirect to login page
-        }, 2000);
-    });
-});
+const formatErrorMessage = (errorCode, action) => {
+    let message = "";
+    if (action === "signup") {
+        if (errorCode === "auth/invalid-email" || errorCode === "auth/missing-email") {
+            message = "Please enter a valid email";
+        } else if (errorCode === "auth/missing-password" || errorCode === "auth/weak-password") {
+            message = "Password must be at least 6 characters long";
+        } else if (errorCode === "auth/email-already-in-use") {
+            message = "Email is already taken";
+        }
+    }
+    return message;
+};

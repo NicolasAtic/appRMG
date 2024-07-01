@@ -88,6 +88,26 @@ a {
     background-color: #fc8f47;
 }
 
+#progress {
+    position: absolute;
+    height: 100%;
+    width: 120px;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    transition: 1s;
+  }
+  #progress::after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    right: -20px;
+    top: 0;
+    border-left: 20px solid #ffad06;
+  }
+
+
 /* Media Queries for Responsive Design */
 @media (max-width: 600px) {
     .center1 {

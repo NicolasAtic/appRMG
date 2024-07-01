@@ -710,5 +710,284 @@ function processall(event) {
 
     // Redirige al usuario a la siguiente página
     window.location.href = '3RAval.html';
+
+
+REGISTRO VALIDACION DE EMAIL 
+document.addEventListener("DOMContentLoaded", () => {
+    const registerForm = document.getElementById("registerForm");
+
+    registerForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const dni = document.getElementById("dni").value;
+        const registerMessage = document.getElementById("registerMessage");
+
+        const userInfo = {
+            email: email,
+            dni: btoa(dni) // Encrypt the DNI using Base64 encoding
+        };
+
+        localStorage.setItem('userInfo', JSON.stringify(userInfo));
+
+        registerMessage.textContent = "Registro exitoso. Redirigiendo a la página de inicio de sesión...";
+        registerMessage.style.color = "green";
+
+        setTimeout(() => {
+            window.location.href = "1Login.html"; // Redirect to login page
+        }, 2000);
+    });
+});
+ FIRE BASE 1 DATA BASE 
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";// TODO: Add SDKs for Firebase products that you want to use// https://firebase.google.com/docs/web/setup#available-libraries
+import {getFirestore, collection, addDoc} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyC7GaxzdW9yyy3tu3FLMeCeaBWJNq6gOmM",
+  authDomain: "apprmg-2f1f0.firebaseapp.com",
+  projectId: "apprmg-2f1f0",
+  storageBucket: "apprmg-2f1f0.appspot.com",
+  messagingSenderId: "278461104758",
+  appId: "1:278461104758:web:797c298a5ea6c5276e5557"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db= getFirestore(app);
+
+enviar.addEventListener('click',validar);
+
+function validar(){
+    const elementos = [
+        document.getElementById('exampleInputEmail1').value,
+        document.getElementById('exampleInputPassword1').value,
+        document.getElementById('exampleCheck1').checked.tostring()
+    ]
+    // Validate the code 
+    if(elementos.every(e=> e.trim() !=='')){
+        return guardar(elementos);
+    } 
+}
+
+function guardar(elementos){
+    addDoc(collection(db,"Datos"),{
+        Email:elementos[0],
+        Password:elementos[1],
+        Checkbox: elementos[2],
+
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }*/
 
