@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
     <title>Registro Usuario</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="9Register1.css">
 </head>
 <body>
-    <div class="image3">
-        <img src="https://www.tucasa.com/logos/logo2810864.gif" alt="image" width="320" height="200"/>   
-    </div>
 
     <section class="ui segment grey signup-form" id="signup-form">
         <form class="ui form big">
             <div class="ui stacked segment">
                 <div class="ui error message" id="error-message"></div>
                 <div class="field">
+                    <div class="image3">
+                        <img src="https://www.tucasa.com/logos/logo2810864.gif" alt="image" width="320" height="200"/>   
+                    </div>
                     <div class="ui left icon input big">
                         <i class="mail icon"></i>
                         <input type="email" placeholder="Email" id="email" />
@@ -27,7 +26,7 @@
                         <input type="password" placeholder="Password" id="password" />
                     </div>
                 </div>
-                <button class="ui button green fluid big" id="signup-btn">Crear Cuenta</button>
+                <button class="ui button blue fluid big" id="signup-btn">Crear Cuenta</button>
             </div>
         </form>
         <div class="ui message small big">Ya tienes una cuenta? <a id="have-an-account-btn" href="1Login.html">Iniciar Sesión</a></div>
@@ -35,61 +34,5 @@
 
     <script src="firebase.js" type="module"></script>
     <script src="Register1.js" type="module"></script>
-=======
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="card">
-    <div class="enter1">
-        <h4>Welcome to MyCityHome</h4>
-        <div class="image3">
-        <img src="https://www.tucasa.com/logos/logo2810864.gif" alt="image" width="320" height="200"/>
-    </div>
-    <div class="register-container">
-        <h2>Register</h2>
-        <h4>Enter your information</h4>
-        <form id="registerForm" action="https://script.google.com/macros/s/AKfycbwr9ZSokA4JDrWK-My5n0EVMttYabRGsYK2AmkO_LaTwqhpITfLNvPORhdeyTtFmVmRzQ/exec" method="post" onsubmit="submitForm(event)">
-            <label for="email"><b>Email</b></label>
-            <input type="email" id="email" name="email" placeholder="Email" required>
-            
-            <label for="dni"><b>DNI</b></label>
-            <input type="text" id="dni" name="dni" placeholder="DNI" required>
-            
-            <button type="submit">Register</button>
-        </form>
-        <p id="registerMessage"></p>
-    </div>
-    </div>
-</div>
-<script>
-    function submitForm(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-
-        // Fetch form data
-        const formData = new FormData(document.getElementById('registerForm'));
-        const email = formData.get('email');
-        const dni = formData.get('dni');
-
-        // Perform AJAX submission to Google Apps Script
-        fetch('https://script.google.com/macros/s/AKfycbwr9ZSokA4JDrWK-My5n0EVMttYabRGsYK2AmkO_LaTwqhpITfLNvPORhdeyTtFmVmRzQ/exec', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                // Redirect to the next page
-                window.location.href = '1Login.html'; // Replace with your desired URL
-            } else {
-                console.error('Error submitting form');
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    }
-</script>
-
->>>>>>> 6bf30207b654f8b605d32169232cf54d718a7584
 </body>
 </html>
