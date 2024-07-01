@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log(JSON.stringify(datosCompletos));
 
  // Enviar datos a Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbzHWpPQsHerab6HpYTyhr-ZMxWHmONvDIgJowdey28OwFQg-Fu7M1S5jFgWgWjkPrZB/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbwkkOS8VxNOGGmY_rr1z1M8BNBN9A7z_KgY4FTvWUTSO9-ac3oYWT5rHpHVaHBPRhJofQ/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {

@@ -35,7 +35,7 @@ function uploadFile(event) {
   fileInputs.forEach(processFile);
 }
 
-function submitData(formData) {
+/*function submitData(formData) {
   fetch('https://script.google.com/macros/s/AKfycbykmNuGrzhIG9nkxonJQygGJ7WPpAG84-S44Ialml1ikBp7h4f-pbDhbbwLRf_PXFMKtQ/exec', { // Replace with your actual endpoint
     method: 'POST',
     body: formData
@@ -56,7 +56,7 @@ function submitData(formData) {
   });
 }
 
-/*document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('fileInput1').addEventListener('change', function() {
       var fileName = this.files[0].name;
       document.getElementById('fileName1').textContent = 'Selected file: ' + fileName;

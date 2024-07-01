@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log(JSON.stringify(datosCompletos));
 
  // Enviar datos a Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbwP-6poxMjly5h11PijkiIvfPxtgS_mWwLw_x0yYu03_6EqJlDmnPAqlO-x7O8tYBg/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzB53_MUylQL06XHNzNovn2da-VnAYnXFkGsrEEffNDvkWWfL8XfdnodoJHBk7yHFTw/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log('Success:',data); // esta funcion no esta bien debo revisar sgit
                     // Redirige al usuario a la siguiente página
             setTimeout(() => {
-             window.location.href = '3RAval.html';
+            window.location.href = '3RAval.html';
             }, 100); // Retrasa la redirección para asegurarse de que el JSON se muestra en la consola
         })
         .catch((error) => {
