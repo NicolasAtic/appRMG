@@ -1,3 +1,29 @@
+section {
+    height: 100vh;
+    background-color: #ececec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .signup-form {
+    min-width: 400px;
+    text-align: center;
+    display: none;
+    
+  }
+
+
+  #login-form {
+    min-width: 400px;
+    text-align: center;
+  }
+
+  #user-profile {
+    display:none;
+    min-width:400px;
+  }
+
 .card {
     margin: 10px auto;
     border: 1px solid #031032;
@@ -19,6 +45,9 @@
 }
 body{
     text-align: center;
+    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fes%2Fmy-city-home-wonderful-and-spacious-apartment-near-the-beach.es.html&psig=AOvVaw0nHZ2ailcIbCUu1bZSQNDL&ust=1719560941162000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjQve2l-4YDFQAAAAAdAAAAABAE'); /* Initial background image */
+    background-size: cover;
+    background-position: center;
 }
 input[type=text],input[type=email], input[type=password] {
     width: 50%;

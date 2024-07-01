@@ -1,35 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("loginForm");
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-    loginForm.addEventListener("submit", (event) => {
-        event.preventDefault();
+const auth = getAuth();
+const loginEmail = document.getElementById("login-email");
+const loginPassword = document.getElementById("login-password");
+const loginBtn = document.getElementById("login-btn");
+const loginErrorMessage = document.getElementById("login-error-message"); // Assuming this element exists in your HTML
 
-        const login = document.getElementById("login").value;
-        const password = document.getElementById("password").value;
-        const errorMessage = document.getElementById("errorMessage");
+const loginButtonPressed = async (e) => {
+  e.preventDefault();
 
-        // Retrieve user info from localStorage
-        const userInfoJSON = localStorage.getItem('userInfo');
-        if (!userInfoJSON) {
-            errorMessage.textContent = "No se encontró información de usuario. Por favor, regístrese primero.";
-            errorMessage.style.color = "red";
-            return;
-        }
+  try {
+    await signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value);
+    window.location.href = 'main.html'; // Redirects to the main form after successful login
+  } catch (error) {
+    console.error(error.code); // Log the error code for debugging
 
-        const userInfo = JSON.parse(userInfoJSON);
-        const storedEmail = userInfo.email;
-        const storedDni = userInfo.dni;
+    // Handle login error messages based on error code
+    loginErrorMessage.textContent = formatErrorMessage(error.code, "login"); // Set the error message content
+    loginErrorMessage.classList.add("visible"); // Add a CSS class (e.g., "visible") to display the message visually
+  }
+};
 
-        // Simulate login using email as login and dni as password
-        if (login === storedEmail && password === atob(storedDni)) { // Decode DNI from Base64
-            errorMessage.textContent = "Inicio de sesión exitoso. Redirigiendo...";
-            errorMessage.style.color = "green";
-            setTimeout(() => {
-                window.location.href = "2Register.html"; // Replace with your main page URL
-            }, 2000);
-        } else {
-            errorMessage.textContent = "Credenciales incorrectas. Por favor, inténtelo de nuevo.";
-            errorMessage.style.color = "red";
-        }
-    });
-});
+loginBtn.addEventListener("click", loginButtonPressed);
+
+const formatErrorMessage = (errorCode, action) => {
+  let message = "";
+  if (action === "login") {
+    switch (errorCode) {
+      case "auth/invalid-email":
+      case "auth/user-not-found":
+        message = "Email or Password is incorrect";
+        break;
+      case "auth/wrong-password":
+        message = "Incorrect password. Please try again.";
+        break;
+      default:
+        message = "An error occurred during login. Please try again later.";
+    }
+  }
+  return message;
+};

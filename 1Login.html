@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
     <link rel="stylesheet" href="10Login.css">
-    <script src="login.js" defer></script>
 </head>
 <body>
-    <div class="card">
-        <div class="enter1">
-            <h4>Welcome to MyCityHome</h4>
-            <div class="image3">
-                <img src="https://www.tucasa.com/logos/logo2810864.gif" alt="image" width="320" height="200"/>   
-            </div>
-            <div class="login-container">
-                <h2>Login</h2>
-                <h4>Ingrese su informacion</h4>
-                <form id="loginForm">
-                    <dt><label for="login"><b>Correo electrónico</b></label></dt>
-                    <input type="text" id="login" name="login" placeholder="Usuario" required>
-
-                    <dt><label for="password"><b>Contraseña (DNI)</b></label></dt>
-                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
-                    
-                    <div class="openhtml1">
-                        <button type="submit">Acceso</button>
-                    </div>
-                </form>
-                <p id="errorMessage"></p>
-            </div>
-        </div>
+    <div class="image3">
+        <img src="https://www.tucasa.com/logos/logo2810864.gif" alt="image" width="320" height="200"/>   
     </div>
+
+    <section class="ui segment grey" id="login-form">
+        <form class="ui big form">
+            <div class="ui stacked segment">
+                <div class="ui error message big" id="login-error-message"></div>
+                <div class="field">
+                    <div class="ui left icon input big">
+                        <i class="mail icon"></i>
+                        <input type="email" placeholder="Email" id="login-email" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input big">
+                        <i class="lock icon"></i>
+                        <input type="password" placeholder="Password" id="login-password" />
+                    </div>
+                </div>
+                <button class="ui button blue fluid big" id="login-btn">LOG IN</button>
+            </div>
+        </form>
+        <div class="ui message small big">No tienes cuenta? <a id="need-an-account-btn" href="0Register1.html">Registrarse</a></div>
+    </section>
+
+    <script src="firebase.js" type="module"></script>
+    <script src="login.js" type="module"></script>
 </body>
 </html>
