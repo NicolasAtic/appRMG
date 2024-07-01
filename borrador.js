@@ -780,6 +780,516 @@ function guardar(elementos){
     })
 }
 
+/*import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+
+const auth = getAuth();
+const logOutBtn = document.getElementById("logout-btn");
+const UIuserEmail = document.getElementById("user-email");
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        UIuserEmail.innerHTML = user.email;
+    } else {
+        window.location.href = 'login.html'; // Redirige al login si no hay usuario autenticado
+    }
+});
+
+const logOutButtonPressed = async () => {
+    try {
+        await signOut(auth);
+        window.location.href = '1Login.html'; // Redirige al login después de cerrar sesión
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+logOutBtn.addEventListener("click", logOutButtonPressed);
+
+
+// Initialize Firebase app
+const app = initializeApp(firebaseConfig);
+
+// Get Firebase Auth and Firestore references
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// User data object to accumulate data across pages
+let userData = {};
+
+// Track the current form page
+let currentPage = "main";
+
+// UI elements
+const userProfileView = document.getElementById("user-profile");
+const UIuserEmail = document.getElementById("user-email");
+const logOutBtn = document.getElementById("logout-btn");
+const form = document.getElementById("registrationForm");
+
+// Handle logout
+logOutBtn.addEventListener("click", () => {
+  signOut(auth)
+    .then(() => {
+      console.log("User logged out successfully!");
+      // Optionally, redirect to login page or update UI
+    })
+    .catch((error) => {
+      console.error("Error logging out:", error);
+      // Handle logout error
+    });
+});
+
+// Load user data when logged in
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is logged in, display user profile info
+    userProfileView.textContent = `User: ${user.email}`;
+    UIuserEmail.textContent = user.email;
+
+    // Load user data from Firestore
+    const userRef = doc(db, "users", user.uid);
+    userRef.get()
+      .then((doc) => {
+        if (doc.exists) {
+          // Load data from document fields and populate input fields
+          const data = doc.data();
+          userData = data; // Update accumulated user data
+          // ... populate input fields with data
+        }
+      })
+      .catch((error) => {
+        console.error("Error loading user data:", error);
+      });
+  } else {
+    // User is logged out, hide profile info and clear form
+    userProfileView.textContent = "";
+    UIuserEmail.textContent = "";
+    form.reset();
+  }
+});
+
+// Form submission handler
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  // Collect data from input fields
+  const fullName = document.getElementById("fullName").value;
+  const docType = document.getElementById("docType").value;
+  const docNumber = document.getElementById("docNumber").value;
+  const nationality = document.getElementById("nationality").value;
+  const address = document.getElementById("address").value;
+  const countryCode = document.getElementById("countryCode").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const accountNumber = document.getElementById("accountNumber").value;
+  const accountCode = document.getElementById("accountCode").value;
+  const terms = document.getElementById("terms").checked;
+
+  if (!terms) {
+    alert("Please accept the terms and conditions");
+    return;
+  }
+
+  // Update userData object with current form data
+  userData = {
+    ...userData,
+    fullName,
+    docType,
+    docNumber,
+    nationality,
+    address,
+    countryCode,
+    phone,
+    email,
+    accountNumber,
+    accountCode,
+  };
+
+  // Determine action based on current page and login status
+  try {
+    if (currentPage === "registration") {
+      if (auth.currentUser) {
+        // User logged in, update existing user data
+        const userRef = doc(db, "users", auth.currentUser.uid);
+        await setDoc(userRef, userData);
+        alert("User data updated successfully!");
+      } else {
+        // User not logged in, create new user and save data
+        const createdUser = await createUserWithEmailAndPassword(auth, email, "yourPassword"); // Replace with a secure password generation logic
+        const userRef = doc(db, "users", createdUser.user.uid);
+        await setDoc(userRef, userData);
+        alert("User created and data saved successfully!");
+      }
+      currentPage = "3RAval"; // Move to the next page
+    } else if (currentPage === "3RAval" || currentPage === "4Documents") {
+      // Subsequent pages, update existing user data
+      if (!auth.currentUser) {
+        alert("Please login to continue");
+        return;
+      }
+      const userRef = doc(db, "users
+
+
+
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut,
+  } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+  import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+  import { initializeApp } from "firebase/app";
+  
+  
+  // Initialize Firebase app
+  const app = initializeApp(firebaseConfig);
+  
+// Get user ID from Firebase Auth
+const userId = firebase.auth().currentUser.uid;
+
+// Load initial data from Firestore
+const pageDataRef = db.collection('userData').doc(userId);
+pageDataRef.get()
+  .then((doc) => {
+    if (doc.exists) {
+      // Load data from document fields
+      const fullName = document.getElementById("fullName").value;
+      const docType = document.getElementById("docType").value;
+      const docNumber = document.getElementById("docNumber").value;
+      const nationality = document.getElementById("nationality").value;
+      const address = document.getElementById("address").value;
+      const countryCode = document.getElementById("countryCode").value;
+      const phone = document.getElementById("phone").value;
+      const email = document.getElementById("email").value;
+      const accountNumber = document.getElementById("accountNumber").value;
+      const accountCode = document.getElementById("accountCode").value;
+      const terms = document.getElementById("terms").checked;
+    } else {
+      // ...
+    }
+  })
+  .catch((error) => {
+    console.error('Error loading data:', error);
+  });
+
+// Save data to Firestore on form submission
+const saveForm = document.getElementById('save-form');
+saveForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  // Collect data from input fields
+  const data = {
+    fullName = document.getElementById("fullName").value;
+    docType = document.getElementById("docType").value;
+    docNumber = document.getElementById("docNumber").value;
+    nationality = document.getElementById("nationality").value;
+    address = document.getElementById("address").value;
+    countryCode = document.getElementById("countryCode").value;
+    phone = document.getElementById("phone").value;
+    email = document.getElementById("email").value;
+    accountNumber = document.getElementById("accountNumber").value;
+   accountCode = document.getElementById("accountCode").value;
+   terms = document.getElementById("terms").checked;
+  };
+
+  // Save data to Firestore
+  pageDataRef.set(data)
+    .then(() => {
+      // Data saved successfully
+      console.log('Data saved successfully!');
+      // Optionally, redirect or show a success message
+    })
+    .catch((error) => {
+      console.error('Error saving data:', error);
+      // Handle save error
+    });
+});
+
+
+  // Get Firebase Auth and Firestore references
+  const auth = getAuth(app);
+  const db = getFirestore(app); // Assuming you've initialized Firestore
+  
+    const userProfileView = document.getElementById("user-profile");
+    const UIuserEmail = document.getElementById("user-email");
+    const logOutBtn = document.getElementById("logout-btn");
+    const form = document.getElementById("registrationForm");
+  
+   
+
+  let currentPage = "main"; // Track the current form page
+  let userData = {}; // Accumulate user data across multiple forms
+  
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // Prevent default form submission
+  
+    const fullName = document.getElementById("fullName").value;
+    const docType = document.getElementById("docType").value;
+    const docNumber = document.getElementById("docNumber").value;
+    const nationality = document.getElementById("nationality").value;
+    const address = document.getElementById("address").value;
+    const countryCode = document.getElementById("countryCode").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const accountNumber = document.getElementById("accountNumber").value;
+    const accountCode = document.getElementById("accountCode").value;
+    const terms = document.getElementById("terms").checked;
+  
+    if (!terms) {
+      alert("Please accept the terms and conditions");
+      return;
+    }
+  
+    // Check if user is already signed in
+    const currentUser = auth.currentUser;
+  
+    try {
+      // Update userData object with current form data
+      userData = {
+        ...userData,
+        fullName,
+        docType,
+        docNumber,
+        nationality,
+        address,
+        countryCode,
+        phone,
+        email,
+        accountNumber,
+        accountCode,
+      };
+  
+      // Determine action based on current page and login status
+      if (currentPage === "registration") {
+        if (currentUser) {
+          // User logged in, update existing user data
+          const userRef = doc(db, "users", currentUser.uid);
+          await setDoc(userRef, userData);
+          alert("User data updated successfully!");
+        } else {
+          // User not logged in, create new user and save data
+          const createdUser = await createUserWithEmailAndPassword(auth, email, "yourPassword"); // Replace with a secure password generation logic
+          const userRef = doc(db, "users", createdUser.user.uid);
+          await setDoc(userRef, userData);
+          alert("User created and data saved successfully!");
+        }
+        currentPage = "3RAval"; // Move to the next page
+      } else if (currentPage === "3RAval" || currentPage === "4Documents") {
+        // Subsequent pages, update existing user data
+        if (!currentUser) {
+          alert("Please login to continue");
+          return;
+        }
+        const userRef = doc(db, "users", currentUser.uid);
+        await setDoc(userRef, userData);
+        console.log("User data for", currentPage, "updated successfully!");
+  
+        // If it's the last form submission (4Documents.js), show a success message
+        if (currentPage === "4Documents") {
+          alert("¡Toda la información se ha guardado correctamente en tu usuario!");
+        } else {
+          currentPage = currentPage === "3RAval" ? "4Documents" : "completed"; // Move to the next page or mark completion
+        }
+      } else {
+        console.error("Unexpected form page:", currentPage);
+      }
+  
+      // Handle page transitions (optional)
+      if (currentPage !== "completed") {
+        // Logic to navigate to the next page based on currentPage
+        window.location.href = currentPage + ".html"; // Replace with your redirection logic
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error saving data. Please try again.");
+    }
+  });
+  
+
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+
+const auth = getAuth();
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const signUpBtn = document.getElementById("signup-btn");
+const UIErrorMessage = document.getElementById("error-message");
+
+const signUpButtonPressed = async (e) => {
+    e.preventDefault();
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
+        console.log(userCredential);
+        window.location.href = '1Login.html'; // Redirige al login después del registro
+    } catch (error) {
+        console.log(error.code);
+        UIErrorMessage.innerHTML = formatErrorMessage(error.code, "signup");
+        UIErrorMessage.classList.add("visible");
+    }
+};
+
+signUpBtn.addEventListener("click", signUpButtonPressed);
+
+const formatErrorMessage = (errorCode, action) => {
+    let message = "";
+    if (action === "signup") {
+        if (errorCode === "auth/invalid-email" || errorCode === "auth/missing-email") {
+            message = "Please enter a valid email";
+        } else if (errorCode === "auth/missing-password" || errorCode === "auth/weak-password") {
+            message = "Password must be at least 6 characters long";
+        } else if (errorCode === "auth/email-already-in-use") {
+            message = "Email is already taken";
+        }
+    }
+    return message;
+};
+
+
+import { db, storage, auth,state } from '/firebase.js';
+const firebaseConfig = {
+  apiKey: "AIzaSyC7GaxzdW9yyy3tu3FLMeCeaBWJNq6gOmM",
+  authDomain: "apprmg-2f1f0.firebaseapp.com",
+  databaseURL: "https://apprmg-2f1f0-default-rtdb.europe-west1.firebasedatabase.app/",
+  projectId: "apprmg-2f1f0",
+  storageBucket: "apprmg-2f1f0.appspot.com",
+  messagingSenderId: "278461104758",
+  appId: "1:278461104758:web:797c298a5ea6c5276e5557"
+};
+const app = initializeApp(firebaseConfig);
+
+// Get Firebase Auth and Firestore references
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// User data object to accumulate data across pages
+let userData = {};
+
+// Track the current form page
+let currentPage = "main";
+
+// UI elements
+const userProfileView = document.getElementById("user-profile");
+const UIuserEmail = document.getElementById("user-email");
+const logOutBtn = document.getElementById("logout-btn");
+const form = document.getElementById("registrationForm");
+
+// Handle logout
+logOutBtn.addEventListener("click", () => {
+  signOut(auth)
+    .then(() => {
+      console.log("User logged out successfully!");
+      // Optionally, redirect to login page or update UI
+      window.location.href = '1Login.html';
+    })
+    .catch((error) => {
+      console.error("Error logging out:", error);
+      // Handle logout error
+    });
+});
+
+// Load user data when logged in
+state(auth, (user) => {
+  if (user) {
+    // User is logged in, display user profile info
+    userProfileView.textContent = `User: ${user.email}`;
+    UIuserEmail.textContent = user.email;
+
+    // Load user data from Firestore
+    const userRef = doc(db, "users", user.uid);
+    userRef.get()
+      .then((doc) => {
+        if (doc.exists) {
+          // Load data from document fields and populate input fields (if needed)
+          const data = doc.data();
+          userData = data; // Update accumulated user data
+          // ... populate input fields with data
+        }
+      })
+      .catch((error) => {
+        console.error("Error loading user data:", error);
+      });
+  } else {
+    // User is logged out, hide profile info and clear form
+    userProfileView.textContent = "";
+    UIuserEmail.textContent = "";
+    form.reset();
+  }
+});
+
+// Form submission handler
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  // Collect data from input fields
+  const fullName = document.getElementById("fullName").value;
+  const docType = document.getElementById("docType").value;
+  const docNumber = document.getElementById("docNumber").value;
+  const nationality = document.getElementById("nationality").value;
+  const address = document.getElementById("address").value;
+  const countryCode = document.getElementById("countryCode").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const accountNumber = document.getElementById("accountNumber").value;
+  const accountCode = document.getElementById("accountCode").value;
+  const terms = document.getElementById("terms").checked;
+
+  if (!terms) {
+    alert("Please accept the terms and conditions");
+    return;
+  }
+
+  // Update userData object with current form data
+  userData = {
+    ...userData,
+    fullName,
+    docType,
+    docNumber,
+    nationality,
+    address,
+    countryCode,
+    phone,
+    email,
+    accountNumber,
+    accountCode,
+  };
+
+  // Determine action based on current page and login status
+try {
+  if (currentPage === "main.html") {
+    if (auth.currentUser) {
+      // User logged in, update existing user data
+      const userRef = doc(db, "users", auth.currentUser.uid);
+      await setDoc(userRef, userData);
+      alert("User data updated successfully!");
+    } else {
+      // User not logged in, create new user and save data
+      const createdUser = await createUserWithEmailAndPassword(auth, email, "yourPassword"); // Replace with a secure password generation logic
+      const userRef = doc(db, "users", createdUser.user.uid);
+      await setDoc(userRef, userData);
+      alert("User created and data saved successfully!");
+    }
+    currentPage = "3RAval"; // Move to the next page (optional, handle navigation based on your logic)
+  } else if (currentPage === "3RAval" || currentPage === "4Documents") {
+    // Subsequent pages (3RAval, 4Documents), update existing user data
+    if (!auth.currentUser) {
+      alert("Please login to continue");
+    } else {
+      // User logged in on subsequent pages, update existing user data
+      const userRef = doc(db, "users", auth.currentUser.uid);
+      await setDoc(userRef, userData);
+      alert("User data updated successfully!");
+      // Optional: Handle successful update on subsequent pages (e.g., redirect)
+    }
+  } else {
+    // Handle other potential page values (optional)
+    console.warn("Unknown page:", currentPage);
+  }
+} catch (error) {
+  console.error("Error:", error);
+  alert("An error occurred. Please try again.");
+}
+});
 
 
 
@@ -961,6 +1471,7 @@ function guardar(elementos){
 
 
 
+*/
 
 
 
@@ -989,5 +1500,132 @@ function guardar(elementos){
 
 
 
-}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

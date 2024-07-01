@@ -1,97 +1,61 @@
-section {
+/* Body Styles */
+body {
     height: 100vh;
-    background-color: #ececec;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #1be3d6;
   }
   
-  .signup-form {
-    min-width: 400px;
-    text-align: center;
-    display: none;
-    
-  }
-
-
-  #login-form {
-    min-width: 400px;
-    text-align: center;
-  }
-
-  #user-profile {
-    display:none;
-    min-width:400px;
-  }
-
-.card {
-    margin: 10px auto;
-    border: 1px solid #031032;
-    max-width: 600px;
+  /* Card Styles (Overrides Bootstrap Defaults) */
+  .card {
+    margin: 20px auto;
+    border: none;
+    max-width: 500px; /* Adjust as needed */
     background-color: #ffffff;
     padding: 20px;
     border-radius: 20px;
-}
-.card:hover {
-    background-color: #faf0ea;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 0 10px rgb(0, 0, 0);
-    cursor: pointer;
-}
-
-.image3{
-    margin-bottom: 20px;
-    border-radius: 30px;
-}
-body{
-    text-align: center;
-    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fes%2Fmy-city-home-wonderful-and-spacious-apartment-near-the-beach.es.html&psig=AOvVaw0nHZ2ailcIbCUu1bZSQNDL&ust=1719560941162000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMjQve2l-4YDFQAAAAAdAAAAABAE'); /* Initial background image */
-    background-size: cover;
-    background-position: center;
-}
-input[type=text],input[type=email], input[type=password] {
-    width: 50%;
-    padding: 14px;
-    margin: 8px;
-    display: inline-block;
-    border-radius: 30px;
-    text-align: center; 
-}
-button {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .card-body {
+    padding: 0;
+  }
+  
+  /* Form Styles */
+  .signup-form { /* Target your existing form class */
+    width: 100%;  /* Set full width for form */
+  }
+  
+  /* Input Styles (Overrides Bootstrap Defaults) */
+  input[type=text], input[type=email], input[type=password] {
+    width: 100%;  /* Use full width for inputs */
+    padding: 10px 15px; /* Adjust padding as needed */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px;
+  }
+  
+  /* Button Styles (Overrides Bootstrap Defaults) */
+  button {
     background-color: #0099ff;
     color: rgb(255, 170, 0);
     padding: 14px;
     margin: 8px;
     border: none;
     cursor: pointer;
-    width: 50%;
+    width: 100%;  /* Use full width for button */
     border-radius: 30px;
     text-align: center;
-    cursor: pointer;
-}
-h2{
-    color:#000000
-}
-h4{
-    color:#ccc;
-}
-
-@media (max-width: 600px) {
-    .center1 {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .center1 i {
-        margin-bottom: 10px;
-    }
-    .center1 input {
-        text-align: left;
-    }
-    .card {
-        padding: 15px;
-    }
-    .openhtml1 button {
-        width: 100%;
-        padding: 15px;
-    }  
-}
+  }
+  
+  /* Responsive Styles (Optional) */
+  @media (max-width: 600px) {
+    /* Add your media query styles here if needed */
+  }
+  
