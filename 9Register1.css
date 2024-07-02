@@ -1,3 +1,66 @@
+<<<<<<< HEAD
+/* Body Styles */
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1be3d6;
+  }
+  
+  /* Card Styles (Overrides Bootstrap Defaults) */
+  .card {
+    margin: 20px auto;
+    border: none;
+    max-width: 500px; /* Adjust as needed */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .card-body {
+    padding: 0;
+  }
+  
+  /* Form Styles */
+  .signup-form { /* Target your existing form class */
+    width: 100%;  /* Set full width for form */
+  }
+  
+  /* Input Styles (Overrides Bootstrap Defaults) */
+  input[type=text], input[type=email], input[type=password] {
+    width: 100%;  /* Use full width for inputs */
+    padding: 10px 15px; /* Adjust padding as needed */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px;
+  }
+  
+  /* Button Styles (Overrides Bootstrap Defaults) */
+  button {
+    background-color: #0099ff;
+    color: rgb(255, 170, 0);
+    padding: 14px;
+    margin: 8px;
+    border: none;
+    cursor: pointer;
+    width: 100%;  /* Use full width for button */
+    border-radius: 30px;
+    text-align: center;
+  }
+  
+  /* Responsive Styles (Optional) */
+  @media (max-width: 600px) {
+    /* Add your media query styles here if needed */
+  }
+  
+=======
 /* 10Login.css */
 
 /* Styling for .image3 */
@@ -84,3 +147,4 @@ button:hover {
         max-width: 100%; /* Adjust max-width for smaller screens */
     }
 }
+>>>>>>> 29fd4d38be815057d9315a7910c79fabaec222d8
