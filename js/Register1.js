@@ -1,4 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword }  from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+import { db } from './firebase.js';
+
 const auth = getAuth();
 const email = document.getElementById("email");
 const password = document.getElementById("password");
@@ -11,7 +14,14 @@ const signUpButtonPressed = async (e) => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
         console.log(userCredential);
-        window.location.href = '1Login.html'; // Redirige a la página de inicio de sesión después del registro exitoso
+// user es la coleccion en la base de datos de firebase y se esta creacando un documento 
+        await setDoc(doc(db, "users", userCredential.user.uid),{
+            email: userCredential.user.email,
+            mainData: {},
+            registrationData:{}
+        });
+
+        window.location.href = '../1Login.html'; // Redirige a la página de inicio de sesión después del registro exitoso
     } catch (error) {
         console.log(error.code);
         UIErrorMessage.innerHTML = formatErrorMessage(error.code, "signup");
