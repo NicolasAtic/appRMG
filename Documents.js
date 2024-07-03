@@ -1,4 +1,4 @@
-document.getElementById('registrationForm').addEventListener('submit', uploadFile);
+/*document.getElementById('registrationForm').addEventListener('submit', uploadFile);
 
 function uploadFile(event) {
   event.preventDefault(); // Prevent default form submission
@@ -55,7 +55,7 @@ function submitData(formData) {
     document.getElementById('message').textContent = 'Error al cargar los datos.';
   });
 }
-
+*/
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('fileInput1').addEventListener('change', function() {
       var fileName = this.files[0].name;
