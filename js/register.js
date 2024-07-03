@@ -30,3 +30,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 form.addEventListener('submit', processAll);
 });
+
