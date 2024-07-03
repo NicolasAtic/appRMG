@@ -1,10 +1,6 @@
-<<<<<<< HEAD:js/Register1.js
 import { getAuth, createUserWithEmailAndPassword }  from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 import { db } from './firebase.js';
-=======
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
->>>>>>> 05b35fbff20a6beb6ed7006ac357474750481eae:Register1.js
 
 const auth = getAuth();
 const email = document.getElementById("email");
@@ -18,7 +14,6 @@ const signUpButtonPressed = async (e) => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
         console.log(userCredential);
-<<<<<<< HEAD:js/Register1.js
 // user es la coleccion en la base de datos de firebase y se esta creacando un documento 
         await setDoc(doc(db, "users", userCredential.user.uid),{
             email: userCredential.user.email,
@@ -27,9 +22,6 @@ const signUpButtonPressed = async (e) => {
         });
 
         window.location.href = '../1Login.html'; // Redirige a la página de inicio de sesión después del registro exitoso
-=======
-        window.location.href = '1Login.html'; // Redirige al login después del registro
->>>>>>> 05b35fbff20a6beb6ed7006ac357474750481eae:Register1.js
     } catch (error) {
         console.log(error.code);
         UIErrorMessage.innerHTML = formatErrorMessage(error.code, "signup");
