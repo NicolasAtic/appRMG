@@ -69,8 +69,6 @@ mainForm.addEventListener("submit", async (event) => {
   // Opcionalmente, redirige al usuario a otra página o muestra un mensaje de éxito
   window.location.href = '3RAval.html';
 });
-
-
 const logOutButtonPressed = async () => {
     try {
         const user = auth.currentUser;
