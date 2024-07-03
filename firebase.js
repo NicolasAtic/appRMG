@@ -25,3 +25,4 @@ const auth = getAuth(app);
 export { db, storage, analytics, auth};
 
 console.log("Conexión a Firebase establecida correctamente.");
+
