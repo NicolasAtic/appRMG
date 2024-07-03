@@ -1,28 +1,99 @@
-/* Body Styles */
 body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #1be3d6;
+  margin: 10px auto;
+  border: 1px solid #031032;
+  max-width: 600px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body:hover:hover {
+  background-color: #514239;
+}
+.card {
+  margin: 10px auto;
+  border: 1px solid #a20e4c;
+  max-width: 600px;
+  background-color: #822424;
+  padding: 20px;
+  border-radius: 20px;
+
+}
+
+.card:hover {
+  background-color: hsl(23, 90%, 43%);
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.image3 {
+  margin-bottom: 20px;
+  border-radius: 30px;
+}
+
+body {
+  text-align: center;
+}
+
+input[type="text"], input[type="password"] {
+  width: 50%;
+  padding: 14px;
+  margin: 8px;
+  display: inline-block;
+  border-radius: 30px;
+  text-align: center;
+}
+
+button {
+  background-color: #0099ff;
+  color: rgb(255, 170, 0);
+  padding: 14px;
+  margin: 8px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 30px;
+  text-align: center;
+}
+
+
+h2 {
+  color: #000000;
+}
+
+h4 {
+  color: #ccc;
+}
+
+@media (max-width: 600px) {
+  .center1 {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  /* Card Styles (Overrides Bootstrap Defaults) */
+
+  .center1 i {
+    margin-bottom: 10px;
+  }
+
+  .center1 input {
+    text-align: left;
+  }
+
   .card {
-    margin: 20px auto;
-    border: none;
-    max-width: 500px; /* Adjust as needed */
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 15px;
   }
-  
-  .card-header {
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 20px 20px 0 0;
+
+  .openhtml1 button {
+    width: 100%;
+    padding: 15px;
   }
+<<<<<<< HEAD
+}
+
+=======
   
   .card-body {
     padding: 0;
@@ -59,3 +130,4 @@ body {
     /* Add your media query styles here if needed */
   }
   
+>>>>>>> 05b35fbff20a6beb6ed7006ac357474750481eae
