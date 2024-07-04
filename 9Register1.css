@@ -90,44 +90,8 @@ h4 {
     width: 100%;
     padding: 15px;
   }
-<<<<<<< HEAD
-}
-
-=======
   
   .card-body {
     padding: 0;
   }
-  
-  /* Form Styles */
-  .signup-form { /* Target your existing form class */
-    width: 100%;  /* Set full width for form */
-  }
-  
-  /* Input Styles (Overrides Bootstrap Defaults) */
-  input[type=text], input[type=email], input[type=password] {
-    width: 100%;  /* Use full width for inputs */
-    padding: 10px 15px; /* Adjust padding as needed */
-    border: 1px solid #ccc; /* Add a border */
-    border-radius: 5px;
-  }
-  
-  /* Button Styles (Overrides Bootstrap Defaults) */
-  button {
-    background-color: #0099ff;
-    color: rgb(255, 170, 0);
-    padding: 14px;
-    margin: 8px;
-    border: none;
-    cursor: pointer;
-    width: 50%;  /* Use full width for button */
-    border-radius: 30px;
-    text-align: center;
-  }
-  
-  /* Responsive Styles (Optional) */
-  @media (max-width: 600px) {
-    /* Add your media query styles here if needed */
-  }
-  
->>>>>>> 05b35fbff20a6beb6ed7006ac357474750481eae
+}

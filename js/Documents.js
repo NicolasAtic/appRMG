@@ -1,122 +1,76 @@
-document.getElementById('registrationForm').addEventListener('submit', uploadFile);
+// documents.js
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js";
+import { db } from './firebase.js';
 
-function uploadFile(event) {
-  event.preventDefault(); // Prevent default form submission
+const auth = getAuth();
+const storage = getStorage();
+const logOutBtn = document.getElementById("logout-btn");
+const UIuserEmail = document.getElementById("user-email");
+const documentForm = document.getElementById("document-form");
 
-  const fileInputs = [
-    document.getElementById('fileInput1').files[0],
-    document.getElementById('fileInput2').files[0],
-    document.getElementById('fileInput3').files[0],
-    document.getElementById('fileInput4').files[0]
-  ];
+const loadUserData = async (user) => {
+    const docRef = doc(db, "users", user.uid);
+    const docSnap = await getDoc(docRef);
 
-  if (fileInputs.some(file => !file)) {
-    document.getElementById('message').textContent = 'Por favor, seleccione todos los archivos.';
-    return; // maybe this is the problem 
-  }
-
-  const formData = new FormData();
-
-  const processFile = (file, index) => {
-    const reader = new FileReader();
-
-    reader.onload = function() {
-      formData.append(`fileContent${index + 1}`, reader.result);
-      formData.append(`filename${index + 1}`, file.name);
-
-      if (index === 3) {
-        submitData(formData);
-      }
-    };
-
-    reader.readAsDataURL(file);
-  };
-
-  fileInputs.forEach(processFile);
-}
-
-function submitData(formData) {
-  fetch('https://script.google.com/macros/s/AKfycbykmNuGrzhIG9nkxonJQygGJ7WPpAG84-S44Ialml1ikBp7h4f-pbDhbbwLRf_PXFMKtQ/exec', { // Replace with your actual endpoint
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Success:', data);
-
-    if (data.result === 'success') {
-      window.location.href = '5Final.html';
+    if (docSnap.exists()) {
+        const userData = docSnap.data();
+        UIuserEmail.innerHTML = userData.email;
     } else {
-      document.getElementById('message').textContent = 'Error al cargar los datos.';
+        console.log("No such document!");
     }
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-    document.getElementById('message').textContent = 'Error al cargar los datos.';
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('fileInput1').addEventListener('change', function() {
-      var fileName = this.files[0].name;
-      document.getElementById('fileName1').textContent = 'Selected file: ' + fileName;
-  });
-
-  document.getElementById('fileInput2').addEventListener('change', function() {
-      var fileName = this.files[0].name;
-      document.getElementById('fileName2').textContent = 'Selected file: ' + fileName;
-  });
-
-  document.getElementById('fileInput3').addEventListener('change', function() {
-      var fileName = this.files[0].name;
-      document.getElementById('fileName3').textContent = 'Selected file: ' + fileName;
-  });
-
-  document.getElementById('fileInput4').addEventListener('change', function() {
-      var fileName = this.files[0].name;
-      document.getElementById('fileName4').textContent = 'Selected file: ' + fileName;
-  });
+};
+// if user is not login takes direct to the login page 
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        loadUserData(user);
+    } else {
+        window.location.href = '1Login.html';
+    }
 });
 
+const uploadDocument = async (file, userId, docName) => {
+    const storageRef = ref(storage, `${userId}/${docName}`);
+    await uploadBytes(storageRef, file);
+    const downloadURL = await getDownloadURL(storageRef);
+    return downloadURL;
+};
 
-// script del html con esto duncioa ba lo delos
-    function UploadFile() {
-        const files = ['fileInput1', 'fileInput2', 'fileInput3', 'fileInput4'];
-        
-        let fileCount = files.length;
+const saveDocumentURLs = async (user, urls) => {
+    await setDoc(doc(db, "users", user.uid), {
+        documentURLs: urls
+    }, { merge: true });
+};
 
-        files.forEach((fileInputId, index) => {
-            const fileInput = document.getElementById(fileInputId);
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-            
-            reader.onload = function() {
-                document.getElementById(`fileContent${index + 1}`).value = reader.result;
-                document.getElementById(`filename${index + 1}`).value = file.name;
-                
-            fileCount--;
-                if (fileCount === 0) {
-                    // All files are processed, submit the form
-                    fetch(document.getElementById('registrationForm').action, {
-                        method: 'POST',
-                        body: new FormData(document.getElementById('registrationForm'))
-                    }).then(response => response.json())
-                    .then(data => {
-                        if (data.message) {
-                              window.location.href = '5Final.html'; // Change 'nextPage.html' to your actual next page URL
-                        } else {
-                            document.getElementById('message').textContent = 'Error: ' + data.error;
-                        }
-                    }).catch(error => {
-                        document.getElementById('message').textContent = 'Error: ' + error.message;
-                    });
-                }
-            };
-            
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-        });
+documentForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const user = auth.currentUser;
+    const document1 = document.getElementById("document1").files[0];
+    const document2 = document.getElementById("document2").files[0];
+    const document3 = document.getElementById("document3").files[0];
+    const document4 = document.getElementById("document4").files[0];
+
+    const urls = {};
+
+    if (document1) urls.document1 = await uploadDocument(document1, user.uid, "document1");
+    if (document2) urls.document2 = await uploadDocument(document2, user.uid, "document2");
+    if (document3) urls.document3 = await uploadDocument(document3, user.uid, "document3");
+    if (document4) urls.document4 = await uploadDocument(document4, user.uid, "document4");
+
+    await saveDocumentURLs(user, urls);
+    alert("Documents uploaded successfully!");
+    // Redirige a la siguiente página o procesa según sea necesario
+});
+
+const logOutButtonPressed = async () => {
+    try {
+        const user = auth.currentUser;
+        await signOut(auth);
+        window.location.href = '1Login.html';
+    } catch (error) {
+        console.log(error);
     }
-    
+};
 
+logOutBtn.addEventListener("click", logOutButtonPressed);
