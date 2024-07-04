@@ -6,15 +6,14 @@ import { db } from './firebase.js';
 // Obtén las referencias de Firebase Auth y Firestore
 const auth = getAuth();
 const UIuserEmail = document.getElementById("user-email");
-const mainForm = document.getElementById("registrationForm");
-
 const logOutBtn = document.getElementById("logout-btn");
+const mainForm = document.getElementById("registrationForm");
 
 const loadUserData = async (user) => {
     try {
         const docRef = doc(db, "users", user.uid);
-        const docSnap = await getDoc(docRef);
-
+        const docSnap = await getDoc(docRef);  
+       
         if (docSnap.exists()) {
             // Carga los datos del usuario en el formulario principal
             const userData = docSnap.data();
@@ -56,7 +55,9 @@ const saveUserData = async (user) => {
         await setDoc(doc(db, "users", user.uid), {
             mainData: mainData
         }, { merge: true }); // Merge mantiene los datos existentes y actualiza los nuevos
-      } 
+        console.log ("datos guardados correctamente ");
+    } 
+      
       catch (error) {
         console.error("Error al guardar los datos del usuario:", error);
       }
@@ -80,6 +81,6 @@ const logOutButtonPressed = async () => {
         console.error("Error al cerrar sesión:", error);
     }
 };
+logOutBtn.addEventListener("click", logOutButtonPressed);
 
-
-
+// hay que autenticar jaqui al usuario asi funcionara ya que con singin 
