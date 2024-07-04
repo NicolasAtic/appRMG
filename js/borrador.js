@@ -1567,19 +1567,271 @@ logOutBtn.addEventListener("click", logOutButtonPressed);
 
 
 
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+import { db } from './firebase.js';
+
+// Obtén las referencias de Firebase Auth y Firestore
+const auth = getAuth();
+const UIuserEmail = document.getElementById("user-email");
+const logOutBtn = document.getElementById("logout-btn");
+const mainForm = document.getElementById("registrationForm");
+
+const loadUserData = async (user) => {
+    try {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);  
+       
+        if (docSnap.exists()) {
+            // Carga los datos del usuario en el formulario principal
+            const userData = docSnap.data();
+            UIuserEmail.innerHTML = userData.email;
+            // Rellena el formulario con userData.mainData
+        } else {
+            console.log("No existe ese documento.");
+        }
+    } catch (error) {
+        console.error("Error al cargar los datos del usuario:", error);
+      }
+};
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        loadUserData(user);
+    } else {
+        window.location.href = '../1Login.html'; // Redirige al inicio de sesión si no hay usuario autenticado
+    }
+});
+
+const saveUserData = async (user) => {
+    try {
+        const mainData = {
+          fullName: mainForm.fullName.value,
+          docType: mainForm.docType.value,
+          docNumber: mainForm.docNumber.value,
+          nationality: mainForm.nationality.value,
+          address: mainForm.address.value,
+          countryCode: mainForm.countryCode.fullName.value,
+          phone: mainForm.phone.value,
+          email: mainForm.email.value,
+          accountNumber: mainForm.accountNumber.value,
+          accountCode: mainForm.accountCode.value,
+          terms: mainForm.terms.checked
+        }; // Recopila los datos del formulario principal
+        console.log(mainData)
+
+        await setDoc(doc(db, "users", user.uid), {
+            mainData: mainData
+        }, { merge: true }); // Merge mantiene los datos existentes y actualiza los nuevos
+        console.log ("datos guardados correctamente ");
+    } 
+      
+      catch (error) {
+        console.error("Error al guardar los datos del usuario:", error);
+      }
+};
+
+// Evento de envío del formulario
+mainForm.addEventListener("submit", async (event) => {
+  event.preventDefault(); // Evita la recarga de la página
+  const user = auth.currentUser;
+  await saveUserData(user);
+  // Opcionalmente, redirige al usuario a otra página o muestra un mensaje de éxito
+  window.location.href = '3RAval.html';
+});
+const logOutButtonPressed = async () => {
+    try {
+        const user = auth.currentUser;
+        await saveUserData(user); // Guarda los datos del usuario antes de cerrar sesión
+        await signOut(auth);
+        window.location.href = '../1Login.html'; // Redirige al inicio de sesión después de cerrar sesión
+    } catch (error) {
+        console.error("Error al cerrar sesión:", error);
+    }
+};
+logOutBtn.addEventListener("click", logOutButtonPressed);
+
+// hay que autenticar jaqui al usuario asi funcionara ya que con singin 
+
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const form = document.getElementById('registrationForm');
+        
+        const processAll = (event) => {
+        event.preventDefault();
+        const datos = new FormData(event.target);
+        const datosCompletos = Object.fromEntries(datos.entries());
+        console.log(JSON.stringify(datosCompletos));
+
+ // Enviar datos a Google Apps Script
+    fetch('https://script.google.com/macros/s/AKfycbwkkOS8VxNOGGmY_rr1z1M8BNBN9A7z_KgY4FTvWUTSO9-ac3oYWT5rHpHVaHBPRhJofQ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json'
+            },
+        body: JSON.stringify(datosCompletos)
+    })
+        .then(data => {
+        console.log('Success:',data); // esta funcion no esta bien debo revisar sgit
+                    // Redirige al usuario a la siguiente página
+            setTimeout(() => {
+            window.location.href = '4Documents.html';
+            }, 10); // Retrasa la redirección para asegurarse de que el JSON se muestra en la consola
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    };
+
+form.addEventListener('submit', processAll);
+});
+
+
+// aval.js
 
 
 
 
 
 
+<!-- 4Documentos.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document Upload</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h4>Upload Documents</h4>
+    <div id="user-email"></div>
+    <button id="logout-btn">Log out</button>
+
+    <form id="document-form" class="ui form">
+        <div class="field">
+            <label for="document1">Document 1</label>
+            <input type="file" name="document1" id="document1">
+        </div>
+        <div class="field">
+            <label for="document2">Document 2</label>
+            <input type="file" name="document2" id="document2">
+        </div>
+        <div class="field">
+            <label for="document3">Document 3</label>
+            <input type="file" name="document3" id="document3">
+        </div>
+        <div class="field">
+            <label for="document4">Document 4</label>
+            <input type="file" name="document4" id="document4">
+        </div>
+        <button class="ui button blue" type="submit">Upload</button>
+    </form>
+
+    <script src="js/firebase.js" type="module"></script>
+    <script src="js/documents.js" type="module"></script>
+</body>
+</html>
 
 
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+import { db } from './firebase.js';
+
+const auth = getAuth();
+const logOutBtn = document.getElementById("logout-btn");
+const UIuserEmail = document.getElementById("user-email");
+const avalForm = document.getElementById("2aval-form");
+
+const loadAvalData = async (user) => {
+    const docRef = doc(db, "users", user.uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        const userData = docSnap.data();
+        UIuserEmail.innerHTML = userData.email;
+        for (const [key, value] of Object.entries(userData.avalData || {})) {
+            const inputElement = document.querySelector(`#2aval-form [name=${key}]`);
+            if (inputElement) {
+                inputElement.value = value;
+            }
+        }
+    } else {
+        console.log("No such document!");
+    }
+};
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        loadAvalData(user);
+    } else {
+        window.location.href = '1Login.html';
+    }
+});
+
+const saveAvalData = async (user) => {
+    const avalData = {};
+    const formData = new FormData(avalForm);
+    formData.forEach((value, key) => {
+        avalData[key] = value;
+    });
+
+    await setDoc(doc(db, "users", user.uid), {
+        avalData: avalData
+    }, { merge: true });
+};
+
+avalForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const user = auth.currentUser;
+    await saveAvalData(user);
+    alert("Aval data saved successfully!");
+    
+    window.location.href = '4Documents.html';
+});
+
+const logOutButtonPressed = async () => {
+    try {
+        const user = auth.currentUser;
+        await saveAvalData(user);
+        await signOut(auth);
+        window.location.href = '1Login.html';
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+logOutBtn.addEventListener("click", logOutButtonPressed);
 
 
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js';
+import { getStorage } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js';
+import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js';
 
 
+// Initialize Firebase app (replace with your actual configuration)
+const firebaseConfig = {
+  apiKey: "AIzaSyC7GaxzdW9yyy3tu3FLMeCeaBWJNq6gOmM",
+  authDomain: "apprmg-2f1f0.firebaseapp.com",
+  databaseURL: "https://apprmg-2f1f0-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "apprmg-2f1f0",
+  storageBucket: "apprmg-2f1f0.appspot.com",
+  messagingSenderId: "278461104758",
+  appId: "1:278461104758:web:797c298a5ea6c5276e5557"
+};
 
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+
+export { db, storage, analytics, auth};
+
+console.log("Conexión a Firebase establecida correctamente.");
 
 
 

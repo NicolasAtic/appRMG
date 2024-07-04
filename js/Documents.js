@@ -77,3 +77,46 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('fileName4').textContent = 'Selected file: ' + fileName;
   });
 });
+
+
+// script del html con esto duncioa ba lo delos
+    function UploadFile() {
+        const files = ['fileInput1', 'fileInput2', 'fileInput3', 'fileInput4'];
+        
+        let fileCount = files.length;
+
+        files.forEach((fileInputId, index) => {
+            const fileInput = document.getElementById(fileInputId);
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function() {
+                document.getElementById(`fileContent${index + 1}`).value = reader.result;
+                document.getElementById(`filename${index + 1}`).value = file.name;
+                
+            fileCount--;
+                if (fileCount === 0) {
+                    // All files are processed, submit the form
+                    fetch(document.getElementById('registrationForm').action, {
+                        method: 'POST',
+                        body: new FormData(document.getElementById('registrationForm'))
+                    }).then(response => response.json())
+                    .then(data => {
+                        if (data.message) {
+                              window.location.href = '5Final.html'; // Change 'nextPage.html' to your actual next page URL
+                        } else {
+                            document.getElementById('message').textContent = 'Error: ' + data.error;
+                        }
+                    }).catch(error => {
+                        document.getElementById('message').textContent = 'Error: ' + error.message;
+                    });
+                }
+            };
+            
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+    
+
