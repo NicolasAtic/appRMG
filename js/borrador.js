@@ -31,6 +31,7 @@ function validateRegister() {
 
 
 
+
 /*links 
 https://docs.google.com/spreadsheets/d/12rTT3O1Y44jpBDJ3Tw0k8Shsm6XH5v1y__Hr5syk42Y/edit?usp=sharing
 app sheet
@@ -1292,10 +1293,276 @@ try {
 });
 
 
+logOutBtn.addEventListener("click", logOutButtonPressed);
+
+const db = getFirestore(app);
+
+// User data object to accumulate data across pages
+let userData = {};
+
+// Track the current form page
+let currentPage = "main";
+
+// UI elements
+const userProfileView = document.getElementById("user-profile");
+
+
+const form = document.getElementById("registrationForm");
+
+// Handle logout
+logOutBtn.addEventListener("click", () => {
+  signOut(auth)
+    .then(() => {
+      console.log("User logged out successfully!");
+      // Optionally, redirect to login page or update UI
+      window.location.href = '1Login.html';
+    })
+    .catch((error) => {
+      console.error("Error logging out:", error);
+      // Handle logout error
+    });
+});
+
+// Load user data when logged in
+state(auth, (user) => {
+  if (user) {
+    // User is logged in, display user profile info
+    userProfileView.textContent = `User: ${user.email}`;
+    UIuserEmail.textContent = user.email;
+
+    // Load user data from Firestore
+    const userRef = doc(db, "users", user.uid);
+    userRef.get()
+      .then((doc) => {
+        if (doc.exists) {
+          // Load data from document fields and populate input fields (if needed)
+          const data = doc.data();
+          userData = data; // Update accumulated user data
+          // ... populate input fields with data
+        }
+      })
+      .catch((error) => {
+        console.error("Error loading user data:", error);
+      });
+  } else {
+    // User is logged out, hide profile info and clear form
+    userProfileView.textContent = "";
+    UIuserEmail.textContent = "";
+    form.reset();
+  }
+});
+
+// Form submission handler
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  // Collect data from input fields
+  const fullName = document.getElementById("fullName").value;
+  const docType = document.getElementById("docType").value;
+  const docNumber = document.getElementById("docNumber").value;
+  const nationality = document.getElementById("nationality").value;
+  const address = document.getElementById("address").value;
+  const countryCode = document.getElementById("countryCode").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const accountNumber = document.getElementById("accountNumber").value;
+  const accountCode = document.getElementById("accountCode").value;
+  const terms = document.getElementById("terms").checked;
+
+  if (!terms) {
+    alert("Please accept the terms and conditions");
+    return;
+  }
+
+  // Update userData object with current form data
+  userData = {
+    ...userData,
+    fullName,
+    docType,
+    docNumber,
+    nationality,
+    address,
+    countryCode,
+    phone,
+    email,
+    accountNumber,
+    accountCode,
+  };
+
+  // Determine action based on current page and login status
+try {
+  if (currentPage === "main") {
+    if (auth.currentUser) {
+      // User logged in, update existing user data
+      const userRef = doc(db, "users", auth.currentUser.uid);
+      await setDoc(userRef, userData);
+      alert("User data updated successfully!");
+    } else {
+      // User not logged in, create new user and save data
+      const createdUser = await createUserWithEmailAndPassword(auth, email, "yourPassword"); // Replace with a secure password generation logic
+      const userRef = doc(db, "users", createdUser.user.uid);
+      await setDoc(userRef, userData);
+      alert("User created and data saved successfully!");
+    }
+    currentPage = "3RAval"; // Move to the next page (optional, handle navigation based on your logic)
+  } else if (currentPage === "3RAval" || currentPage === "4Documents") {
+    // Subsequent pages (3RAval, 4Documents), update existing user data
+    if (!auth.currentUser) {
+      alert("Please login to continue");
+    } else {
+      // User logged in on subsequent pages, update existing user data
+      const userRef = doc(db, "users", auth.currentUser.uid);
+      await setDoc(userRef, userData);
+      alert("User data updated successfully!");
+      // Optional: Handle successful update on subsequent pages (e.g., redirect)
+    }
+  } else {
+    // Handle other potential page values (optional)
+    console.warn("Unknown page:", currentPage);
+  }
+} catch (error) {
+  console.error("Error:", error);
+  alert("An error occurred. Please try again.");
+}
+});
 
 
 
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+import { db } from './firebase.js';
 
+// Get Firebase Auth and Firestore references
+const auth = getAuth();
+const logOutBtn = document.getElementById("logout-btn");
+const UIuserEmail = document.getElementById("user-email");
+const mainForm = document.getElementById("registrationForm");
+
+const loadUserData = async (user) => {
+  const docRef = doc(db, "users", user.uid);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+      // Carga los datos del usuario en el formulario principal
+      const userData = docSnap.data();
+      UIuserEmail.innerHTML = userData.email;
+      // Rellenar formulario con userData.mainData
+  } else {
+      console.log("No such document!");
+  }
+};
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+      loadUserData(user);
+  } else {
+      window.location.href = '../1Login.html'; // Redirige al login si no hay usuario autenticado
+  }
+});
+
+const saveUserData = async (user) => {
+  const mainData = {}; // Recopila los datos del formulario principal
+
+  await setDoc(doc(db, "users", user.uid), {
+      mainData: mainData
+  }, { merge: true }); // Merge mantiene los datos existentes y actualiza los nuevos
+};
+
+const logOutButtonPressed = async () => {
+  try {
+      const user = auth.currentUser;
+      await saveUserData(user); // Guarda los datos del usuario antes de cerrar sesión
+      await signOut(auth);
+      window.location.href = '../1Login.html'; // Redirige al login después de cerrar sesión
+  } catch (error) {
+      console.log(error);
+  }
+};
+
+
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+import { db } from './firebase.js';
+
+// Obtén las referencias de Firebase Auth y Firestore
+const auth = getAuth();
+const UIuserEmail = document.getElementById("user-email");
+const logOutBtn = document.getElementById("logout-btn");
+const mainForm = document.getElementById("registrationForm");
+
+const loadUserData = async (user) => {
+    try {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);  
+       
+        if (docSnap.exists()) {
+            // Carga los datos del usuario en el formulario principal
+            const userData = docSnap.data();
+            UIuserEmail.innerHTML = userData.email;
+            // Rellena el formulario con userData.mainData
+        } else {
+            console.log("No existe ese documento.");
+        }
+    } catch (error) {
+        console.error("Error al cargar los datos del usuario:", error);
+      }
+};
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        loadUserData(user);
+    } else {
+        window.location.href = '../1Login.html'; // Redirige al inicio de sesión si no hay usuario autenticado
+    }
+});
+
+const saveUserData = async (user) => {
+    try {
+        const mainData = {
+          fullName: mainForm.fullName.value,
+          docType: mainForm.docType.value,
+          docNumber: mainForm.docNumber.value,
+          nationality: mainForm.nationality.value,
+          address: mainForm.address.value,
+          countryCode: mainForm.countryCode.fullName.value,
+          phone: mainForm.phone.value,
+          email: mainForm.email.value,
+          accountNumber: mainForm.accountNumber.value,
+          accountCode: mainForm.accountCode.value,
+          terms: mainForm.terms.checked
+        }; // Recopila los datos del formulario principal
+        console.log(mainData)
+
+        await setDoc(doc(db, "users", user.uid), {
+            mainData: mainData
+        }, { merge: true }); // Merge mantiene los datos existentes y actualiza los nuevos
+        console.log ("datos guardados correctamente ");
+    } 
+      
+      catch (error) {
+        console.error("Error al guardar los datos del usuario:", error);
+      }
+};
+
+// Evento de envío del formulario
+mainForm.addEventListener("submit", async (event) => {
+  event.preventDefault(); // Evita la recarga de la página
+  const user = auth.currentUser;
+  await saveUserData(user);
+  // Opcionalmente, redirige al usuario a otra página o muestra un mensaje de éxito
+  window.location.href = '3RAval.html';
+});
+const logOutButtonPressed = async () => {
+    try {
+        const user = auth.currentUser;
+        await saveUserData(user); // Guarda los datos del usuario antes de cerrar sesión
+        await signOut(auth);
+        window.location.href = '../1Login.html'; // Redirige al inicio de sesión después de cerrar sesión
+    } catch (error) {
+        console.error("Error al cerrar sesión:", error);
+    }
+};
+logOutBtn.addEventListener("click", logOutButtonPressed);
 
 
 
