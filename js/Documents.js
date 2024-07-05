@@ -77,3 +77,56 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('fileName4').textContent = 'Selected file: ' + fileName;
   });
 });
+<<<<<<< Updated upstream
+=======
+
+// the documents go direct to firestorage 
+const uploadDocument = async (file, userId, docName) => {
+    const storageRef = ref(storage, `${userId}/${docName}`);
+    await uploadBytes(storageRef, file);
+    const downloadURL = await getDownloadURL(storageRef);
+    return downloadURL;
+};
+
+// take url of documents 
+const saveDocumentURLs = async (user, urls) => {
+    await setDoc(doc(db, "users", user.uid), {
+        documentURLs: urls
+    }, { merge: true });
+};
+//  now working 
+RdocumentForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const user = auth.currentUser;
+    const DNIinquilino = document.getElementById("1.DNIinquilino").files[0];
+    const DNIAval = document.getElementById("2.DNIAval").files[0];
+    const Nóminas = document.getElementById("3.Nóminas").files[0];
+    const Carta= document.getElementById("4.Carta universidad").files[0];
+
+    const urls = {};
+
+    if (DNIinquilino) urls.DNIinquilino = await uploadDocument(DNIinquilino, user.uid, "1.DNIinquilino");
+    if (DNIAval) urls.DNIAval = await uploadDocument(DNIAval, user.uid, "2.DNIAval");
+    if (Nóminas) urls.document3 = await uploadDocument(Nóminas, user.uid, "3.Nóminas");
+    if (Carta) urls.document4 = await uploadDocument(Carta, user.uid, "4.Carta universidad");
+
+    await saveDocumentURLs(user, urls);
+    alert("Documents uploaded successfully!");
+    // fo next page 
+    window.location.href = '5Final.html';
+});
+
+// press log out 
+const logOutButtonPressed = async () => {
+    try {
+        const user = auth.currentUser;
+        await signOut(auth);
+        window.location.href = '1Login.html';
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+logOutBtn.addEventListener("click", logOutButtonPressed);
+// didara whyyyy its yur job gs 
+>>>>>>> Stashed changes
