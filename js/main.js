@@ -5,7 +5,8 @@ import { db } from './firebase.js';
 const auth = getAuth();
 const logOutBtn = document.getElementById("logout-btn");
 const UIuserEmail = document.getElementById("user-email");
-const mainForm = document.getElementById("1main-form");
+const mainForm = document.getElementById("main-form");
+
 
 const loadUserData = async (user) => {
     const docRef = doc(db, "users", user.uid);
@@ -17,7 +18,7 @@ const loadUserData = async (user) => {
         UIuserEmail.innerHTML = userData.email;
         // Rellenar formulario con userData.mainData
         for (const [key, value] of Object.entries(userData.mainData)) {
-            const inputElement = document.querySelector(`#1main-form [name=${key}]`);
+            const inputElement = document.querySelector(`#main-form [name=${key}]`);
             if (inputElement) {
                 inputElement.value = value;
             }

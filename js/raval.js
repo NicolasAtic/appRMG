@@ -5,7 +5,7 @@ import { db } from './firebase.js';
 const auth = getAuth();
 const logOutBtn = document.getElementById("logout-btn");
 const UIuserEmail = document.getElementById("user-email");
-const RavalForm = document.getElementById("2aval-form");
+const RavalForm = document.getElementById("aval-form");
 
 
 
@@ -19,7 +19,7 @@ const loadAvalData = async (user) => {
         const userData = docSnap.data();
         UIuserEmail.innerHTML = userData.email;
         for (const [key, value] of Object.entries(userData.avalData || {})) {
-            const inputElement = document.querySelector(`#2aval-form [name=${key}]`);
+            const inputElement = document.querySelector(`#aval-form [name=${key}]`);
             if (inputElement) {
                 inputElement.value = value;
             }

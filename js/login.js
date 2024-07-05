@@ -15,7 +15,7 @@ const loginButtonPressed = async (e) => {
   } catch (error) {
     console.error(error.code); 
     loginErrorMessage.textContent = formatErrorMessage(error.code, "login"); // Set the error message content
-    loginErrorMessage.classList.add("visible"); // Add a CSS class (e.g., "visible") to display the message visually
+    loginErrorMessage.classList.add("visible");
   }
 };
 

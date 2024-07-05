@@ -1,94 +1,76 @@
-body {
-    margin: 10px auto;
-    border: 1px solid #031032;
-    max-width: 600px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .body:hover:hover {
-    background-color: #514239;
-  }
-.card {
-    margin: 10px auto;
-    border: 1px solid #a20e4c;
-    max-width: 600px;
-    background-color: #822424;
-    padding: 20px;
-    border-radius: 20px;
+.ui.segment.grey{
+  margin: 10px auto;
+  border: 1px solid #f1dcdc;
+  max-width: 600px;
+  background-color: #fdfdfd;
+  padding: 20px;
+  border-radius: 20px;
 
+}
+
+.ui.segment.grey:hover {
+  background-color: #efe1d9;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px rgb(0, 0, 0);
+  cursor: pointer;
+}
+.ui.stacked.segment{
+  background-color:none ;
+  cursor: pointer;
+  border: none;
+}
+.ui.stacked.segment:hover{
+  background-color: #efe1d9;
+}
+
+.image3 {
+  margin-bottom: 20px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+input[type="text"], input[type="password"] {
+  width: 50%;
+  padding: 14px;
+  margin: 8px;
+  display: inline-block;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.ui.button.blue.fluid.big {
+  background-color: #2f6ffa;
+  color: rgb(246, 244, 240);
+  padding: 14px;
+  margin: 10px;
+  margin-left: 120px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 30px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ui.button.blue.fluid.big:hover {
+  background-color: #f19831;
+}
+
+.ui.message.small.big:hover{
+  background-color: #efe1d9;
+}
+
+
+@media (max-width: 600px) {
+  .center1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .openhtml1 button {
+    width: 100%;
+    padding: 15px;
   }
   
-  .card:hover {
-    background-color: hsl(23, 90%, 43%);
-    transition: background-color 0.3s ease;
-    box-shadow: 0 0 10px rgb(0, 0, 0);
-    cursor: pointer;
-  }
-  
-  .image3 {
-    margin-bottom: 20px;
-    border-radius: 30px;
-  }
-  
-  body {
-    text-align: center;
-  }
-  
-  input[type="text"], input[type="password"] {
-    width: 50%;
-    padding: 14px;
-    margin: 8px;
-    display: inline-block;
-    border-radius: 30px;
-    text-align: center;
-  }
-  
-  button {
-    background-color: #0099ff;
-    color: rgb(255, 170, 0);
-    padding: 14px;
-    margin: 8px;
-    border: none;
-    cursor: pointer;
-    width: 50%;
-    border-radius: 30px;
-    text-align: center;
-  }
-  
-  
-  h2 {
-    color: #000000;
-  }
-  
-  h4 {
-    color: #ccc;
-  }
-  
-  @media (max-width: 600px) {
-    .center1 {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .center1 i {
-      margin-bottom: 10px;
-    }
-  
-    .center1 input {
-      text-align: left;
-    }
-  
-    .card {
-      padding: 15px;
-    }
-  
-    .openhtml1 button {
-      width: 100%;
-      padding: 15px;
-    }
-  }
-  
+}
