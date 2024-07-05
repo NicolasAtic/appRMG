@@ -48,17 +48,17 @@ const saveDocumentURLs = async (user, urls) => {
 RdocumentForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
-    const document1 = document.getElementById("1.DNIinquilino").files[0];
-    const document2 = document.getElementById("2.DNIAval").files[0];
-    const document3 = document.getElementById("3.Nóminas").files[0];
-    const document4 = document.getElementById("4.Carta universidad").files[0];
+    const DNIinquilino = document.getElementById("1.DNIinquilino").files[0];
+    const DNIAval = document.getElementById("2.DNIAval").files[0];
+    const Nóminas = document.getElementById("3.Nóminas").files[0];
+    const Carta= document.getElementById("4.Carta universidad").files[0];
 
     const urls = {};
 
-    if (document1) urls.document1 = await uploadDocument(document1, user.uid, "1.DNIinquilino");
-    if (document2) urls.document2 = await uploadDocument(document2, user.uid, "2.DNIAval");
-    if (document3) urls.document3 = await uploadDocument(document3, user.uid, "3.Nóminas");
-    if (document4) urls.document4 = await uploadDocument(document4, user.uid, "4.Carta universidad");
+    if (DNIinquilino) urls.DNIinquilino = await uploadDocument(DNIinquilino, user.uid, "1.DNIinquilino");
+    if (DNIAval) urls.DNIAval = await uploadDocument(DNIAval, user.uid, "2.DNIAval");
+    if (Nóminas) urls.document3 = await uploadDocument(Nóminas, user.uid, "3.Nóminas");
+    if (Carta) urls.document4 = await uploadDocument(Carta, user.uid, "4.Carta universidad");
 
     await saveDocumentURLs(user, urls);
     alert("Documents uploaded successfully!");
