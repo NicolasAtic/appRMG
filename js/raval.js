@@ -5,12 +5,16 @@ import { db } from './firebase.js';
 const auth = getAuth();
 const logOutBtn = document.getElementById("logout-btn");
 const UIuserEmail = document.getElementById("user-email");
-const avalForm = document.getElementById("2aval-form");
+const RavalForm = document.getElementById("2aval-form");
 
+
+
+// load data from  user
 const loadAvalData = async (user) => {
     const docRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(docRef);
 
+// process
     if (docSnap.exists()) {
         const userData = docSnap.data();
         UIuserEmail.innerHTML = userData.email;
@@ -25,6 +29,7 @@ const loadAvalData = async (user) => {
     }
 };
 
+// if user is login authenificate
 onAuthStateChanged(auth, (user) => {
     if (user) {
         loadAvalData(user);
@@ -33,9 +38,10 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+// save data
 const saveAvalData = async (user) => {
     const avalData = {};
-    const formData = new FormData(avalForm);
+    const formData = new FormData(RavalForm);
     formData.forEach((value, key) => {
         avalData[key] = value;
     });
@@ -44,8 +50,8 @@ const saveAvalData = async (user) => {
         avalData: avalData
     }, { merge: true });
 };
-
-avalForm.addEventListener("submit", async (e) => {
+// submit
+RavalForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
     await saveAvalData(user);
@@ -53,7 +59,7 @@ avalForm.addEventListener("submit", async (e) => {
     
     window.location.href = '4Documents.html';
 });
-
+ //log out button
 const logOutButtonPressed = async () => {
     try {
         const user = auth.currentUser;

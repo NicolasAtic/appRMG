@@ -1,4 +1,3 @@
-// documents.js
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js";
@@ -8,8 +7,9 @@ const auth = getAuth();
 const storage = getStorage();
 const logOutBtn = document.getElementById("logout-btn");
 const UIuserEmail = document.getElementById("user-email");
-const documentForm = document.getElementById("document-form");
+const RdocumentForm = document.getElementById("document-form");
 
+// this is for take it back data from user
 const loadUserData = async (user) => {
     const docRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(docRef);
@@ -30,6 +30,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+// the documents go direct to firestorage 
 const uploadDocument = async (file, userId, docName) => {
     const storageRef = ref(storage, `${userId}/${docName}`);
     await uploadBytes(storageRef, file);
@@ -37,32 +38,35 @@ const uploadDocument = async (file, userId, docName) => {
     return downloadURL;
 };
 
+// take url of documents 
 const saveDocumentURLs = async (user, urls) => {
     await setDoc(doc(db, "users", user.uid), {
         documentURLs: urls
     }, { merge: true });
 };
-
-documentForm.addEventListener("submit", async (e) => {
+//  now working 
+RdocumentForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
-    const document1 = document.getElementById("document1").files[0];
-    const document2 = document.getElementById("document2").files[0];
-    const document3 = document.getElementById("document3").files[0];
-    const document4 = document.getElementById("document4").files[0];
+    const document1 = document.getElementById("1.DNIinquilino").files[0];
+    const document2 = document.getElementById("2.DNIAval").files[0];
+    const document3 = document.getElementById("3.Nóminas").files[0];
+    const document4 = document.getElementById("4.Carta universidad").files[0];
 
     const urls = {};
 
-    if (document1) urls.document1 = await uploadDocument(document1, user.uid, "document1");
-    if (document2) urls.document2 = await uploadDocument(document2, user.uid, "document2");
-    if (document3) urls.document3 = await uploadDocument(document3, user.uid, "document3");
-    if (document4) urls.document4 = await uploadDocument(document4, user.uid, "document4");
+    if (document1) urls.document1 = await uploadDocument(document1, user.uid, "1.DNIinquilino");
+    if (document2) urls.document2 = await uploadDocument(document2, user.uid, "2.DNIAval");
+    if (document3) urls.document3 = await uploadDocument(document3, user.uid, "3.Nóminas");
+    if (document4) urls.document4 = await uploadDocument(document4, user.uid, "4.Carta universidad");
 
     await saveDocumentURLs(user, urls);
     alert("Documents uploaded successfully!");
-    // Redirige a la siguiente página o procesa según sea necesario
+    // fo next page 
+    window.location.href = '5Final.html';
 });
 
+// press log out 
 const logOutButtonPressed = async () => {
     try {
         const user = auth.currentUser;

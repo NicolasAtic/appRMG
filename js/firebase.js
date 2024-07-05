@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js';
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js';
-
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js";
 
 // Initialize Firebase app (eplace with your actual configuration)
 const firebaseConfig = {
@@ -14,16 +14,19 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig)
-
 const db = getFirestore(app)
-
 const colRef= collection(db,"users")
+const storage = getStorage(app);
 
 getDocs(colRef)
 .then (snapshot => {
   console.log(snapshot.docs)
 });
 
-export { db};
+export { db, storage };
 
 console.log("Conexión a Firebase establecida correctamente.");
+
+
+
+
