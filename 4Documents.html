@@ -1,103 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    
+    <title>Documentos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
     <link rel="stylesheet" href="13Documents.css">
-    <script src="Documents.js" defer></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="card">
-        <div class="center">
-            <button onclick="document.location='3RAval.html'">
-                <i class='bx bx-chevron-left'></i>
-            </button>
-            <h>Documentos</h>
-        </div>
         
-        <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbxoykhJ4Q7FX852U8DF17ugyazLOEOA_YWW6cd1Zh6aRDqIZqsyeB5hrlutAU0jborF/exec" method="POST" enctype="multipart/form-data">
-            <!-- Hidden fields for file upload via Google Apps Script -->
-            <input type="hidden" value="" name="fileContent1" id="fileContent1">
-            <input type="hidden" value="" name="filename1" id="filename1">
-            <input type="hidden" value="" name="fileContent2" id="fileContent2">
-            <input type="hidden" value="" name="filename2" id="filename2">
-            <input type="hidden" value="" name="fileContent3" id="fileContent3">
-            <input type="hidden" value="" name="filename3" id="filename3">
-            <input type="hidden" value="" name="fileContent4" id="fileContent4">
-            <input type="hidden" value="" name="filename4" id="filename4">
-        
-            <div class="center1">
-                <label for="fileInput1" class="custom-file-upload">Adjuntar DNI Inquilino</label>
-                <input type="file" name="fileInput1" id="fileInput1" style="display: none;" required>
-                <p id="fileName1"></p>
-            </div>
+        <div class="ui segment big" id="user-profile">
     
-            <div class="center1">
-                <label for="fileInput2" class="custom-file-upload">Adjuntar DNI Aval</label>
-                <input type="file" name="fileInput2" id="fileInput2" style="display: none;" required>
-                <p id="fileName2"></p>
+            <div class="ui card">
+                <div class="content">
+                    <div class="header">Perfil de Usuario</div>
+                    <div class="meta" id="user-email">
+                    </div>
+                </div>
+                <div class="extra content">
+                    <button class="ui button red tiny" id="logout-btn">Log out</button>
+                </div>
             </div>
-    
-            <div class="center1">
-                <label for="fileInput3" class="custom-file-upload">Adjuntar Nóminas</label>
-                <input type="file" name="fileInput3" id="fileInput3" style="display: none;" required>
-                <p id="fileName3"></p>
+            
+            <h4>Subir documentos</h4>
+
+        <form id="document-form" class="ui form">
+            <div class="field">
+                <label for="document1">Adjuntar DNI inquilino</label>
+                <input type="file" name="1.DNIinquilino" id="1.DNIinquilino">
             </div>
-    
-            <div class="center1">
-                <label for="fileInput4" class="custom-file-upload">Adjuntar Carta Universidad</label>
-                <input type="file" name="fileInput4" id="fileInput4" style="display: none;" required>
-                <p id="fileName4"></p>
+            <div class="field">
+                <label for="document2">Adjuntar DNI Aval</label>
+                <input type="file" name="2.DNIAval" id="2.DNIAval">
             </div>
-    
-            <a href="1Login.html" target="_blank">Hacerlo más tarde</a>
-    
-            <div class="register">
-                <button type="submit" onclick="UploadFile();">Siguiente</button> 
+            <div class="field">
+                <label for="document3">Nóminas </label>
+                <input type="file" name="3.Nominas" id="3.Nominas">
             </div>
-            <p id="message"></p>
+            <div class="field">
+                <label for="document4">Carta universidad </label>
+                <input type="file" name="4.Cartauniversidad" id="4.Cartauniversidad">
+            </div>
+            <button class="ui button blue" type="submit">Finalizar</button>
         </form>
     </div>
-    
-    <script>
-    function UploadFile() {
-        const files = ['fileInput1', 'fileInput2', 'fileInput3', 'fileInput4'];
-        
-        let fileCount = files.length;
-
-        files.forEach((fileInputId, index) => {
-            const fileInput = document.getElementById(fileInputId);
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-            
-            reader.onload = function() {
-                document.getElementById(`fileContent${index + 1}`).value = reader.result;
-                document.getElementById(`filename${index + 1}`).value = file.name;
-                
-            fileCount--;
-                if (fileCount === 0) {
-                    // All files are processed, submit the form
-                    fetch(document.getElementById('registrationForm').action, {
-                        method: 'POST',
-                        body: new FormData(document.getElementById('registrationForm'))
-                    }).then(response => response.json())
-                    .then(data => {
-                        if (data.message) {
-                              window.location.href = '5Final.html'; // Change 'nextPage.html' to your actual next page URL
-                        } else {
-                            document.getElementById('message').textContent = 'Error: ' + data.error;
-                        }
-                    }).catch(error => {
-                        document.getElementById('message').textContent = 'Error: ' + error.message;
-                    });
-                }
-            };
-            
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-        });
-    }
-    </script>
+    <script src="js/firebase.js" type="module"></script>
+    <script src="js/documents.js" type="module"></script>
 </body>
 </html>

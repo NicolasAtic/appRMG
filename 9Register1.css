@@ -1,29 +1,14 @@
-body {
+.ui.segment.grey.signup-form{
   margin: 10px auto;
-  border: 1px solid #031032;
+  border: 1px solid #ffffff;
   max-width: 600px;
-  background-color: #ffffff;
+  background-color: #fdfdfd;
   padding: 20px;
   border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.body:hover:hover {
-  background-color: #514239;
-}
-.card {
-  margin: 10px auto;
-  border: 1px solid #a20e4c;
-  max-width: 600px;
-  background-color: #822424;
-  padding: 20px;
-  border-radius: 20px;
-
 }
 
-.card:hover {
-  background-color: hsl(23, 90%, 43%);
+.ui.segment.grey.signup-form:hover {
+  background-color: #faf0ea;
   transition: background-color 0.3s ease;
   box-shadow: 0 0 10px rgb(0, 0, 0);
   cursor: pointer;
@@ -32,9 +17,6 @@ body {
 .image3 {
   margin-bottom: 20px;
   border-radius: 30px;
-}
-
-body {
   text-align: center;
 }
 
@@ -47,18 +29,25 @@ input[type="text"], input[type="password"] {
   text-align: center;
 }
 
-button {
-  background-color: #0099ff;
-  color: rgb(255, 170, 0);
+.ui.button.blue.fluid.big {
+  background-color: #2f6ffa;
+  color: rgb(246, 244, 240);
   padding: 14px;
-  margin: 8px;
+  margin: 10px;
+  margin-left: 120px;
   border: none;
   cursor: pointer;
   width: 50%;
   border-radius: 30px;
   text-align: center;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.ui.button.blue.fluid.big:hover {
+  background-color: #f19831;
+}
 
 h2 {
   color: #000000;
@@ -73,61 +62,9 @@ h4 {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  .center1 i {
-    margin-bottom: 10px;
-  }
-
-  .center1 input {
-    text-align: left;
-  }
-
-  .card {
-    padding: 15px;
-  }
-
   .openhtml1 button {
     width: 100%;
     padding: 15px;
   }
-<<<<<<< HEAD
+  
 }
-
-=======
-  
-  .card-body {
-    padding: 0;
-  }
-  
-  /* Form Styles */
-  .signup-form { /* Target your existing form class */
-    width: 100%;  /* Set full width for form */
-  }
-  
-  /* Input Styles (Overrides Bootstrap Defaults) */
-  input[type=text], input[type=email], input[type=password] {
-    width: 100%;  /* Use full width for inputs */
-    padding: 10px 15px; /* Adjust padding as needed */
-    border: 1px solid #ccc; /* Add a border */
-    border-radius: 5px;
-  }
-  
-  /* Button Styles (Overrides Bootstrap Defaults) */
-  button {
-    background-color: #0099ff;
-    color: rgb(255, 170, 0);
-    padding: 14px;
-    margin: 8px;
-    border: none;
-    cursor: pointer;
-    width: 50%;  /* Use full width for button */
-    border-radius: 30px;
-    text-align: center;
-  }
-  
-  /* Responsive Styles (Optional) */
-  @media (max-width: 600px) {
-    /* Add your media query styles here if needed */
-  }
-  
->>>>>>> 05b35fbff20a6beb6ed7006ac357474750481eae

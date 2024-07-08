@@ -1,41 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="12RAval.css"> 
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
+    <title>Registro Aval</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="11Register.css">
 </head>
 <body>
     <div class="card">
+        <div class="image3">
+            <img src="https://www.tucasa.com/logos/logo2810864.gif" alt="image" width="120" height="100"/>   
+        </div>
+    
+        <div class="ui segment big" id="user-profile">
+    
+            <div class="ui card">
+                <div class="content">
+                    <div class="header">Perfil de Usuario</div>
+                    <div class="meta" id="user-email">
+                    </div>
+                </div>
+                <div class="extra content">
+                    <button class="ui button red tiny" id="logout-btn">Log out</button>
+                </div>
+            </div>
+        </div>
         <div class="center">
-            <button onclick="document.location='2Register.html'">
+            <button onclick="document.location='1Login.html'">
                 <i class='bx bx-chevron-left'></i>
             </button>
             <h>Registro Aval </h>
         </div>
 
-        <form action="" id="registrationForm">
+        <form action="" id="aval-form">
             <div class="center1">
-                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Nombre completo" required>
+                <input type="text" class="form-control" id="aavalfullName" name="aavalfullName" placeholder="Nombre completo" required>
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="center1">
-                <label for="docType">Tipo</label>
-                <select name="docType" required>
+                <label for="bavaldocType">Tipo</label>
+                <select id="bavaldocType" name="bavaldocType" required>
                     <option value="Dni">DNI</option>
                     <option value="Pss">Pasaporte</option>
                     <option value="Nie">NIE</option>
                     <option value="Nif">NIF</option>
                     <option value="otros">otros</option>
                 </select>
-                <input type="text" class="form-control" id="docNumber" name="docNumber" placeholder="número de documento" required>
+                <input type="text" class="form-control" id="cavaldocNumber" name="cavaldocNumber" placeholder="número de documento" required>
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="center1" id="nationality">
                 <label for="nationality">Nacionalidad</label>
-                <select id="nationality" name="nationality" class="form-control" required>
+                <select id="davalnationality" name="davalnationality" class="form-control" required>
                         <option value="Afganistán">Afganistán</option>
                         <option value="Albania">Albania</option>
                         <option value="Alemania">Alemania</option>
@@ -234,12 +251,12 @@
                 <i class='bx bxs-user'></i>
             </div>
             <div class="center1"> 
-                <input type="text" class="form-control" id="address" name="address" placeholder="Direccion" required>
+                <input type="text" class="form-control" id="eavaladdress" name="eavaladdress" placeholder="Direccion" required>
                 <i class='bx bxs-user'></i></div>
 
             <div class="center1" id="phone">
                 <label for="phone">Teléfono</label>
-                <select id="countryCode" name="countryCode" class="form-control" required>
+                <select id="favalcountryCode" name="favalcountryCode" class="form-control" required>
                     <option data-countryCode="AF" value="93">Afganistán (+93)</option>
                     <option data-countryCode="AL" value="355">Albania (+355)</option>
                     <option data-countryCode="DE" value="49">Alemania (+49)</option>
@@ -466,27 +483,26 @@
                     <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                     <option data-countryCode="ZW" value="263">Zimbabue (+263)</option>
                 </select>
-                <input type="text" class="form-control" id="phone" name="phone" placeholder="Teléfono" pattern="[0-9]+" title="Please enter only digits" required>
+                <input type="text" class="form-control" id="gavalphone" name="gavalphone" placeholder="Teléfono" pattern="[0-9]+" title="Please enter only digits" required>
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="center1">
-                <input type="email"class="form-control" id="email" name="email" placeholder="Email" required>
+                <input type="email"class="form-control" id="havalemail" name="havalemail" placeholder="Email" required>
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="center1">
-                <input type="text" class="form-control" id="accountNumber" name="accountNumber" placeholder="Número de cuenta" required>
+                <input type="text" class="form-control" id="iavalaccountNumber" name="iavalaccountNumber" placeholder="Número de cuenta" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="center1">
-                <input type="text" class="form-control" id="accountCode" name="accountCode" placeholder="Codigo IBAN/Swift" required>
+                <input type="text" class="form-control" id="javalaccountCode" name="javalaccountCode" placeholder="Codigo BIC/Swift" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div>
-                <input type="checkbox" class="form-control" id="terms" name="terms" required> Acepto los términos y condiciones <br>
             </div>
-            <a href="1Login.html" target="_blank">Hacerlo más tarde</a>
+            <a href="./1Login.html" target="_blank">Hacerlo más tarde</a>
 
             <div class="register">
                 <button type="submit" >Siguiente</button>
@@ -494,7 +510,8 @@
             
         </form>
     </div>
-    <script src="raval.js"></script>
-
+   
+    <script src="js/firebase.js" type="module"></script>
+    <script src="js/raval.js" type="module"></script>
 </body>
 </html>

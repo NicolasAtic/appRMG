@@ -4,6 +4,15 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.img{
+    margin: 10px auto;
+    border: 1px solid #031032;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+}
 .card {
     margin: 10px auto;
     border: 1px solid #031032;
@@ -20,12 +29,13 @@ body {
 }
 .center {
     margin-bottom: 20px;
-    background-color: #008fcc;
+    background-color: #725aa5;
     padding: 10px;
     font-size: 30px;
     text-align: center;
     border-radius: 8px;
     position: relative;
+    height: 20px;
 }
 .center button {
     position: absolute;
@@ -37,23 +47,13 @@ body {
     font-size: 20px;
 }
 .center button:hover {
-    background-color: #f5d6c0;
+    background-color: #b4a3f0;
+    border-radius: 8px;
+
 }
 .register {
     text-align: center;
     margin-top: 20px;
-}
-.register button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #5143f0;
-    color: rgb(227, 229, 240);
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.register button:hover {
-    background-color: #fc8f47;
 }
 /* Media Queries for Responsive Design */
 @media (max-width: 600px) {
