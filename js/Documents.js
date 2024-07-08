@@ -4,21 +4,21 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstati
 import { db } from './firebase.js';
 
 const auth = getAuth();
-const storage = getStorage();
+const storage = getStorage(); // en esta carpeta se guardaran los archivos con el uid 
 const logOutBtn = document.getElementById("logout-btn");
 const UIuserEmail = document.getElementById("user-email");
 const RdocumentForm = document.getElementById("document-form");
 
-// this is for take it back data from user
+// this is for take it back data from user that was daved snap 
 const loadUserData = async (user) => {
     const docRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
         const userData = docSnap.data();
-        UIuserEmail.innerHTML = userData.email;
+        UIuserEmail.innerHTML = userData.email; // i user has data comeback to user frontend
     } else {
-        console.log("No such document!");
+        console.log("No such document!"); // if user do not have data come cabk this
     }
 };
 // if user is not login takes direct to the login page 
@@ -30,7 +30,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// the documents go direct to firestorage 
+// the documents go direct to firestorage with user id and docnamen 
 const uploadDocument = async (file, userId, docName) => {
     const storageRef = ref(storage, `${userId}/${docName}`);
     await uploadBytes(storageRef, file);
@@ -38,10 +38,10 @@ const uploadDocument = async (file, userId, docName) => {
     return downloadURL;
 };
 
-// take url of documents 
+// take url of documents and go to clous firestorage 
 const saveDocumentURLs = async (user, urls) => {
     await setDoc(doc(db, "users", user.uid), {
-        documentURLs: urls
+        udocumentURLs: urls
     }, { merge: true });
 };
 //  now working 
@@ -50,15 +50,15 @@ RdocumentForm.addEventListener("submit", async (e) => {
     const user = auth.currentUser;
     const DNIinquilino = document.getElementById("1.DNIinquilino").files[0];
     const DNIAval = document.getElementById("2.DNIAval").files[0];
-    const Nóminas = document.getElementById("3.Nóminas").files[0];
-    const Carta= document.getElementById("4.Carta universidad").files[0];
+    const Nominas = document.getElementById("3.Nominas").files[0];
+    const Carta = document.getElementById("4.Cartauniversidad").files[0];
 
     const urls = {};
 
     if (DNIinquilino) urls.DNIinquilino = await uploadDocument(DNIinquilino, user.uid, "1.DNIinquilino");
     if (DNIAval) urls.DNIAval = await uploadDocument(DNIAval, user.uid, "2.DNIAval");
-    if (Nóminas) urls.document3 = await uploadDocument(Nóminas, user.uid, "3.Nóminas");
-    if (Carta) urls.document4 = await uploadDocument(Carta, user.uid, "4.Carta universidad");
+    if (Nominas) urls.Nominas = await uploadDocument(Nominas, user.uid, "3.Nominas");
+    if (Carta) urls.Carta = await uploadDocument(Carta, user.uid, "4.Cartauniversidad");
 
     await saveDocumentURLs(user, urls);
     alert("Documents uploaded successfully!");
@@ -78,4 +78,4 @@ const logOutButtonPressed = async () => {
 };
 
 logOutBtn.addEventListener("click", logOutButtonPressed);
-// didara whyyyy its yur job gs 
+// didara whyyyy its yur job 

@@ -18,7 +18,7 @@ const loadAvalData = async (user) => {
     if (docSnap.exists()) {
         const userData = docSnap.data();
         UIuserEmail.innerHTML = userData.email;
-        for (const [key, value] of Object.entries(userData.avalData || {})) {
+        for (const [key, value] of Object.entries(userData.ravalData || {})) {
             const inputElement = document.querySelector(`#aval-form [name=${key}]`);
             if (inputElement) {
                 inputElement.value = value;
@@ -40,14 +40,14 @@ onAuthStateChanged(auth, (user) => {
 
 // save data
 const saveAvalData = async (user) => {
-    const avalData = {};
+    const ravalData = {};
     const formData = new FormData(RavalForm);
     formData.forEach((value, key) => {
-        avalData[key] = value;
+        ravalData[key] = value;
     });
 
     await setDoc(doc(db, "users", user.uid), {
-        avalData: avalData
+        ravalData: ravalData
     }, { merge: true });
 };
 // submit
