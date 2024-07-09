@@ -51,14 +51,14 @@ RdocumentForm.addEventListener("submit", async (e) => {
     const DNIinquilino = document.getElementById("1.DNIinquilino").files[0];
     const DNIAval = document.getElementById("2.DNIAval").files[0];
     const Nominas = document.getElementById("3.Nominas").files[0];
-    const Carta = document.getElementById("4.Cartauniversidad").files[0];
+    const Ucarta = document.getElementById("4.Cartauniversidad").files[0];
 
     const urls = {};
 
     if (DNIinquilino) urls.DNIinquilino = await uploadDocument(DNIinquilino, user.uid, "1.DNIinquilino");
     if (DNIAval) urls.DNIAval = await uploadDocument(DNIAval, user.uid, "2.DNIAval");
     if (Nominas) urls.Nominas = await uploadDocument(Nominas, user.uid, "3.Nominas");
-    if (Carta) urls.Carta = await uploadDocument(Carta, user.uid, "4.Cartauniversidad");
+    if (Ucarta) urls.UCarta = await uploadDocument(Ucarta, user.uid, "4.Cartauniversidad");
 
     await saveDocumentURLs(user, urls);
     alert("Documents uploaded successfully!");
