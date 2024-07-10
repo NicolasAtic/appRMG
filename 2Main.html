@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Inquilino</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="11Register.css">
+    <link rel="stylesheet" href="11Main.css">
 </head>
 <body>
     <div class="card">
-        <div class="image3">
-            <img src="https://www.tucasa.com/logos/logo2810864.gif" alt="image" width="120" height="100"/>   
-        </div>
-    
+       
         <div class="ui segment big" id="user-profile">
-    
-            <div class="ui card">
-                <div class="content">
-                    <div class="header">Perfil de Usuario</div>
-                    <div class="meta" id="user-email">
-                    </div>
-                </div>
-                <div class="extra content">
-                    <button class="ui button red tiny" id="logout-btn">Hacerlo mas tarde</button>
-                </div>
-            </div>
+            <div class="meta" id="user-email"></div>
+           <button class="ui button blue tiny" id="logout-btn">Hacerlo mas tarde</button>
         </div>
         <div class="center">
             <button onclick="document.location='1Login.html'">
@@ -32,27 +22,25 @@
             <h>Registro </h>
         </div>
 
-        <form action="" id="main-form">
+        <form action="" id="main-form" class="form">
             <div class="center1">
                 <input type="text" class="form-control" id="afullName" name="afullName" placeholder="Nombre completo">
-                <i class='bx bxs-user'></i>
             </div>
-            <div class="center1">
-                <label for="bdocType">Tipo</label>
-                <select id="bdocType" name="bdocType">
+            <div class="center2">
+                <label class="type" for="bdocType">Tipo:</label>
+                <select class="bdocType" id="bdocType" name="bdocType">
                     <option value="Dni">DNI</option>
                     <option value="Pss">Pasaporte</option>
                     <option value="Nie">NIE</option>
                     <option value="Nif">NIF</option>
                     <option value="otros">otros</option>
                 </select>
-                <input type="text" class="form-control" id="cdocNumber" name="cdocNumber" placeholder="número de documento">
-                <i class='bx bxs-user'></i>
+                <input class="cdocNumber" type="text" id="cdocNumber" name="cdocNumber" placeholder="número de documento">
             </div>
 
-            <div class="center1" id="nationality">
-                <label for="nationality">Nacionalidad</label>
-                <select id="dnationality" name="dnationality" class="form-control">
+            <div class="center3" id="nationality">
+                <label for="nationality">Nacionalidad:</label>
+                <select id="dnationality" name="dnationality" class="nationality">
                         <option value="Afganistán">Afganistán</option>
                         <option value="Albania">Albania</option>
                         <option value="Alemania">Alemania</option>
@@ -248,15 +236,15 @@
                         <option value="Zambia">Zambia</option>
                         <option value="Zimbabue">Zimbabue</option>
                    </select>
-                <i class='bx bxs-user'></i>
+
             </div>
             <div class="center1"> 
                 <input type="text" class="form-control" id="eaddress" name="eaddress" placeholder="Direccion">
-                <i class='bx bxs-user'></i></div>
+            </div>
 
-            <div class="center1" id="phone">
-                <label for="phone">Teléfono</label>
-                <select id="fcountryCode" name="fcountryCode" class="form-control" >
+            <div class="center4" id="phone">
+                <label for="phone">Teléfono:</label>
+                <select id="fcountryCode" name="fcountryCode" class="codecountry" >
                     <option data-countryCode="AF" value="93">Afganistán (+93)</option>
                     <option data-countryCode="AL" value="355">Albania (+355)</option>
                     <option data-countryCode="DE" value="49">Alemania (+49)</option>
@@ -483,36 +471,97 @@
                     <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                     <option data-countryCode="ZW" value="263">Zimbabue (+263)</option>
                 </select>
-                <input type="text" class="form-control" id="gphone" name="gphone" placeholder="Teléfono" pattern="[0-9]+" title="Please enter only digits" >
-                <i class='bx bxs-user'></i>
+                <input type="text" class="phone" id="gphone" name="gphone" placeholder="Teléfono" pattern="[0-9]+" title="Please enter only digits" >
             </div>
 
             <div class="center1">
-                <input type="email"class="form-control" id="hemail" name="hemail" placeholder="Email" >
-                <i class='bx bxs-user'></i>
+                <input type="email"class="form-control" id="hemail" name="hemail" placeholder="example@example.com" >
+                
             </div>
 
             <div class="center1">
                 <input type="text" class="form-control" id="iaccountNumber" name="iaccountNumber" placeholder="Número de cuenta">
-                <i class='bx bxs-user'></i>
             </div>
             <div class="center1">
                 <input type="text" class="form-control" id="jaccountCode" name="jaccountCode" placeholder="Codigo BIC/Swift" >
-                <i class='bx bxs-user'></i>
             </div>
-            <div>
-                <input type="checkbox" class="form-control" id="kterms" name="kterms" required> Acepto los términos y condiciones <br>
+            <div class="a">
+                <input type="checkbox" class="form-control" id="kterms" name="kterms" required>
+                Acepto los <a href="#" id="terms-link">términos y condiciones</a>
             </div>
-            <a href="./1Login.html" target="_blank">Hacerlo más tarde</a>
-
+           
             <div class="register">
-                <button type="submit" >Siguiente</button>
+                <button type="submit">Siguiente</button>
             </div> 
-            
         </form>
     </div>
-   
+
+    <!-- Modal -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Términos y Condiciones y Política de Protección de Datos</h2>
+            <p>
+                <strong>1. Identificación del Responsable del Tratamiento</strong><br>
+                Responsable: MyCityHome.es<br>
+                Domicilio: [Dirección de la empresa]<br>
+                Correo Electrónico: [Correo de contacto]<br><br>
+
+                <strong>2. Finalidad del Tratamiento de Datos</strong><br>
+                La finalidad de la recogida y tratamiento de los datos personales proporcionados por los inquilinos es la de mantener un registro preciso y actualizado de los mismos, así como para la gestión de sus relaciones contractuales con MyCityHome.es. Los datos se utilizarán para la verificación de identidad, comunicación de información relevante sobre la propiedad, y cualquier otra finalidad relacionada con la gestión de la vivienda.<br><br>
+
+                <strong>3. Legitimación para el Tratamiento de Datos</strong><br>
+                El tratamiento de los datos se realiza en base a la relación contractual entre MyCityHome.es y los inquilinos. El consentimiento del interesado, manifestado mediante la aceptación de estos términos y condiciones.<br><br>
+
+                <strong>4. Plazo de Conservación de los Datos</strong><br>
+                Los datos personales se conservarán mientras dure la relación contractual y, una vez finalizada ésta, durante el plazo necesario para cumplir con las obligaciones legales aplicables.<br><br>
+
+                <strong>5. Destinatarios de los Datos</strong><br>
+                Los datos no se cederán a terceros, salvo obligación legal o cuando sea necesario para el cumplimiento de la relación contractual.<br><br>
+
+                <strong>6. Derechos de los Interesados</strong><br>
+                Los interesados tienen derecho a acceder, rectificar y suprimir sus datos, así como otros derechos, como se explica en la información adicional. Para el ejercicio de estos derechos, el interesado puede enviar una comunicación al correo electrónico [correo de contacto] adjuntando copia de su DNI o documento equivalente.<br><br>
+
+                <strong>7. Información Adicional</strong><br>
+                Puede consultar la información adicional y detallada sobre Protección de Datos en nuestra página web: [enlace a la política completa de privacidad]<br><br>
+
+                <strong>8. Aceptación de los Términos y Condiciones</strong><br>
+                Al aceptar estos términos y condiciones, el usuario consiente el tratamiento de sus datos personales conforme a lo aquí expuesto.<br><br>
+
+                <strong>Última actualización:</strong> [Fecha de actualización]
+            </p>
+        </div>
+    </div>
+
     <script src="js/firebase.js" type="module"></script>
     <script src="js/main.js" type="module"></script>
+    <script>
+        // Obtener el modal
+        var modal = document.getElementById("terms-modal");
+
+        // Obtener el botón que abre el modal
+        var btn = document.getElementById("terms-link");
+
+        // Obtener el <span> que cierra el modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Cuando el usuario hace clic en el botón, abre el modal
+        btn.onclick = function(event) {
+            event.preventDefault();
+            modal.style.display = "block";
+        }
+
+        // Cuando el usuario hace clic en <span> (x), cierra el modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Cuando el usuario hace clic en cualquier lugar fuera del modal, cierra el modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script> 
 </body>
 </html>
