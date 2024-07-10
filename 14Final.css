@@ -4,15 +4,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
-.img{
-    margin: 10px auto;
-    border: 1px solid #031032;
-    max-width: 600px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 20px;
-}
 .card {
     margin: 10px auto;
     border: 1px solid #031032;
@@ -22,20 +13,19 @@ body {
     border-radius: 20px;
 }
 .card:hover {
-    background-color: #faf0ea;
+    background-color: #ffffff;
     transition: background-color 0.3s ease;
     box-shadow: 0 0 10px rgb(0, 0, 0);
     cursor: pointer;
 }
 .center {
     margin-bottom: 20px;
-    background-color: #725aa5;
+    background-color: #b5b6b7;
     padding: 10px;
     font-size: 30px;
     text-align: center;
     border-radius: 8px;
     position: relative;
-    height: 20px;
 }
 .center button {
     position: absolute;
@@ -44,37 +34,20 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 15px;
+    text-align: right;
 }
 .center button:hover {
-    background-color: #b4a3f0;
-    border-radius: 8px;
-
-}
-.register {
-    text-align: center;
-    margin-top: 20px;
-}
-/* Media Queries for Responsive Design */
-@media (max-width: 600px) {
-    .center1 {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .center1 i {
-        margin-bottom: 10px;
-    }
-    .center1 input {
-        text-align: left;
-    }
-    .card {
-        padding: 15px;
-    }
-    .register button {
-        width: 100%;
-        padding: 15px;
-    } 
+    background-color: #ffffff;
 }
 body{
     text-align: center;
+}
+.img{
+    margin: 10px auto;
+    border: 1px solid #031032;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
 }

@@ -13,14 +13,14 @@ body {
     border-radius: 20px;
 }
 .card:hover {
-    background-color: #faf0ea;
+    background-color: #ffffff;
     transition: background-color 0.3s ease;
     box-shadow: 0 0 10px rgb(0, 0, 0);
     cursor: pointer;
 }
 .center {
     margin-bottom: 20px;
-    background-color: #008fcc;
+    background-color: #b5b6b7;
     padding: 10px;
     font-size: 30px;
     text-align: center;
@@ -34,80 +34,45 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 15px;
+    text-align: right;
 }
 .center button:hover {
-    background-color: #f5d6c0;
+    background-color: #ffffff;
 }
-.center1 {
-    margin:auto;
-    padding:20px;    
-    border: 2px solid #ccc;
-    border-radius:30px;
-    padding: 10px;
-    font-size: 20px;
-    text-align: center;
-    border: 2px solid #000;
-    width: 50%;
-    margin-bottom: 30px;
-    width: 50%;
+.ui.button.blue{
+    background-color: #0080ff;
 }
-.center1 i {
-    font-size: 20px;
-    margin-right: 10px;
-    align-items: left;
-}
-.center1 input {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    float: left;
-}
-a {
-    display: block;
-    text-align: right;
-    color: black;
-    text-decoration: none;
-    margin-top: 20px;
-}
-.register {
-    text-align: center;
-    margin-top: 20px;
-}
-.register button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #5143f0;
-    color: rgb(227, 229, 240);
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-p{
-    color:#ccc
-}
-.register button:hover {
+.ui.button.blue:hover{
     background-color: #fc8f47;
 }
-
-/* Media Queries for Responsive Design */
-@media (max-width: 600px) {
-    .center1 {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .center1 i {
-        margin-bottom: 10px;
-    }
-    .center1 input {
-        text-align: left;
-    }
-    .card {
-        padding: 15px;
-    }
-    .register button {
-        width: 100%;
-        padding: 15px;
-    }}
+.buttonF {
+    text-align:center;
+}
+.ui button.red.tiny {
+    background-color: #0080ff;
+}
+.ui button.red.tiny:hover {
+    background-color: #fc8f47;
+}
+.ui.segment.big {
+    font-size: 1em;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    border:none;
+}
+.meta{
+    font-family: Verdana,Tahoma, sans-serif;
+    font-size: 1.3em;
+    color: black;
+}
+.ui.button.blue.tiny{
+    background-color: #0080ff;
+}
+.ui.button.blue.tiny:hover{
+    background-color: #fc8f47;
+}
+.ui.form{
+    text-align: center;
+}

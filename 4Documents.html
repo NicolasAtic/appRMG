@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -9,23 +11,16 @@
 <body>
     <div class="card">
         <div class="ui segment big" id="user-profile">
-            <div class="ui card">
-                <div class="content">
-                    <div class="header">Perfil de Usuario</div>
-                    <div class="meta" id="user-email">
-                    </div>
-                </div>
-                <div class="extra content">
-                    <button class="ui button red tiny" id="logout-btn">Hacerlo mas tarde</button>
-                </div>
-            </div>
+            <div class="meta" id="user-email"></div>
+            <button class="ui button blue tiny" id="logout-btn">Hacerlo mas tarde</button>
+        </div>
+
             <div class="center">
                 <button onclick="document.location='3RAval.html'">
                     <i class='bx bx-chevron-left'></i>
                 </button>
                 <h>Subir documentos</h>
             </div>
-
         <form id="document-form" class="ui form">
             <div class="field">
                 <label for="document1">Adjuntar DNI inquilino</label>
@@ -43,7 +38,9 @@
                 <label for="document4">Carta universidad </label>
                 <input type="file" name="4.Cartauniversidad" id="4.Cartauniversidad" required>
             </div>
-            <button class="ui button blue" type="submit">Finalizar</button>
+            <div class="buttonF" >
+                <button class="ui button blue" type="submit">Finalizar</button>
+            </div>
         </form>
     </div>
     <script src="js/firebase.js" type="module"></script>
