@@ -49,9 +49,10 @@ body {
     padding: 10px;
     background-color: #fff;
 }
-.center1 i {
+i {
     font-size: 20px;
-    margin-right: 10px;
+    margin-right: 20px;
+
 }
 .center1 input {
     width: 100%;
