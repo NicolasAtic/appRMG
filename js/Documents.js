@@ -78,4 +78,4 @@ const logOutButtonPressed = async () => {
 };
 
 logOutBtn.addEventListener("click", logOutButtonPressed);
-// didara whyyyy its yur job 
+// didara why
