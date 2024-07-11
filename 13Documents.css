@@ -40,19 +40,13 @@ body {
 .center button:hover {
     background-color: #ffffff;
 }
-.ui.button.blue{
-    background-color: #0080ff;
-}
-.ui.button.blue:hover{
-    background-color: #fc8f47;
-}
 .buttonF {
     text-align:center;
 }
-.ui button.red.tiny {
+.ui.button.blue.tiny{
     background-color: #5143f0;
 }
-.ui button.red.tiny:hover {
+.ui.button.blue.tiny:hover{
     background-color:#ffad06;
     transition: 1s;
 }
