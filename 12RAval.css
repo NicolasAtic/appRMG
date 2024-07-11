@@ -62,6 +62,19 @@ body {
     cursor:context-menu;
     font-size: 1em;
 }
+.center button {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: right;
+}
+.center button:hover {
+    background-color: #ffffff;
+}
 .center1 {
     margin: 10px 0;
     display: flex;
@@ -215,12 +228,13 @@ body {
     background-color: #5143f0;
     color: rgb(227, 229, 240);
     font-size: 1em;
+    font-weight: 700;
     cursor: pointer;
     border-radius: 5px;
 }
 
 .register button:hover {
-    background:linear-gradient(to right, #1111c8, #ffad06);
+    background-color:#ffad06;
     transition: 1s;
 }
 

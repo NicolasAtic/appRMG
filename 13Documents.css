@@ -50,11 +50,13 @@ body {
     text-align:center;
 }
 .ui button.red.tiny {
-    background-color: #0080ff;
+    background-color: #5143f0;
 }
 .ui button.red.tiny:hover {
-    background-color: #fc8f47;
+    background-color:#ffad06;
+    transition: 1s;
 }
+
 .ui.segment.big {
     font-size: 1em;
     display: flex;
@@ -67,12 +69,18 @@ body {
     font-size: 1.3em;
     color: black;
 }
-.ui.button.blue.tiny{
-    background-color: #0080ff;
+.ui.button.blue{
+    background-color: #5143f0;
 }
-.ui.button.blue.tiny:hover{
-    background-color: #fc8f47;
+.ui.button.blue:hover{
+    background-color:#ffad06;
+    transition: 1s;
 }
+.register {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .ui.form{
     text-align: center;
 }

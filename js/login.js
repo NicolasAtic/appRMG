@@ -6,15 +6,16 @@ const loginPassword = document.getElementById("login-password");
 const loginBtn = document.getElementById("login-btn");
 const loginErrorMessage = document.getElementById("login-error-message"); 
 
+// te logeas con su usuario y tu contraseña
 const loginButtonPressed = async (e) => {
   e.preventDefault();
-
+// busca los datos para auth the client
   try {
     await signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value);
     window.location.href = '2main.html'; // Redirects to the main form after successful login
   } catch (error) {
     console.error(error.code); 
-    loginErrorMessage.textContent = formatErrorMessage(error.code, "login"); // Set the error message content
+    loginErrorMessage.textContent = formatErrorMessage(error.code, "login"); // da un mensaje de error
     loginErrorMessage.classList.add("visible");
   }
 };
