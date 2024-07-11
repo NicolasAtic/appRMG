@@ -8,19 +8,20 @@ const password = document.getElementById("password");
 const signUpBtn = document.getElementById("signup-btn");
 const UIErrorMessage = document.getElementById("error-message");
 
+//creates the user by pressing subp
 const signUpButtonPressed = async (e) => {
     e.preventDefault();
-
+// creates the user with email and password
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
         console.log(userCredential);
-// user es la coleccion en la base de datos de firebase y se esta creacando un documento 
+// user es la coleccion en la base de datos de firebase y se esta creacando un documento en firestore para los siguientes forms
         await setDoc(doc(db, "users", userCredential.user.uid),{
             email: userCredential.user.email,
             mainData: {},
-            registrationData:{}
+            ravalData:{},
+            udocumentURLs:{}
         });
-
         window.location.href = '../1Login.html'; // Redirige a la página de inicio de sesión después del registro exitoso
     } catch (error) {
         console.log(error.code);

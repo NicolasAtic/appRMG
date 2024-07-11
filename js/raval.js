@@ -14,7 +14,7 @@ const loadAvalData = async (user) => {
     const docRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(docRef);
 
-// process
+// process data saved
     if (docSnap.exists()) {
         const userData = docSnap.data();
         UIuserEmail.innerHTML = userData.email;
@@ -29,7 +29,7 @@ const loadAvalData = async (user) => {
     }
 };
 
-// if user is login authenificate
+// if user is login authenificate mantein if not take to login
 onAuthStateChanged(auth, (user) => {
     if (user) {
         loadAvalData(user);
@@ -38,19 +38,19 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-// save data
+// save data and change 
 const saveAvalData = async (user) => {
     const ravalData = {};
     const formData = new FormData(RavalForm);
     formData.forEach((value, key) => {
         ravalData[key] = value;
     });
-
+// compare data and merge
     await setDoc(doc(db, "users", user.uid), {
         ravalData: ravalData
     }, { merge: true });
 };
-// submit
+// submit data givea an alert
 RavalForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;

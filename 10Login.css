@@ -45,7 +45,7 @@ body {
   color: #999;
 }
 .ui.button.blue.fluid.big {
-  background-color: #2f6ffa;
+  background-color: #5143f0;
   color: rgb(246, 244, 240);
   padding: 14px;
   margin: 20px auto;
@@ -60,7 +60,8 @@ body {
   transition: background-color 0.3s ease;
 }
 .ui.button.blue.fluid.big:hover {
-  background-color: #f19831;
+  background-color:#ffad06;
+  transition: 1s;
 }
 .ui.message {
   text-align: center;

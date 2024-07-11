@@ -9,7 +9,7 @@ const logOutBtn = document.getElementById("logout-btn");
 const UIuserEmail = document.getElementById("user-email");
 const RdocumentForm = document.getElementById("document-form");
 
-// this is for take it back data from user that was daved snap 
+// this is for take it back data from user that was saved snap 
 const loadUserData = async (user) => {
     const docRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(docRef);
@@ -44,7 +44,7 @@ const saveDocumentURLs = async (user, urls) => {
         udocumentURLs: urls
     }, { merge: true });
 };
-//  now working 
+//  now working  submit doc 
 RdocumentForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
@@ -52,7 +52,7 @@ RdocumentForm.addEventListener("submit", async (e) => {
     const DNIAval = document.getElementById("2.DNIAval").files[0];
     const Nominas = document.getElementById("3.Nominas").files[0];
     const Ucarta = document.getElementById("4.Cartauniversidad").files[0];
-
+// takes url and save in good way
     const urls = {};
 
     if (DNIinquilino) urls.DNIinquilino = await uploadDocument(DNIinquilino, user.uid, "1.DNIinquilino");
@@ -62,11 +62,11 @@ RdocumentForm.addEventListener("submit", async (e) => {
 
     await saveDocumentURLs(user, urls);
     alert("Documents uploaded successfully!");
-    // fo next page 
+    // fo next page if works
     window.location.href = '5Final.html';
 });
 
-// press log out 
+// press log out data save to 
 const logOutButtonPressed = async () => {
     try {
         const user = auth.currentUser;
@@ -78,4 +78,3 @@ const logOutButtonPressed = async () => {
 };
 
 logOutBtn.addEventListener("click", logOutButtonPressed);
-// didara why

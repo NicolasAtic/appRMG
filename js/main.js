@@ -7,7 +7,7 @@ const logOutBtn = document.getElementById("logout-btn");
 const UIuserEmail = document.getElementById("user-email");
 const mainForm = document.getElementById("main-form");
 
-
+// se llama a la fata del usuario si existe pone la informacion
 const loadUserData = async (user) => {
     const docRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(docRef);
@@ -24,10 +24,11 @@ const loadUserData = async (user) => {
             }
         }
     } else {
+        // si no encuentra data da lo siguiente la primera vez despues de crear
         console.log("No such document!");
     }
 };
-
+// autentifica que el usuario esta logeado sino redirige a login
 onAuthStateChanged(auth, (user) => {
     if (user) {
         loadUserData(user);
@@ -35,7 +36,7 @@ onAuthStateChanged(auth, (user) => {
         window.location.href = '1Login.html'; // Redirige al login si no hay usuario autenticado
     }
 });
-
+// si se completa el formulario guarda la informacion para esto se creo un objeto formdata por si se cambian los campos a futuro
 const saveUserData = async (user) => {
     const mainData = {};
     const formData = new FormData(mainForm);
@@ -47,7 +48,7 @@ const saveUserData = async (user) => {
         mainData: mainData
     }, { merge: true }); // Merge mantiene los datos existentes y actualiza los nuevos
 };
-
+// al presionar siguiente esta informacion se guarda y te da una alerta de que se guardo bien y te dirigue a la siguiente
 mainForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
@@ -55,7 +56,7 @@ mainForm.addEventListener("submit", async (e) => {
     alert("Data saved successfully!");
     window.location.href = '3RAval.html';
 });
-
+// para salit con el boton hacerlo mas tarde igualmente guarda la info
 const logOutButtonPressed = async () => {
     try {
         const user = auth.currentUser;
