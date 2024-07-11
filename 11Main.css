@@ -1,8 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url("https://th.bing.com/th/id/R.732a0d27ce97f1ccd82a07e146a3329e?rik=TbAA5PTKKYCjPw&riu=http%3a%2f%2fwww.mycityhome.es%2fwp-content%2fuploads%2f2018%2f02%2fpiso-2-home.jpg&ehk=n2onSI%2bNJ1U6K4p0OKNiKuwFoKLOoH3vjdmVt7xav8Y%3d&risl=&pid=ImgRaw&r=0");
-    backdrop-filter: blur(6px);
-    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
