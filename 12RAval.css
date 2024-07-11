@@ -36,7 +36,10 @@ body {
     background-color: #5143f0;
 }
 .ui.button.blue.tiny:hover{
-    background-color: #fc8f47;
+    background-color:#ffad06;
+    transition: 1s;
+    
+
 }
 .center {
     margin-bottom: 20px;
