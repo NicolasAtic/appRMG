@@ -55,8 +55,6 @@ RavalForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
     await saveAvalData(user);
-    alert("Aval data saved successfully!");
-    
     window.location.href = '4Documents.html';
 });
  //log out button

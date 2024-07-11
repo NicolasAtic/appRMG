@@ -53,7 +53,6 @@ mainForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
     await saveUserData(user);
-    alert("Data saved successfully!");
     window.location.href = '3RAval.html';
 });
 // para salit con el boton hacerlo mas tarde igualmente guarda la info
