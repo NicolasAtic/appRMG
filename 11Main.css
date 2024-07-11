@@ -20,7 +20,7 @@ body {
 }
 .card:hover {
     transition: background-color 0.3s ease;
-    box-shadow: 10px 10px 10px rgb(26, 25, 26);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
     cursor: pointer;
 }
 .ui.segment.big {
@@ -96,6 +96,7 @@ body {
     padding: 10px;
     background-color: #fff;
     width: 35%;
+    float: center;
 }
 .cdocNumber{
     margin: 0 10px 0;
@@ -105,7 +106,7 @@ body {
     border-radius: 30px;
     padding: 10px;
     background-color: #fff;
-    
+    float: right;
 }
 
 .center2{

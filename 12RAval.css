@@ -20,7 +20,7 @@ body {
 }
 .card:hover {
     transition: background-color 0.3s ease;
-    box-shadow: 10px 10px 10px rgb(26, 25, 26);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
     cursor: pointer;
 }
 .ui.segment.big {
