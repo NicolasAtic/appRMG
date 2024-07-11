@@ -21,32 +21,37 @@ body {
     cursor: pointer;
 }
 .ui.segment.big {
-    font-size: 1em;
     display: flex;
-    justify-content:space-between;
-    align-items: center;
-    border:none;
+    justify-content: space-between; 
+    align-items: center; 
+    border: none;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 1em; 
+    font-weight: bold; 
 }
-.meta{
-    font-family: Verdana,Tahoma, sans-serif;
-    font-size: 1.3em;
+.meta {
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 1em; 
     color: black;
+    font-weight: bold; 
+    margin-left: 1em;
 }
-.ui.button.blue.tiny{
-    background-color: #5143f0;
-}
-.ui.button.blue.tiny:hover{
-    background-color:#ffad06;
-    transition: 1s;
-    
 
+.ui.button.blue.tiny {
+    background-color: #5143f0;
+    margin-left: auto; 
+}
+
+.ui.button.blue.tiny:hover {
+    background-color: #ffad06;
+    transition: 1s;
 }
 .center {
     margin-bottom: 20px;
     background-color: #b5b6b7;
     padding: 10px;
     font-size: 2em;
-    font-weight:400;
+    font-weight:bold;
     text-align: center;
     border-radius: 8px;
     position: relative;

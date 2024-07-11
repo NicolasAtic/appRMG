@@ -22,7 +22,8 @@ body {
     margin-bottom: 20px;
     background-color: #b5b6b7;
     padding: 10px;
-    font-size: 30px;
+    font-size: 2em;
+    font-weight: bold;
     text-align: center;
     border-radius: 8px;
     position: relative;
@@ -43,25 +44,31 @@ body {
 .buttonF {
     text-align:center;
 }
-.ui.button.blue.tiny{
-    background-color: #5143f0;
+.ui.segment.big {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    border: none;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 1em; 
+    font-weight: bold; 
 }
-.ui.button.blue.tiny:hover{
-    background-color:#ffad06;
-    transition: 1s;
+.meta {
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 1em; 
+    color: #000000;
+    font-weight: bold; 
+    margin-left: 1em;
 }
 
-.ui.segment.big {
-    font-size: 1em;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    border:none;
+.ui.button.blue.tiny {
+    background-color: #5143f0;
+    margin-left: auto; 
 }
-.meta{
-    font-family: Verdana,Tahoma, sans-serif;
-    font-size: 1.3em;
-    color: black;
+
+.ui.button.blue.tiny:hover {
+    background-color: #ffad06;
+    transition: 1s;
 }
 .ui.button.blue{
     background-color: #5143f0;
