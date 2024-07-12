@@ -17,7 +17,7 @@ body {
 }
 .card:hover {
     transition: background-color 0.3s ease;
-    box-shadow: 10px 10px 10px rgb(26, 25, 26);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
     cursor: pointer;
 }
 .ui.segment.big {
@@ -279,22 +279,20 @@ body {
 /* For screens smaller than 600px */
 @media (max-width: 600px) {
     .center1 {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
     }
     .center1 i {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
     }
     .center1 input {
-      text-align: left;
+    text-align: left;
     }
     .card {
-      padding: 15px;
+    padding: 15px;
     }
     .register button {
-      width: 100%;
-      padding: 15px;
+    width: 100%;
+    padding: 15px;
     }
-  }
-  
-  
+}
