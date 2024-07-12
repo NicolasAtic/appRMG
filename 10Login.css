@@ -2,6 +2,12 @@ body {
   background-color: #f0f2f5;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+.h4{
+  color: #ccc;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
 .ui.segment.grey {
   max-width: 600px;
   margin: 10px auto;
