@@ -87,4 +87,9 @@ body {
   border-radius: 30px;
   text-align: center;
 }
-
+.h4{
+  color: #ccc;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
