@@ -1,7 +1,7 @@
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js";
-import { db } from './firebase.js';
+import { db } from './firebase';
 
 const auth = getAuth();
 const storage = getStorage(); // en esta carpeta se guardaran los archivos con el uid 
