@@ -1,8 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .card {
     /* Use grid with fractional units for flexibility */
@@ -36,12 +38,10 @@ body {
     font-weight: bold; 
     margin-left: 1em;
 }
-
 .ui.button.blue.tiny {
     background-color: #5143f0;
     margin-left: auto; 
 }
-
 .ui.button.blue.tiny:hover {
     background-color: #ffad06;
     transition: 1s;
@@ -66,15 +66,7 @@ body {
     border: none;
     cursor:context-menu;
     font-size: 1em;
-}
-.center button {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    background: none;
-    border: none;
     cursor: pointer;
-    font-size: 15px;
     text-align: right;
 }
 .center button:hover {
@@ -114,6 +106,7 @@ body {
     padding: 10px;
     background-color: #fff;
     width: 35%;
+    float: center;
 }
 .cdocNumber{
     margin: 0 10px 0;
@@ -123,9 +116,8 @@ body {
     border-radius: 30px;
     padding: 10px;
     background-color: #fff;
-    
+    float: right;
 }
-
 .center2{
     margin: 10px 0;
     display: flex;
@@ -135,7 +127,6 @@ body {
     border-radius: 30px;
     padding: 10px;
 }
-
 .bdocType{
     margin: 0px 10px;
     display: flex;
@@ -154,8 +145,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 30px;
     padding: 10px;
-    background-color: #fff;
-    
+    background-color: #fff;  
 }
 .center3{ 
     margin: 10px 0;
@@ -166,7 +156,6 @@ body {
     border-radius: 30px;
     padding: 10px;
 }
-
 .nationality{
     display: flex;
     align-items: center;
@@ -213,36 +202,31 @@ body {
     outline: none;
     font-size: 1em;
 }
-
 .a{
     display: block;
     text-align: right;
-    color: rgb(57, 10, 197);
+    color: rgb(7, 22, 228);
     text-decoration: none;
     margin-top: 20px;
 }
-
 .register {
     text-align: center;
     margin-top: 20px;
 }
-
 .register button {
     padding: 10px 20px;
     border: none;
     background-color: #5143f0;
     color: rgb(227, 229, 240);
     font-size: 1em;
-    font-weight: 700;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
 }
-
 .register button:hover {
     background-color:#ffad06;
     transition: 1s;
 }
-
 .modal {
     display: none;
     position: fixed;
@@ -278,20 +262,20 @@ body {
 
 /* For screens smaller than 600px */
 @media (max-width: 600px) {
-    .center1 {
+.center1 {
     flex-direction: column;
     align-items: flex-start;
     }
-    .center1 i {
+.center1 i {
     margin-bottom: 10px;
-    }
-    .center1 input {
+}
+.center1 input {
     text-align: left;
-    }
-    .card {
+}
+.card {
     padding: 15px;
-    }
-    .register button {
+}
+.register button {
     width: 100%;
     padding: 15px;
     }

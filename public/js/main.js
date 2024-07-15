@@ -33,7 +33,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         loadUserData(user);
     } else {
-        window.location.href = '1Login.html'; // Redirige al login si no hay usuario autenticado
+        window.location.href = '3Login.html'; // Redirige al login si no hay usuario autenticado
     }
 });
 // si se completa el formulario guarda la informacion para esto se creo un objeto formdata por si se cambian los campos a futuro
@@ -53,7 +53,7 @@ mainForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
     await saveUserData(user);
-    window.location.href = '3RAval.html';
+    window.location.href = '5Aval.html';
 });
 // para salit con el boton hacerlo mas tarde igualmente guarda la info
 const logOutButtonPressed = async () => {
@@ -61,7 +61,7 @@ const logOutButtonPressed = async () => {
         const user = auth.currentUser;
         await saveUserData(user); // Guarda los datos del usuario antes de cerrar sesión
         await signOut(auth);
-        window.location.href = '1Login.html'; // Redirige al login después de cerrar sesión
+        window.location.href = '3Login.html'; // Redirige al login después de cerrar sesión
     } catch (error) {
         console.log(error);
     }
