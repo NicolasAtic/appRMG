@@ -8,7 +8,6 @@ body {
     flex-direction: column;
     padding: 100px;
 }
-
 .container {
     display: flex;
     flex-direction: column;
@@ -41,13 +40,11 @@ body {
   background-color: color-mix(in hsl shorter hue, #a91717 8%, #f3cf94 50%);;
   transition: 1s;
 }
-
 .welcome-section h2 {
     color: rgb(244, 238, 238);
     margin-bottom: 10px;
     text-shadow: 1px 2px #540b0b;
 }
-
 .welcome-section p {
     color: rgb(255, 255, 255);
     font-size: 16px;
@@ -55,7 +52,6 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
 }
-
 .buttons {
     flex-direction: row;
     justify-content: space-between;
@@ -69,10 +65,7 @@ body {
     display: flex;
     text-align: center;
     margin-inline: 100px;
-    
-
 }
-
 .button1{
     background-color: #5143f0;
     color: rgb(246, 244, 240);
@@ -88,7 +81,6 @@ body {
     font-size: 16px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bold;
-    
     } 
   .button1:hover {
     background-color:#ffad06;
@@ -114,7 +106,6 @@ body {
     background-color: #5143f0;
     transition: 1s;
   }
-
   .btn {
     padding: 10px 20px;
     border: none;
