@@ -36,12 +36,10 @@ body {
     font-weight: bold; 
     margin-left: 1em;
 }
-
 .ui.button.blue.tiny {
     background-color: #5143f0;
     margin-left: auto; 
 }
-
 .ui.button.blue.tiny:hover {
     background-color: #ffad06;
     transition: 1s;
@@ -123,9 +121,7 @@ body {
     border-radius: 30px;
     padding: 10px;
     background-color: #fff;
-    
 }
-
 .center2{
     margin: 10px 0;
     display: flex;
@@ -135,7 +131,6 @@ body {
     border-radius: 30px;
     padding: 10px;
 }
-
 .bdocType{
     margin: 0px 10px;
     display: flex;
@@ -155,7 +150,6 @@ body {
     border-radius: 30px;
     padding: 10px;
     background-color: #fff;
-    
 }
 .center3{ 
     margin: 10px 0;
@@ -166,7 +160,6 @@ body {
     border-radius: 30px;
     padding: 10px;
 }
-
 .nationality{
     display: flex;
     align-items: center;
@@ -213,7 +206,6 @@ body {
     outline: none;
     font-size: 1em;
 }
-
 .a{
     display: block;
     text-align: right;
@@ -221,12 +213,10 @@ body {
     text-decoration: none;
     margin-top: 20px;
 }
-
 .register {
     text-align: center;
     margin-top: 20px;
 }
-
 .register button {
     padding: 10px 20px;
     border: none;
@@ -237,12 +227,10 @@ body {
     cursor: pointer;
     border-radius: 5px;
 }
-
 .register button:hover {
     background-color:#ffad06;
     transition: 1s;
 }
-
 .modal {
     display: none;
     position: fixed;
@@ -275,7 +263,6 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
-
 /* For screens smaller than 600px */
 @media (max-width: 600px) {
     .center1 {
