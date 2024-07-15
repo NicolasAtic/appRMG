@@ -26,7 +26,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         loadUserData(user);
     } else {
-        window.location.href = '4Login.html';
+        window.location.href = '3Login.html';
     }
 });
 
