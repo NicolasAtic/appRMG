@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -17,9 +17,7 @@ body {
     border-radius: 20px;
     text-align: center;
     background-image:url("image4.jpeg");
-    background-size: cover;     
-    margin: 10px auto;
-    padding: 20px;
+    background-size: cover;  
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #f1dcdc;
     justify-content:flex-start ;
@@ -30,14 +28,19 @@ body {
     transition: background-color 0.3s ease;
     box-shadow: 0 0 10px rgb(0, 0, 0);
 }
-
+.img{
+    margin-top: 20%;
+}
 .welcome-section {
-    background-color: #94def3;
+    background-color: color-mix(in hsl shorter hue, #a91717 8%, #f3cf94 50%);;
     padding: 30px 20px;
     align-items: center;
-    border-radius: 100em;
-    margin-top: ;
-    
+    border-radius: 100px 100px 0 0;
+    margin-top: 85px;
+} 
+.welcome-section:hover{
+background-color: color-mix(in hsl shorter hue, #a91717 8%,  #8eceee 50%);
+transition: 1s;
 }
 
 .welcome-section h2 {
@@ -52,13 +55,19 @@ body {
 }
 
 .buttons {
-    display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    padding: 20px 0;
-    width: 80%;
-    margin: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+    margin-inline: 100px;
+    
 
 }
 
@@ -66,25 +75,25 @@ body {
     background-color: #5143f0;
     color: rgb(246, 244, 240);
     padding: 14px;
-    margin: 20px auto;
+    margin: 20px;
     border: none;
     cursor: pointer;
     width: 60%;
     border-radius: 25px;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: background-color 0.3s ease;
     padding: 10px 20px;
     font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    
     } 
   .button1:hover {
     background-color:#ffad06;
     transition: 1s;
-  }
+    }
   .button2{
-    background-color: #ffad06;
+    background-color:#ffad06;
     color: rgb(246, 244, 240);
     padding: 14px;
     margin: 20px auto;
@@ -93,14 +102,26 @@ body {
     width: 60%;
     border-radius: 25px;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: background-color 0.3s ease;
     padding: 10px 20px;
     font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
     } 
   .button2:hover {
-    background-color:#5143f0;
+    background-color: #5143f0;
     transition: 1s;
   }
+
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+}
