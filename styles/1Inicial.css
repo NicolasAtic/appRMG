@@ -15,7 +15,7 @@ body {
     max-width: 600px;
     border-radius: 20px;
     text-align: center;
-    background-image:url("image4.jpeg");
+    background-image:url("/images/image4.jpeg");
     background-size: cover;  
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #f1dcdc;

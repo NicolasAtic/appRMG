@@ -3,47 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Inquilino</title>
+    <title>Registro Aval</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="11Main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/5Aval.css">
 </head>
 <body>
     <div class="card">
-    
         <div class="ui segment big" id="user-profile">
-            <img src="image3.jpg" alt="logo" width="10%"/><h>Hola</h><div class="meta" id="user-email"></div>
+        <img src="./images/image3.png" alt="logo" width="10%"/><h>Hola</h> <div class="meta" id="user-email"></div>
            <button class="ui button blue tiny" id="logout-btn">Hacerlo mas tarde</button>
         </div>
         <div class="center">
-            <button onclick="document.location='1Login.html'">
+            <button onclick="document.location='4Main.html'">
                 <i class='bx bx-chevron-left'></i>
             </button>
-            <h>Registro </h>
+            <h>Registro Aval </h>
         </div>
 
-        <form action="" id="main-form" class="form">
+        <form action="" id="aval-form">
             <div class="center1">
-                <input type="text" class="form-control" id="afullName" name="afullName" placeholder="Nombre completo">
+                <input type="text" class="form-control" id="aavalfullName" name="aavalfullName" placeholder="Nombre completo">
             </div>
             <div class="center2">
-                <label class="type" for="bdocType">Tipo:</label>
-                <select class="bdocType" id="bdocType" name="bdocType">
+                <label class="type">Tipo</label>
+                <select class= "bdocType" id="bavaldocType" name="bavaldocType">
                     <option value="Dni">DNI</option>
                     <option value="Pss">Pasaporte</option>
                     <option value="Nie">NIE</option>
                     <option value="Nif">NIF</option>
                     <option value="otros">otros</option>
                 </select>
-                <input class="cdocNumber" type="text" id="cdocNumber" name="cdocNumber" placeholder="número de documento">
+                <input type="text" class="cdocNumber" id="cavaldocNumber" name="cavaldocNumber" placeholder="número de documento" >
             </div>
-
             <div class="center3" id="nationality">
-                <label for="nationality">Nacionalidad:</label>
-                <select id="dnationality" name="dnationality" class="nationality">
+                <label for="nationality">Nacionalidad</label>
+                <select id="davalnationality" name="davalnationality" class="nationality">
                         <option value="Afganistán">Afganistán</option>
                         <option value="Albania">Albania</option>
                         <option value="Alemania">Alemania</option>
@@ -239,15 +234,13 @@
                         <option value="Zambia">Zambia</option>
                         <option value="Zimbabue">Zimbabue</option>
                    </select>
-
             </div>
             <div class="center1"> 
-                <input type="text" class="form-control" id="eaddress" name="eaddress" placeholder="Direccion">
+                <input type="text" class="form-control" id="eavaladdress" name="eavaladdress" placeholder="Direccion">
             </div>
-
             <div class="center4" id="phone">
-                <label for="phone">Teléfono:</label>
-                <select id="fcountryCode" name="fcountryCode" class="codecountry" >
+                <label for="phone">Teléfono</label>
+                <select id="favalcountryCode" name="favalcountryCode" class="codecountry">
                     <option data-countryCode="AF" value="93">Afganistán (+93)</option>
                     <option data-countryCode="AL" value="355">Albania (+355)</option>
                     <option data-countryCode="DE" value="49">Alemania (+49)</option>
@@ -474,174 +467,25 @@
                     <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                     <option data-countryCode="ZW" value="263">Zimbabue (+263)</option>
                 </select>
-                <input type="text" class="phone" id="gphone" name="gphone" placeholder="Teléfono" pattern="[0-9]+" title="Please enter only digits" >
-            </div>
-
-            <div class="center1">
-                <input type="email"class="form-control" id="hemail" name="hemail" placeholder="example@example.com" >
-                
-            </div>
-
-            <div class="center1">
-                <input type="text" class="form-control" id="iaccountNumber" name="iaccountNumber" placeholder="Número de cuenta">
+                <input type="text" class="phone" id="gavalphone" name="gavalphone" placeholder="Teléfono" pattern="[0-9]+" title="Please enter only digits">
             </div>
             <div class="center1">
-                <input type="text" class="form-control" id="jaccountCode" name="jaccountCode" placeholder="Codigo BIC/Swift" >
+                <input type="email"class="form-control" id="havalemail" name="havalemail" placeholder="example@example.com">
             </div>
-            <div class="a">
-                <input type="checkbox" class="form-control" id="kterms" name="kterms" required>
-                Acepto los <a href="#" id="terms-link">términos y condiciones</a>
+            <div class="center1">
+                <input type="text" class="form-control" id="iavalaccountNumber" name="iavalaccountNumber" placeholder="Número de cuenta" >
             </div>
-           
+            <div class="center1">
+                <input type="text" class="form-control" id="javalaccountCode" name="javalaccountCode" placeholder="Codigo BIC/Swift" >
+            </div>
             <div class="register">
-                <button type="submit">Siguiente</button>
+                <button type="submit" >Siguiente</button>
             </div> 
+            
         </form>
     </div>
-
-    <!-- Modal -->
-    <div id="terms-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span> <!-- añadir y adaptar la informacion con la informacion de la empresa-->>
-            <h1>Política de Privacidad y Términos y Condiciones</h1>
-            <p><strong>Última actualización:</strong> [12/07/2024]</p>
-    
-            <h2>1. Identificación del Responsable del Tratamiento</h2>
-            <p>
-                <strong>Responsable:</strong> MyCityStay<br>
-                <strong>Domicilio:</strong> Calle General Arrando Nº7, Chamberí- Madrid<br>
-                <strong>Correo Electrónico:</strong> [Correo de contacto]<br>
-            </p>
-    
-            <h2>2. Finalidad del Tratamiento de Datos</h2>
-            <p>
-                En MyCityStay, tratamos la información que nos facilitan las personas interesadas con el fin de gestionar la relación contractual que nos une, gestionar el envío de la información que nos soliciten, facilitar a los interesados ofertas de nuestros servicios y/o productos de su interés y/o gestionar su candidatura.
-            </p>
-    
-            <h2>3. Legitimación para el Tratamiento de Datos</h2>
-            <p>
-                La base legal para el tratamiento de sus datos es la ejecución de la relación contractual, así como el consentimiento del interesado. En aquellos casos en los que la finalidad del tratamiento sea el envío de información de interés, la base legal será el consentimiento del interesado.
-            </p>
-    
-            <h2>4. Plazo de Conservación de los Datos</h2>
-            <p>
-                Los datos personales proporcionados se conservarán mientras se mantenga la relación contractual y, posteriormente, durante los plazos legalmente establecidos.
-            </p>
-    
-            <h2>5. Destinatarios de los Datos</h2>
-            <p>
-                Los datos no se cederán a terceros, salvo en los casos en que exista una obligación legal o cuando sea necesario para la prestación del servicio contratado.
-            </p>
-    
-            <h2>6. Derechos de los Interesados</h2>
-            <p>
-                Cualquier persona tiene derecho a obtener confirmación sobre si en MyCityStay estamos tratando datos personales que les conciernan, o no. Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos.
-            </p>
-            <p>
-                En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.
-            </p>
-            <p>
-                En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. MyCityStay dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.
-            </p>
-            <p>
-                Para ejercer sus derechos, los interesados pueden enviar una comunicación al correo electrónico [correo de contacto] adjuntando copia de su DNI o documento equivalente.
-            </p>
-    
-            <h2>7. Seguridad de los Datos</h2>
-            <p>
-                MyCityStay ha adoptado las medidas técnicas y organizativas necesarias para garantizar la seguridad de los datos de carácter personal y evitar su alteración, pérdida, tratamiento o acceso no autorizado, habida cuenta del estado de la tecnología, la naturaleza de los datos almacenados y los riesgos a los que estén expuestos.
-            </p>
-    
-            <h2>8. Cambios en la Política de Privacidad</h2>
-            <p>
-                MyCityStay se reserva el derecho a modificar la presente política para adaptarla a novedades legislativas o jurisprudenciales, así como a prácticas de la industria. En dichos supuestos, MyCityStay anunciará en esta página los cambios introducidos con razonable antelación a su puesta en práctica.
-            </p>
-    
-            <h2>9. Información Adicional</h2>
-            <p>
-                Puede consultar la información adicional y detallada sobre Protección de Datos en nuestra página web: [enlace a la política completa de privacidad]
-            </p>
-    
-            <h2>10. Contacto</h2>
-            <p>
-                Si tiene alguna pregunta sobre esta política de privacidad, puede contactar con nosotros a través de [correo de contacto] o en la dirección [dirección de la empresa].
-            </p>
-    
-            <h2>11. Términos y Condiciones</h2>
-    
-            <h3>1. Introducción</h3>
-            <p>
-                Bienvenido a MyCityStay. Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web de MyCityStay.
-            </p>
-    
-            <h3>2. Aceptación de los Términos</h3>
-            <p>
-                Al acceder a este sitio web, asumimos que aceptas estos términos y condiciones en su totalidad. No continúes utilizando el sitio web de MyCityStay si no aceptas todos los términos y condiciones establecidos en esta página.
-            </p>
-    
-            <h3>3. Servicios Ofrecidos</h3>
-            <p>
-                MyCityStay ofrece servicios de alquiler de propiedades a través de su plataforma en línea. Los términos específicos de cada alquiler se detallarán en el contrato correspondiente entre el propietario y el inquilino.
-            </p>
-    
-            <h3>4. Propiedad Intelectual</h3>
-            <p>
-                Salvo que se indique lo contrario, MyCityStay y/o sus licenciantes poseen los derechos de propiedad intelectual de todo el material en MyCityStay. Todos los derechos de propiedad intelectual están reservados. Puedes visualizar y/o imprimir páginas de https://www.mycitystay.com para tu uso personal sujeto a las restricciones establecidas en estos términos y condiciones.
-            </p>
-    
-            <h3>5. Uso Aceptable</h3>
-            <p>
-                No debes usar este sitio web de manera que cause, o pueda causar, daño al sitio web o deterioro de la disponibilidad o accesibilidad del sitio web; o de cualquier manera que sea ilegal, fraudulenta o perjudicial, o en conexión con cualquier propósito o actividad ilegal, fraudulenta o perjudicial.
-            </p>
-    
-            <h3>6. Limitaciones de Responsabilidad</h3>
-            <p>
-                En la medida en que el sitio web y la información y los servicios en el sitio web se proporcionan de forma gratuita, MyCityStay no será responsable por cualquier pérdida o daño de cualquier naturaleza.
-            </p>
-    
-            <h3>7. Ley Aplicable y Jurisdicción</h3>
-            <p>
-                Estos términos y condiciones se rigen y se interpretan de acuerdo con las leyes de España, y cualquier disputa relacionada con estos términos y condiciones estará sujeta a la jurisdicción exclusiva de los tribunales de España.
-            </p>
-    
-            <h3>8. Cambios en los Términos y Condiciones</h3>
-            <p>
-                MyCityStay se reserva el derecho de revisar estos términos y condiciones en cualquier momento. Al usar este sitio web, estás de acuerdo en aceptar la versión actual de estos términos y condiciones.
-            </p>
-    
-            <h3>9. Contacto</h3>
-            <p>
-                Si tienes alguna pregunta sobre estos términos y condiciones, puedes contactar con nosotros a través de [correo de contacto] o en la dirección [dirección de la empresa].
-            </p>
-        </div>
-    </div>
-
+   
     <script src="js/firebase.js" type="module"></script>
-    <script src="js/main.js" type="module"></script>
-    <script>
-        // Obtener el modal
-        var modal = document.getElementById("terms-modal");
-        // Obtener el botón que abre el modal
-        var btn = document.getElementById("terms-link");
-
-        // Obtener el <span> que cierra el modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // Cuando el usuario hace clic en el botón, abre el modal
-        btn.onclick = function(event) {
-            event.preventDefault();
-            modal.style.display = "block";
-        }
-        // Cuando el usuario hace clic en <span> (x), cierra el modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-        // Cuando el usuario hace clic en cualquier lugar fuera del modal, cierra el modal
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script> 
+    <script src="js/raval.js" type="module"></script>
 </body>
 </html>

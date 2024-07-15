@@ -12,7 +12,7 @@ const loginButtonPressed = async (e) => {
 // busca los datos para auth the client
   try {
     await signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value);
-    window.location.href = '2main.html'; // Redirects to the main form after successful login
+    window.location.href = '4Main.html'; // Redirects to the main form after successful login
   } catch (error) {
     console.error(error.code); 
     loginErrorMessage.textContent = formatErrorMessage(error.code, "login"); // da un mensaje de error

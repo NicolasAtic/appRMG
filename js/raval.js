@@ -34,7 +34,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         loadAvalData(user);
     } else {
-        window.location.href = '1Login.html';
+        window.location.href = '4Login.html';
     }
 });
 
@@ -55,6 +55,7 @@ RavalForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
     await saveAvalData(user);
+
     window.location.href = '4Documents.html';
 });
  //log out button
@@ -63,7 +64,7 @@ const logOutButtonPressed = async () => {
         const user = auth.currentUser;
         await saveAvalData(user);
         await signOut(auth);
-        window.location.href = '1Login.html';
+        window.location.href = '4Login.html';
     } catch (error) {
         console.log(error);
     }
