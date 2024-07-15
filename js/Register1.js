@@ -22,7 +22,7 @@ const signUpButtonPressed = async (e) => {
             ravalData:{},
             udocumentURLs:{}
         });
-        window.location.href = '../1Login.html'; // Redirige a la página de inicio de sesión después del registro exitoso
+        window.location.href = '../3Login.html'; // Redirige a la página de inicio de sesión después del registro exitoso
     } catch (error) {
         console.log(error.code);
         UIErrorMessage.innerHTML = formatErrorMessage(error.code, "signup");

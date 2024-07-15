@@ -26,7 +26,7 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         loadUserData(user);
     } else {
-        window.location.href = '1Login.html';
+        window.location.href = '4Login.html';
     }
 });
 
@@ -63,7 +63,7 @@ RdocumentForm.addEventListener("submit", async (e) => {
     await saveDocumentURLs(user, urls);
     alert("Documents uploaded successfully!");
     // fo next page if works
-    window.location.href = '5Final.html';
+    window.location.href = '7Final.html';
 });
 
 // press log out data save to 
@@ -71,7 +71,7 @@ const logOutButtonPressed = async () => {
     try {
         const user = auth.currentUser;
         await signOut(auth);
-        window.location.href = '1Login.html';
+        window.location.href = '3Login.html';
     } catch (error) {
         console.log(error);
     }
