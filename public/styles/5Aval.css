@@ -29,6 +29,7 @@ body {
     font-size: 1em; 
     font-weight: bold; 
 }
+
 .meta {
     font-family: Verdana, Tahoma, sans-serif;
     font-size: 1em; 
@@ -55,6 +56,10 @@ body {
     position: relative;
     width: 100%;
     align-items: center;
+}
+.center h {
+    color: rgb(52, 50, 50);
+    text-shadow: 1px 2px #7d7c80;
 }
 .center button {
     position: absolute;
