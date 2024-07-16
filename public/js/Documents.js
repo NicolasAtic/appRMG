@@ -58,7 +58,7 @@ RdocumentForm.addEventListener("submit", async (e) => {
 
     await saveDocumentURLs(user, urls);
     alert("Documents uploaded successfully!");
-    window.location.href = '7Final.html';
+    window.location.href = '/public/7Final.html';
 });
 
 const logOutButtonPressed = async () => {
