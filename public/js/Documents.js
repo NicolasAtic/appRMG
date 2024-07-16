@@ -1,12 +1,7 @@
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
-<<<<<<< HEAD
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js";
 import { db } from './firebase';
-=======
-import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js";
-import { db, storage } from './firebase.js';
->>>>>>> 26f7a1e5976d63b3ddf4eb308d7aae1bee7dcd7c
 
 const auth = getAuth();
 const logOutBtn = document.getElementById("logout-btn");

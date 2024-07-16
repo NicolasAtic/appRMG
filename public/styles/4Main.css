@@ -31,12 +31,20 @@ body {
     font-size: 1em; 
     font-weight: bold; 
 }
+
+.ui.segment.big h {
+    color: rgb(52, 50, 50);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .meta {
     font-family: Verdana, Tahoma, sans-serif;
     font-size: 1em; 
-    color: black;
     font-weight: bold; 
     margin-left: 1em;
+    color: rgb(52, 50, 50);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 .ui.button.blue.tiny {
     background-color: #5143f0;
@@ -57,6 +65,10 @@ body {
     position: relative;
     width: 100%;
     align-items: center;
+}
+.center h {
+    color: rgb(52, 50, 50);
+    text-shadow: 1px 2px #7d7c80;
 }
 .center button {
     position: absolute;
