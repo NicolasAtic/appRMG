@@ -29,3 +29,5 @@ const PORT = 5000;
 app.listen(PORT, () => {
 console.log(`Server started at http://localhost:${PORT}`);
 });
+const open = require('open');
+open('http://stackoverflow.com/questions/8500326/how-to-use-nodejs-to-open-default-browser-and-navigate-to-a-specific-url');
