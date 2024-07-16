@@ -41,7 +41,7 @@ const uploadDocument = async (file, userId, docName) => {
 // take url of documents and go to clous firestorage 
 const saveDocumentURLs = async (user, urls) => {
     await setDoc(doc(db, "users", user.uid), {
-        documentURLs: urls
+        UdocumentURLs: urls
     }, { merge: true });
 };
 //  now working 
