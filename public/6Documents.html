@@ -6,46 +6,47 @@
     <title>Documentos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="styles/6Documents.css">
+    <link rel="stylesheet" href="./styles/6Documents.css">
 </head>
 <body>
     <div class="card">
         <div class="ui segment big" id="user-profile">
-            <img src="./images/image3.png" alt="logo" width="10%"> 
-            <h>Hola</h>
-            <div class="meta" id="user-email"></div>
+            <img src="./images/image3.png" alt="logo" width="10%"/> <h>Hola</h><div class="meta" id="user-email"></div>
             <button class="ui button blue tiny" id="logout-btn">Hacerlo mas tarde</button>
         </div>
 
-        <div class="center">
-            <button onclick="document.location='5Aval.html'">
-                <i class='bx bx-chevron-left'></i>
-            </button>
-            <h>Subir documentos</h>
-        </div>
+            <div class="center">
+                <button onclick="document.location='5Aval.html'">
+                    <i class='bx bx-chevron-left'></i>
+                </button>
+                <h>Subir documentos</h>
+            </div>
         <form id="document-form" class="ui form">
             <div class="field">
                 <label for="document1">Adjuntar DNI inquilino</label>
                 <input type="file" name="1.DNIinquilino" id="1.DNIinquilino" required>
             </div>
+
+            
             <div class="field">
                 <label for="document2">Adjuntar DNI Aval</label>
                 <input type="file" name="2.DNIAval" id="2.DNIAval" required>
             </div>
+                
             <div class="field">
-                <label for="document3">Nóminas</label>
+                <label for="document3">Nóminas </label>
                 <input type="file" name="3.Nominas" id="3.Nominas" required>
             </div>
             <div class="field">
-                <label for="document4">Carta universidad</label>
+                <label for="document4">Carta universidad </label>
                 <input type="file" name="4.Cartauniversidad" id="4.Cartauniversidad" required>
             </div>
-            <div class="buttonF">
+            <div class="buttonF" >
                 <button class="ui button blue" type="submit">Finalizar</button>
             </div>
         </form>
     </div>
-    <script src="./js/documents.js" type="module"></script>
-    <script src="./js/firebase.js" type="module"></script>
+    <script src="js/firebase.js" type="module"></script>
+    <script src="js/Documents.js" type="module"></script>
 </body>
 </html>
