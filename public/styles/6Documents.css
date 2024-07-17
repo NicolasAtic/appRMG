@@ -99,10 +99,7 @@ body {
     .center1 i {
     margin-bottom: 10px;
     }
-    .ui.segment.big{
-        flex-direction: column;
-        align-items: center;
-    }
+    
     .center1 input {
     text-align: left;
     }
