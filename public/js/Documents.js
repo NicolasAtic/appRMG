@@ -37,6 +37,15 @@ const uploadDocument = async (file, userId, docName) => {
     return downloadURL;
 };
 
+const uploadDocuments = async(files,userId,docName) =>{
+    const urls = [];
+    for (const file of files){
+        const url = await uploadDocument(file,userId, `${docName}/${file.name}`);
+        urls.push(url);
+    }
+    return urls;
+};
+
 // take url of documents and go to clous firestorage 
 const saveDocumentURLs = async (user, urls) => {
     await setDoc(doc(db, "users", user.uid), {
@@ -47,17 +56,17 @@ const saveDocumentURLs = async (user, urls) => {
 RdocumentForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
-    const DNIinquilino = document.getElementById("1.DNIinquilino").files[0];
-    const DNIAval = document.getElementById("2.DNIAval").files[0];
-    const Nominas = document.getElementById("3.Nominas").files[0];
-    const Ucarta = document.getElementById("4.Cartauniversidad").files[0];
+    const DNIinquilinoFiles = document.getElementById("1.DNIinquilino").files;
+    const DNIAvalFiles = document.getElementById("2.DNIAval").files;
+    const NominasFiles = document.getElementById("3.Nominas").files;
+    const UcartaFiles = document.getElementById("4.Cartauniversidad").files;
 // takes url and save in good way
     const urls = {};
 
-    if (DNIinquilino) urls.DNIinquilino = await uploadDocument(DNIinquilino, user.uid, "1.DNIinquilino");
-    if (DNIAval) urls.DNIAval = await uploadDocument(DNIAval, user.uid, "2.DNIAval");
-    if (Nominas) urls.Nominas = await uploadDocument(Nominas, user.uid, "3.Nominas");
-    if (Ucarta) urls.UCarta = await uploadDocument(Ucarta, user.uid, "4.Cartauniversidad");
+    if (DNIinquilinoFiles.length > 0) urls.DNIinquilino = await uploadDocuments(DNIinquilinoFiles, user.uid, "1.DNIinquilino");
+    if (DNIAvalFiles.length  >0) urls.DNIAval = await uploadDocuments(DNIAvalFiles, user.uid, "2.DNIAval");
+    if (NominasFiles.length > 0) urls.Nominas = await uploadDocuments(NominasFiles, user.uid, "3.Nominas");
+    if (UcartaFiles.length > 0) urls.UCarta = await uploadDocuments(UcartaFiles, user.uid, "4.Cartauniversidad");
 
     await saveDocumentURLs(user, urls);
     alert("Documents uploaded successfully!");
@@ -77,3 +86,4 @@ const logOutButtonPressed = async () => {
 };
 
 logOutBtn.addEventListener("click", logOutButtonPressed);
+
