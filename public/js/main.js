@@ -7,7 +7,7 @@ const logOutBtn = document.getElementById("logout-btn");
 const UIuserEmail = document.getElementById("user-email");
 const mainForm = document.getElementById("main-form");
 
-// se llama a la fata del usuario si existe pone la informacion
+// se llama a la data del usuario si existe pone la informacion
 const loadUserData = async (user) => {
     const docRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(docRef);
